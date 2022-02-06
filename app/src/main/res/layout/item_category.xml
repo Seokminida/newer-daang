@@ -11,36 +11,37 @@
         app:scale_base_height="50"
         app:scale_base_width="90">
 
-    <com.ssomai.android.scalablelayout.ScalableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/aqua_background_round_sharp"
-        android:elevation="5dp"
-        app:scale_base_height="40"
-        app:scale_base_width="80"
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/catebox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/aqua_background_round_sharp"
+            android:elevation="5dp"
+            app:scale_base_height="40"
 
-        app:scale_left="5"
-        app:scale_top="5"
+            app:scale_base_width="80"
+            app:scale_height="40"
 
-        app:scale_height="40"
-        app:scale_width="80">
+            app:scale_left="5"
+            app:scale_top="5"
+            app:scale_width="80">
 
-        <TextView
-            android:id="@+id/term_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/term_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:gravity="center"
+                android:gravity="center"
 
-            android:text="용어샘플"
-            android:textColor="@color/black"
-            app:scale_height="35"
-            app:scale_left="2.5"
-            app:scale_textsize="20"
-            app:scale_top="2.5"
-            app:scale_width="75" />
+                android:text="용어샘플"
+                android:textColor="@color/black"
+                app:scale_height="35"
+                app:scale_left="2.5"
+                app:scale_textsize="20"
+                app:scale_top="2.5"
+                app:scale_width="75" />
 
-    </com.ssomai.android.scalablelayout.ScalableLayout>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
 
 </com.ssomai.android.scalablelayout.ScalableLayout>
 </FrameLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:scale_base_height="16"
+        app:scale_base_width="100">
+        <TextView
+            android:id="@+id/wordname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="단어"
+            android:textColor="#000000"
+            android:background="@drawable/under"
+            app:scale_height="11"
+            app:scale_left="4"
+            app:scale_textsize="7"
+            app:scale_top="3"
+            app:scale_width="90"
+            tools:ignore="MissingPrefix" />
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

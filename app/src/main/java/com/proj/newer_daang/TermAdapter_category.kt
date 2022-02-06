@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ssomai.android.scalablelayout.ScalableLayout
 
 
 class TermAdapter_category(private val context: Context) : RecyclerView.Adapter<TermAdapter_category.ViewHolder>(){
     var cateList = mutableListOf<CateData>()
+    var selected = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermAdapter_category.ViewHolder {
 
@@ -23,6 +25,14 @@ class TermAdapter_category(private val context: Context) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(cateList[position])
+        if(selected == position) {
+            holder.item?.setBackgroundResource(R.drawable.aqua_darker_background_round_sharp)
+        }
+        else {
+            holder.item?.setBackgroundResource(R.drawable.aqua_background_round_sharp)
+        }
+
+
     }
 
 
@@ -35,7 +45,9 @@ class TermAdapter_category(private val context: Context) : RecyclerView.Adapter<
 
     }
 
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val item : ScalableLayout? = itemView?.findViewById(R.id.catebox)
 
         private val tvTerm: TextView = itemView.findViewById(R.id.term_name)
 
@@ -46,6 +58,8 @@ class TermAdapter_category(private val context: Context) : RecyclerView.Adapter<
             {
                 itemView.setOnClickListener {
                     listener?.onItemClick(itemView,item,pos)
+                    selected = pos
+                    notifyDataSetChanged()
                 }
             }
 

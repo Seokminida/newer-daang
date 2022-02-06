@@ -38,9 +38,13 @@ class BookmarkActivity : AppCompatActivity() {
         recyclerView_bookmark.adapter = bookmarkAdapter
         recyclerView_bookmark.addItemDecoration(VerticalItemDecorator_rv(3))
         recyclerView_bookmark.addItemDecoration(HorizontalItemDecorator_rv(5))
+
+        val intentWordDetail = Intent(this, WordDetail::class.java)
+
         bookmarkAdapter.setOnItemClickListener(object: BookmarkAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: BookmarkData, pos: Int) {
-                Toast.makeText( App.ApplicationContext(), "북마크에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
+                startActivity(intentWordDetail)
+                //Toast.makeText( App.ApplicationContext(), "북마크에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
             }
         })
 

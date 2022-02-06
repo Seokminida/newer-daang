@@ -30,6 +30,54 @@
 
         </activity>
 
+        <activity
+            android:name=".SearchActivity"
+            android:exported="true"
+            android:logo="@drawable/logo"
+            android:label="검색">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WordDetail"
+            android:exported="true"
+            android:logo="@drawable/logo"
+            android:label="단어">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AfterRe"
+            android:exported="true"
+            android:logo="@drawable/logo"
+            android:label="애프터">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WordMore"
+            android:exported="true"
+            android:logo="@drawable/logo"
+            android:label="단어">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".TermsListActivity"

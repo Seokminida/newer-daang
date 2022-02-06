@@ -45,12 +45,13 @@
 
 
             <TextView
+                android:id="@+id/bestword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
                 android:clickable="true"
-                android:elevation="5dp"
 
+                android:elevation="5dp"
                 android:gravity="start|center_vertical"
                 android:paddingStart="10dp"
                 android:text="오늘의 베스트 단어"

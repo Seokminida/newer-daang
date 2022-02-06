@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:scale_base_height="1417"
+        app:scale_base_width="800">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="245dp"
+            app:srcCompat="@drawable/bird"
+            android:background="#B0D8D7"
+            app:scale_height="450"
+            app:scale_width="800"/>
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginaround"
+            android:hint="닉네임"
+            android:paddingStart="20dp"
+            app:scale_textsize="40"
+            app:scale_top="500"
+            app:scale_left="45"
+            app:scale_height="100"
+            app:scale_width="700"/>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/loginaround"
+            android:hint="abcdefg@mail.com"
+            android:paddingStart="20dp"
+            app:scale_textsize="40"
+            app:scale_top="650"
+            app:scale_left="45"
+            app:scale_height="100"
+            app:scale_width="700"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:background="@drawable/loginaround"
+            android:hint="비밀번호"
+            android:paddingStart="20dp"
+            app:scale_textsize="40"
+            app:scale_top="800"
+            app:scale_left="45"
+            app:scale_height="100"
+            app:scale_width="700"/>
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:background="@drawable/loginaround"
+            android:hint="비밀번호 재입력"
+            android:paddingStart="20dp"
+            app:scale_textsize="40"
+            app:scale_top="950"
+            app:scale_left="45"
+            app:scale_height="100"
+            app:scale_width="700"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTINUE"
+            android:textColor="@color/white"
+            android:background="@drawable/loginaround"
+            android:backgroundTint="#B0D8D7"
+            app:scale_textsize="33"
+            app:scale_top="1100"
+            app:scale_left="45"
+            app:scale_height="100"
+            app:scale_width="700"/>
+
+        <TextView
+            android:id="@+id/Aleady"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            app:scale_top="1240"
+            app:scale_left="45"
+            app:scale_height="50"
+            app:scale_width="700"
+            app:scale_textsize="23"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:background="#D7EBEA"
+            app:scale_top="1319"
+            app:scale_height="100"
+            app:scale_width="800"
+            app:scale_textsize="23"
+            android:textAlignment="center"/>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</LinearLayout>

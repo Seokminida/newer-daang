@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.View
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class BookmarkActivity : AppCompatActivity() {
@@ -29,6 +28,16 @@ class BookmarkActivity : AppCompatActivity() {
             val intentHome = Intent(this, MainActivity::class.java)
             startActivity(intentHome)
         }
+        val btnMypage = findViewById<ImageButton>(R.id.bottombar_mypage)
+        btnMypage.setOnClickListener {
+            val intentMypage = Intent(this, MyPageActivity::class.java)
+            startActivity(intentMypage)
+        }
+        val btnInfo = findViewById<ImageButton>(R.id.bottombar_info)
+        btnInfo.setOnClickListener {
+            val intentInfo = Intent(this, InfoActivity::class.java)
+            startActivity(intentInfo)
+        }
 
 
 
@@ -39,7 +48,7 @@ class BookmarkActivity : AppCompatActivity() {
         recyclerView_bookmark.addItemDecoration(VerticalItemDecorator_rv(3))
         recyclerView_bookmark.addItemDecoration(HorizontalItemDecorator_rv(5))
 
-        val intentWordDetail = Intent(this, WordDetail::class.java)
+        val intentWordDetail = Intent(this, WordDetailActivity::class.java)
 
         bookmarkAdapter.setOnItemClickListener(object: BookmarkAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: BookmarkData, pos: Int) {

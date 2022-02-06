@@ -31,7 +31,7 @@ class WordAdapter(private val context: Context):
             wordname.text = item.name
 
             itemView.setOnClickListener {
-                Intent(context, WordDetail::class.java).apply {
+                Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)
                     putExtra("mean", item.mean)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

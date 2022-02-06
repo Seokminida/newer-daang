@@ -19,7 +19,7 @@
             android:background="#B0D8D7"
             app:scale_height="650"
             app:scale_width="800"
-            app:srcCompat="@drawable/bird" />
+            app:srcCompat="@drawable/logo" />
 
         <EditText
             android:id="@+id/email_l"

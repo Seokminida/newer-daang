@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 class TermsListActivity : AppCompatActivity() {
 
     lateinit var termAdapter: TermAdapter
-    lateinit var termAdapter_category: TermAdapter_category
+    lateinit var categoryAdapter_: CategoryAdapter
     val terms = mutableListOf<TermData>()
-    val categories = mutableListOf<TermAdapter_category.CateData>()
+    val categories = mutableListOf<CategoryAdapter.CateData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +43,16 @@ class TermsListActivity : AppCompatActivity() {
             val intentBookmark = Intent(this, BookmarkActivity::class.java)
             startActivity(intentBookmark)
         }
+        val btnMypage = findViewById<ImageButton>(R.id.bottombar_mypage)
+        btnMypage.setOnClickListener {
+            val intentMypage = Intent(this, MyPageActivity::class.java)
+            startActivity(intentMypage)
+        }
+        val btnInfo = findViewById<ImageButton>(R.id.bottombar_info)
+        btnInfo.setOnClickListener {
+            val intentInfo = Intent(this, InfoActivity::class.java)
+            startActivity(intentInfo)
+        }
 
         val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
         termAdapter = TermAdapter(this)
@@ -50,7 +60,7 @@ class TermsListActivity : AppCompatActivity() {
         recyclerView_termsList.addItemDecoration(VerticalItemDecorator_rv(5))
         recyclerView_termsList.addItemDecoration(HorizontalItemDecorator_rv(5))
 
-        val intentWordDetail = Intent(this, WordDetail::class.java)
+        val intentWordDetail = Intent(this, WordDetailActivity::class.java)
 
         termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: TermData, pos: Int) {
@@ -92,16 +102,16 @@ class TermsListActivity : AppCompatActivity() {
 
 
         val recyclerView_category = findViewById<RecyclerView>(R.id.recyclerView_category)
-        termAdapter_category = TermAdapter_category(this)
-        recyclerView_category.adapter = termAdapter_category
+        categoryAdapter_ = CategoryAdapter(this)
+        recyclerView_category.adapter = categoryAdapter_
         recyclerView_category.addItemDecoration(VerticalItemDecorator_rv(5))
         recyclerView_category.addItemDecoration(HorizontalItemDecorator_rv(5))
 
         if (pressed_category != null) {
-            termAdapter_category.selected = pressed_category.toInt()
+            categoryAdapter_.selected = pressed_category.toInt()
         }
-        termAdapter_category.setOnItemClickListener(object: TermAdapter_category.OnItemClickListener{
-            override fun onItemClick(v: View, data: TermAdapter_category.CateData, pos: Int) {
+        categoryAdapter_.setOnItemClickListener(object: CategoryAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, data: CategoryAdapter.CateData, pos: Int) {
                 Toast.makeText( App.ApplicationContext(), "용어목록의 카테고리가 변경됩니다", Toast.LENGTH_SHORT ).show()
                 /*
                 Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {
@@ -113,16 +123,16 @@ class TermsListActivity : AppCompatActivity() {
         })
 
         categories.apply {
-            add(TermAdapter_category.CateData(name = "정치"))
-            add(TermAdapter_category.CateData( name = "사회"))
-            add(TermAdapter_category.CateData( name = "군사"))
-            add(TermAdapter_category.CateData( name = "문화"))
-            add(TermAdapter_category.CateData( name = "경제"))
-            add(TermAdapter_category.CateData( name = "IT/과학"))
-            termAdapter_category.cateList = categories
-            termAdapter_category.notifyDataSetChanged()
+            add(CategoryAdapter.CateData(name = "정치"))
+            add(CategoryAdapter.CateData( name = "사회"))
+            add(CategoryAdapter.CateData( name = "군사"))
+            add(CategoryAdapter.CateData( name = "문화"))
+            add(CategoryAdapter.CateData( name = "경제"))
+            add(CategoryAdapter.CateData( name = "IT/과학"))
+            categoryAdapter_.cateList = categories
+            categoryAdapter_.notifyDataSetChanged()
         }
-        termAdapter_category.notifyDataSetChanged()
+        categoryAdapter_.notifyDataSetChanged()
 
 
         //if pressed_category == cate, cate의 인덱스에 해당하는 recyclerview background 변경

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#000000" />
+
+
+    <FrameLayout
+        android:id="@+id/frame_my"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/frame_box">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            app:scale_base_height="200"
+            app:scale_base_width="400">
+
+            <ImageView
+                android:id="@+id/userpic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_100"
+                android:scaleType="fitCenter"
+                android:background="@drawable/aqua_background_round"
+                android:gravity="center"
+                app:scale_height="120"
+                app:scale_left="140"
+                app:scale_top="15"
+                app:scale_width="120" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:background="@drawable/aqua_background_round"
+
+                android:text="username"
+                android:textColor="@color/black"
+                app:scale_height="40"
+                app:scale_left="140"
+                app:scale_textsize="20"
+                app:scale_top="150"
+                app:scale_width="120" />
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frame_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_my">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scale_base_height="110"
+            app:scale_base_width="400">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_background_round"
+                android:elevation="5dp"
+                app:scale_base_height="100"
+                app:scale_base_width="390"
+                app:scale_height="100"
+                app:scale_left="5"
+                app:scale_top="5"
+                app:scale_width="390">
+
+
+                <TextView
+                    android:id="@+id/recent_quiz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="start|center_vertical"
+                    android:text="최근 푼 퀴즈"
+                    android:textColor="@android:color/darker_gray"
+                    app:scale_height="40"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="380" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    app:scale_height="2"
+                    app:scale_left="10"
+                    app:scale_top="49"
+                    app:scale_width="380" />
+
+                <TextView
+                    android:id="@+id/darkmode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="start|center_vertical"
+                    android:text="다크모드"
+                    android:textColor="@android:color/darker_gray"
+                    app:scale_height="40"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="55"
+                    app:scale_width="100" />
+
+                <Switch
+                    android:id="@+id/darkmode_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:switchMinWidth="60dp"
+                    app:scale_height="40"
+                    app:scale_left="300"
+                    app:scale_top="55"
+                    app:scale_width="80" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_box">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scale_base_height="60"
+            app:scale_base_width="400">
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_background_round"
+                android:elevation="5dp"
+                app:scale_base_height="50"
+                app:scale_base_width="390"
+                app:scale_height="50"
+                app:scale_left="5"
+                app:scale_top="5"
+                app:scale_width="390">
+
+
+
+            <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="start|center_vertical"
+                    android:text="로그아웃"
+                    android:textColor="@android:color/darker_gray"
+                    app:scale_height="40"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="380" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frame_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/darker_gray_background"
+            app:scale_base_height="60"
+            app:scale_base_width="400">
+
+            <ImageButton
+                android:id="@+id/bottombar_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="0"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/home_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_bookmark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="100"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/bookmark_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="200"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/mypage_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="300"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/info_lined" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.search_activity.*
+import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity(){
     lateinit var wordAdapter: WordAdapter
@@ -15,9 +16,29 @@ class SearchActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_activity)
+        setContentView(R.layout.activity_search)
         initRecycler()
-        val actionBar = supportActionBar
+
+        val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
+        btnHome.setOnClickListener {
+            val intentHome = Intent(this, MainActivity::class.java)
+            startActivity(intentHome)
+        }
+        val btnBookmark = findViewById<ImageButton>(R.id.bottombar_bookmark)
+        btnBookmark.setOnClickListener {
+            val intentBookmark = Intent(this, BookmarkActivity::class.java)
+            startActivity(intentBookmark)
+        }
+        val btnMypage = findViewById<ImageButton>(R.id.bottombar_mypage)
+        btnMypage.setOnClickListener {
+            val intentMypage = Intent(this, MyPageActivity::class.java)
+            startActivity(intentMypage)
+        }
+        val btnInfo = findViewById<ImageButton>(R.id.bottombar_info)
+        btnInfo.setOnClickListener {
+            val intentInfo = Intent(this, InfoActivity::class.java)
+            startActivity(intentInfo)
+        }
 
         clearB.setOnClickListener{
             searchBar.setText(null)
@@ -31,9 +52,6 @@ class SearchActivity : AppCompatActivity(){
             }
         }
 
-        if (actionBar != null) {
-            actionBar.hide()
-        }
         searchBar.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -72,6 +90,7 @@ class SearchActivity : AppCompatActivity(){
             add(ItemData("가나다라","예시11231231231231231231asdasdasdasdsad23"))
             add(ItemData("나다라마바","예시2"))
             add(ItemData("가다마아자","예시3"))
+            add(ItemData("abcd","예시3"))
             wordAdapter.datas = datas
             wordAdapter.notifyDataSetChanged()
         }

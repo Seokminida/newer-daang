@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +28,22 @@ class MainActivity : AppCompatActivity() {
             val intentBookmark = Intent(this, BookmarkActivity::class.java)
             startActivity(intentBookmark)
         }
+        val btnMypage = findViewById<ImageButton>(R.id.bottombar_mypage)
+        btnMypage.setOnClickListener {
+            val intentMypage = Intent(this, MyPageActivity::class.java)
+            startActivity(intentMypage)
+        }
+        val btnInfo = findViewById<ImageButton>(R.id.bottombar_info)
+        btnInfo.setOnClickListener {
+            val intentInfo = Intent(this, InfoActivity::class.java)
+            startActivity(intentInfo)
+        }
 
         //
 
         val tvBestWord = findViewById<TextView>(R.id.bestword);
         tvBestWord.setOnClickListener {
-            val intentBestWord = Intent(this, WordDetail::class.java)
+            val intentBestWord = Intent(this, WordDetailActivity::class.java)
             startActivity(intentBestWord)
         }
 
@@ -99,6 +106,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.func_search, menu)
         return true
+    }
+
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }
 

@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ssomai.android.scalablelayout.ScalableLayout
 
 
-class TermAdapter_category(private val context: Context) : RecyclerView.Adapter<TermAdapter_category.ViewHolder>(){
+class CategoryAdapter(private val context: Context) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>(){
     var cateList = mutableListOf<CateData>()
     var selected = -1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermAdapter_category.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.ViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_category,parent,false)
         return ViewHolder(view)

@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import kotlinx.android.synthetic.main.word_detail.*
+import kotlinx.android.synthetic.main.activity_word_detail.*
 
-class WordMore : AppCompatActivity(){
+class WordMoreActivity : AppCompatActivity(){
 
     lateinit var wname : String
     lateinit var wmean : String
@@ -16,12 +17,33 @@ class WordMore : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.word_more)
+        setContentView(R.layout.activity_word_more)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.logo_60); //제목앞에 아이콘 넣기
         toolbar.setTitle("Hello")
+
+        val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
+        btnHome.setOnClickListener {
+            val intentHome = Intent(this, MainActivity::class.java)
+            startActivity(intentHome)
+        }
+        val btnBookmark = findViewById<ImageButton>(R.id.bottombar_bookmark)
+        btnBookmark.setOnClickListener {
+            val intentBookmark = Intent(this, BookmarkActivity::class.java)
+            startActivity(intentBookmark)
+        }
+        val btnMypage = findViewById<ImageButton>(R.id.bottombar_mypage)
+        btnMypage.setOnClickListener {
+            val intentMypage = Intent(this, MyPageActivity::class.java)
+            startActivity(intentMypage)
+        }
+        val btnInfo = findViewById<ImageButton>(R.id.bottombar_info)
+        btnInfo.setOnClickListener {
+            val intentInfo = Intent(this, InfoActivity::class.java)
+            startActivity(intentInfo)
+        }
 
 
         wname = intent.getSerializableExtra("name").toString()

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D7EBEA"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#D7EBEA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/logo_60"
+            android:onClick="back" />
+
+        <ImageButton
+            android:id="@+id/search_icon"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/search_icon1"
+            android:onClick="search" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="100dp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="검색한 단어"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/after_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/recy"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constrainedHeight="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:listitem="@layout/item_after_search" />
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/sca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#D7EBEA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/after_search"
+        app:layout_constraintBottom_toTopOf="@id/frame_bottombar"
+        app:scale_base_height="1000"
+        app:scale_base_width="900"
+        app:scale_top="500">
+
+        <TextView
+            android:id="@+id/no_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~~~~~에 대한 정보가 없습니다"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:scale_height="100"
+            app:scale_textsize="40"
+            app:scale_top="30"
+            app:scale_width="800" />
+
+        <ImageView
+            android:id="@+id/birdI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:scale_height="500"
+            app:scale_width="500"
+            app:srcCompat="@drawable/logo" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/darker_gray_background"
+            app:scale_base_height="60"
+            app:scale_base_width="400">
+
+            <ImageButton
+                android:id="@+id/bottombar_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="0"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/home_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_bookmark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="100"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/bookmark_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="200"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/mypage_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="300"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/info_lined" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

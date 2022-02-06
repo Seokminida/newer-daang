@@ -15,7 +15,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="245dp"
-            app:srcCompat="@drawable/bird"
+            app:srcCompat="@drawable/logo"
             android:background="#B0D8D7"
             app:scale_height="450"
             app:scale_width="800"/>

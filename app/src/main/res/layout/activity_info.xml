@@ -7,107 +7,85 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalable_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:paddingEnd="10dp"
-        android:paddingRight="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_weight="0"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="#B0D8D7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000" />
+        app:scale_base_height="300"
+        app:scale_base_width="400">
 
-    <LinearLayout
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:scale_height="130"
+            app:scale_width="200"
+            app:scale_left="100"
+            app:scale_top="90"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/login_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="INFORMATION"
+            android:textStyle="bold"
+            app:scale_height="30"
+            app:scale_left="100"
+            app:scale_textsize="25"
+            app:scale_top="240"
+            app:scale_width="200" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_my"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/scalable_logo">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@drawable/white_background_round"
-            android:elevation="5dp"
-            android:padding="5dp"
-            app:scale_base_height="110"
-            app:scale_base_width="350">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:scale_base_height="400"
+            app:scale_base_width="400">
 
             <TextView
-                android:id="@+id/label_SeeCategory"
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="start|center_vertical"
-                android:text="주제별 보기"
-                android:textColor="@android:color/black"
-
-                android:textStyle="bold"
-                app:scale_height="30"
-                app:scale_left="10"
-                app:scale_textsize="15"
-                app:scale_top="10"
-                app:scale_width="320" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"
-                app:scale_height="3"
-                app:scale_left="10"
-                app:scale_top="45"
-                app:scale_width="320" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="true"
                 android:gravity="center"
-                android:orientation="horizontal"
-                app:scale_height="40"
-                app:scale_left="10"
-                app:scale_textsize="14"
-                app:scale_top="55"
-                app:scale_width="320"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-
-
+                android:background="@drawable/aqua_background_round"
+                android:text="나중에 배 안고프고 안 졸릴때\n마저 하기 ^^ ,, "
+                android:textColor="@color/black"
+                app:scale_height="100"
+                app:scale_left="15"
+                app:scale_textsize="20"
+                app:scale_top="15"
+                app:scale_width="370" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-    </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout3"
+        android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
@@ -164,6 +142,7 @@
                 app:scale_width="100"
                 app:srcCompat="@drawable/info_lined" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
+
     </FrameLayout>
 
 

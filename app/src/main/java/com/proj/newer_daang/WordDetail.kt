@@ -2,6 +2,8 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.word_detail.*
@@ -38,4 +40,21 @@ class WordDetail : AppCompatActivity() {
 
 
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item!!.itemId){
+            R.id.app_bar_search->{ // 메뉴 버튼
+                val intentSearch = Intent(this, SearchActivity::class.java)
+                startActivity(intentSearch)
+                //Snackbar.make(toolbar,"Menu pressed",Snackbar.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.func_search, menu)
+        return true
+    }
+
 }

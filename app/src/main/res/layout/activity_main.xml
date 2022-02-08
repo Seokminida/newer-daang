@@ -59,7 +59,8 @@
                 android:gravity="start|center_vertical"
                 android:paddingStart="10dp"
                 android:text="오늘의 베스트 단어"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/darker_gray2"
+                android:textStyle="bold"
                 app:scale_height="60"
                 app:scale_left="9"
                 app:scale_textsize="20"
@@ -68,7 +69,6 @@
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
-
     <FrameLayout
         android:id="@+id/frame_category"
         android:layout_width="match_parent"
@@ -90,56 +90,106 @@
             app:scale_base_width="400">
 
 
-            <TextView
-                android:id="@+id/cate_military"
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_military"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
+                android:backgroundTint="#E7F3F3"
                 android:clickable="true"
                 android:elevation="5dp"
                 android:gravity="center"
-                android:text="군사"
-
-                android:textColor="@android:color/darker_gray"
+                app:scale_base_height="120"
+                app:scale_base_width="115"
                 app:scale_height="120"
                 app:scale_left="276"
-                app:scale_textsize="20"
                 app:scale_top="10"
-                app:scale_width="115" />
+                app:scale_width="115">
 
-            <TextView
-                android:id="@+id/cate_social"
+                <TextView
+                    android:id="@+id/cate_military"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="군사"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_social"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
+                android:backgroundTint="#C7E3E3"
                 android:clickable="true"
                 android:elevation="5dp"
                 android:gravity="center"
-                android:text="사회"
-
-                android:textColor="@android:color/darker_gray"
+                app:scale_base_height="120"
+                app:scale_base_width="115"
                 app:scale_height="120"
                 app:scale_left="142.5"
-                app:scale_textsize="20"
                 app:scale_top="10"
-                app:scale_width="115" />
+                app:scale_width="115">
 
-            <TextView
-                android:id="@+id/cate_politics"
+                <TextView
+                    android:id="@+id/cate_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="사회"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_politics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
+                android:backgroundTint="#B0D8D7"
                 android:clickable="true"
                 android:elevation="5dp"
                 android:gravity="center"
-                android:text="정치"
-                android:textAlignment="center"
-                android:textColor="@android:color/darker_gray"
+                app:scale_base_height="120"
+
+                app:scale_base_width="115"
                 app:scale_height="120"
                 app:scale_left="9"
                 app:scale_textsize="20"
                 app:scale_top="10"
-                app:scale_width="115" />
+                app:scale_width="115">
+
+                <TextView
+                    android:id="@+id/cate_politics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="정치"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
 
@@ -164,59 +214,102 @@
             app:scale_base_width="400">
 
 
-            <TextView
-                android:id="@+id/cate_IT"
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_IT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
+                android:backgroundTint="#FFDED9"
                 android:clickable="true"
                 android:elevation="5dp"
                 android:gravity="center"
-                android:text="IT/과학"
-
-                android:textColor="@android:color/darker_gray"
+                app:scale_base_height="120"
+                app:scale_base_width="115"
                 app:scale_height="120"
                 app:scale_left="276"
-                app:scale_textsize="20"
                 app:scale_top="10"
-                app:scale_width="115" />
+                app:scale_width="115">
 
-            <TextView
-                android:id="@+id/cate_economy"
+                <TextView
+                    android:id="@+id/cate_IT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="IT/과학"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_culture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/white_background_round"
+                android:backgroundTint="#FF9B8C"
                 android:clickable="true"
                 android:elevation="5dp"
                 android:gravity="center"
-                android:text="경제"
-
-                android:textColor="@android:color/darker_gray"
-                app:scale_height="120"
-                app:scale_left="142.5"
-                app:scale_textsize="20"
-                app:scale_top="10"
-                app:scale_width="115" />
-
-            <TextView
-                android:id="@+id/cate_culture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/white_background_round"
-                android:clickable="true"
-                android:elevation="5dp"
-                android:gravity="center"
-                android:text="문화"
-                android:textAlignment="center"
-                android:textColor="@android:color/darker_gray"
+                app:scale_base_height="120"
+                app:scale_base_width="115"
                 app:scale_height="120"
                 app:scale_left="9"
-                app:scale_textsize="20"
                 app:scale_top="10"
-                app:scale_width="115" />
+                app:scale_width="115">
+
+                <TextView
+                    android:id="@+id/cate_culture"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="문화"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:id="@+id/scalable_economy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_background_round"
+                android:backgroundTint="#FFBCB2"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:gravity="center"
+                app:scale_base_height="120"
+                app:scale_base_width="115"
+                app:scale_height="120"
+                app:scale_left="142.5"
+                app:scale_top="10"
+                app:scale_width="115">
+
+                <TextView
+                    android:id="@+id/cate_economy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="경제"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="25"
+                    app:scale_left="10"
+                    app:scale_textsize="20"
+                    app:scale_top="5"
+                    app:scale_width="70" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
-
 
     <FrameLayout
         android:id="@+id/frame_quiz"
@@ -258,8 +351,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="단어퀴즈"
-                    android:textColor="@android:color/darker_gray"
-
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
                     app:scale_height="25"
                     app:scale_left="10"
                     app:scale_textsize="20"
@@ -287,7 +380,6 @@
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -295,15 +387,15 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/darker_gray_background"
             app:scale_base_height="60"
-            app:scale_base_width="400">
+            app:scale_base_width="400"
+            android:background="@drawable/darker_gray_background">
 
             <ImageButton
                 android:id="@+id/bottombar_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="0"
@@ -315,7 +407,7 @@
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="100"
@@ -327,7 +419,7 @@
                 android:id="@+id/bottombar_mypage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="200"
@@ -339,7 +431,7 @@
                 android:id="@+id/bottombar_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="300"

@@ -123,15 +123,15 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/darker_gray_background"
             app:scale_base_height="60"
-            app:scale_base_width="400">
+            app:scale_base_width="400"
+            android:background="@drawable/darker_gray_background">
 
             <ImageButton
                 android:id="@+id/bottombar_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="0"
@@ -143,7 +143,7 @@
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="100"
@@ -155,7 +155,7 @@
                 android:id="@+id/bottombar_mypage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="200"
@@ -167,7 +167,7 @@
                 android:id="@+id/bottombar_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="300"

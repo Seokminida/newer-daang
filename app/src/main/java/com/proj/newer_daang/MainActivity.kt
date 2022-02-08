@@ -8,11 +8,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.TextView
+import com.ssomai.android.scalablelayout.ScalableLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_2_1)
 
 
 
@@ -84,6 +85,44 @@ class MainActivity : AppCompatActivity() {
             intentTermsList.putExtra("category","5")
             startActivity(intentTermsList)
         }
+
+        val slCate_politics = findViewById<ScalableLayout>(R.id.scalable_politics);
+        slCate_politics.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","0")
+            startActivity(intentTermsList)
+        }
+        val slCate_social = findViewById<ScalableLayout>(R.id.scalable_social);
+        slCate_social.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","1")
+            startActivity(intentTermsList)
+        }
+        val slCate_economy = findViewById<ScalableLayout>(R.id.scalable_economy);
+        slCate_economy.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","4")
+            startActivity(intentTermsList)
+        }
+        val slCate_culture = findViewById<ScalableLayout>(R.id.scalable_culture);
+        slCate_culture.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","3")
+            startActivity(intentTermsList)
+        }
+        val slCate_military = findViewById<ScalableLayout>(R.id.scalable_military);
+        slCate_military.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","2")
+            startActivity(intentTermsList)
+        }
+        val slCate_IT = findViewById<ScalableLayout>(R.id.scalable_IT);
+        slCate_IT.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","5")
+            startActivity(intentTermsList)
+        }
+
         //
 
 

@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:scale_base_height="200"
+        app:scale_base_height="340"
         app:scale_base_width="1220">
 
         <EditText
@@ -28,7 +28,6 @@
             android:imeOptions="actionDone"
             android:inputType="text"
             android:paddingStart="45dp"
-
             app:scale_height="170"
             app:scale_left="30"
             app:scale_textsize="50"
@@ -45,7 +44,8 @@
             app:scale_left="50"
             app:scale_textsize="40"
             app:scale_top="58"
-            app:scale_width="100" />
+            app:scale_width="100"
+            tools:ignore="OnClick" />
 
 
         <ImageButton
@@ -54,15 +54,18 @@
             android:layout_height="wrap_content"
             android:background="@drawable/cross_icon"
             android:backgroundTint="#d3d3d3"
+            android:visibility="gone"
             app:scale_height="90"
             app:scale_left="900"
             app:scale_top="85"
             app:scale_width="90" />
 
         <View
+            android:id="@+id/lineView"
             android:layout_width="wrap_content"
             android:layout_height="0.3dp"
             android:background="#d3d3d3"
+            android:visibility="gone"
             app:scale_height="70"
             app:scale_left="1010"
             app:scale_top="85"
@@ -73,11 +76,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/search_icon1"
-            android:text="Button"
             app:scale_height="120"
             app:scale_left="1040"
             app:scale_top="70"
             app:scale_width="100" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            app:scale_textsize="70"
+            app:scale_height="150"
+            app:scale_width="1168"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            app:scale_top="195"
+            app:scale_left="33"
+            android:text="최근 검색어" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="#00ff0000"
+            android:textColor="@color/black"
+            app:scale_textsize="40"
+            app:scale_height="100"
+            app:scale_width="300"
+            app:scale_top="220"
+            app:scale_left="890"
+            android:text="최근 검색 닫기" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
 
@@ -92,22 +123,29 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/wordRe"
-            android:layout_width="383dp"
+            android:layout_width="396dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="-3dp"
             android:background="@drawable/recy"
             android:orientation="vertical"
-            android:visibility="gone"
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
             tools:listitem="@layout/item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:layout_width="396dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="-3dp"
+            android:background="@drawable/recy"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            tools:listitem="@layout/item_recent"/>
 
 
     </LinearLayout>
@@ -177,5 +215,6 @@
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,16 +8,21 @@ import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview_ex.RecentAdapter
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.item_recent.*
 
 class SearchActivity : AppCompatActivity(){
     lateinit var wordAdapter: WordAdapter
+    lateinit var recentAdapter: RecentAdapter
     val datas = ArrayList<ItemData>()
-
+    val redatas = ArrayList<ItemData>()
+    var redatas2 = ArrayList<ItemData>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         initRecycler()
+        initRecycler2()
 
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
@@ -44,7 +49,24 @@ class SearchActivity : AppCompatActivity(){
             searchBar.setText(null)
         }
 
+
         search.setOnClickListener{
+            var check = 0
+            var re_st: String
+            re_st = searchBar.text.toString()
+            for (i in 0 until redatas.size){
+                if(redatas[i].name == re_st)
+                {
+                    check = 1
+                }
+            }
+            if(check == 0){
+                redatas.apply{
+                    add(ItemData("$re_st",""))
+                }
+
+            }
+            recentAdapter.recentList(redatas)
             Intent(this, AfterRe::class.java).apply{
                 putExtra("afterdata",datas2)
                 putExtra("search",searchBar.text.toString())
@@ -62,12 +84,14 @@ class SearchActivity : AppCompatActivity(){
                 if(searchT.length == 0)
                 {
                     clearB.setVisibility(View.GONE)
+                    lineView.setVisibility(View.GONE)
                     wordRe.setVisibility(View.GONE)
                     recent.setVisibility(View.VISIBLE)
                 }
                 else {
                     clearB.setVisibility(View.VISIBLE)
                     wordRe.setVisibility(View.VISIBLE)
+                    lineView.setVisibility(View.VISIBLE)
                     recent.setVisibility(View.GONE)
                 }
                 searchFilter(searchT)
@@ -85,7 +109,6 @@ class SearchActivity : AppCompatActivity(){
         val wordrec: RecyclerView = findViewById(R.id.wordRe)
         wordrec.adapter = wordAdapter
 
-
         datas.apply{
             add(ItemData("가나다라","예시11231231231231231231asdasdasdasdsad23"))
             add(ItemData("나다라마바","예시2"))
@@ -94,6 +117,14 @@ class SearchActivity : AppCompatActivity(){
             wordAdapter.datas = datas
             wordAdapter.notifyDataSetChanged()
         }
+
+    }
+
+    private fun initRecycler2(){
+        recentAdapter = RecentAdapter(this)
+        val recentrec: RecyclerView = findViewById(R.id.recent)
+        recentrec.adapter = recentAdapter
+        recent.setVisibility(View.VISIBLE)
 
     }
 
@@ -135,7 +166,5 @@ class SearchActivity : AppCompatActivity(){
         val intent = Intent()
         finish()
     }
-
-
 
 }

@@ -8,7 +8,8 @@
         android:top="-1dp">
         <shape android:shape="rectangle" >
             <corners
-                android:radius="7dp"
+                android:bottomLeftRadius="7dp"
+                android:bottomRightRadius="7dp"
                 ></corners>
 
             <stroke

@@ -8,12 +8,9 @@
         android:top="1dp">
         <shape android:shape="rectangle" >
             <corners
-                android:radius="7dp"
+                android:topLeftRadius="7dp"
+                android:topRightRadius="7dp"
                 ></corners>
-
-            <stroke
-                android:width="3dp"
-                android:color="#d3d3d3" />
 
             <solid android:color="#FFF" />
 

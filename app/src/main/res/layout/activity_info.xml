@@ -46,34 +46,87 @@
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
     <FrameLayout
-        android:id="@+id/frame_my"
+        android:id="@+id/frame_dev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scalable_logo">
+        app:layout_constraintTop_toBottomOf="@+id/scalable_logo"
+        android:padding="10dp">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:scale_base_height="400"
+            app:scale_base_height="100"
             app:scale_base_width="400">
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/developers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@drawable/aqua_background_round"
-                android:text="나중에 배 안고프고 안 졸릴때\n마저 하기 ^^ ,, "
+                android:text="Developers"
                 android:textColor="@color/black"
                 app:scale_height="100"
-                app:scale_left="15"
                 app:scale_textsize="20"
-                app:scale_top="15"
-                app:scale_width="370" />
+                app:scale_width="130"/>
 
+            <TextView
+                android:id="@+id/developers_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@drawable/aqua_background_round"
+                android:text="developers_detail"
+                android:textColor="@color/black"
+                app:scale_height="100"
+                app:scale_left="130"
+                app:scale_textsize="20"
+                app:scale_width="270"
+                android:padding="10dp"/>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frame_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_dev"
+        android:padding="10dp">
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:scale_base_height="100"
+        app:scale_base_width="400">
+            <TextView
+                android:id="@+id/app_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/aqua_background_round"
+                android:text="Application"
+                android:textColor="@color/black"
+                app:scale_height="100"
+                app:scale_textsize="20"
+                app:scale_width="130"/>
+
+            <TextView
+                android:id="@+id/app_info_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@drawable/aqua_background_round"
+                android:text="app_info_detail"
+                android:textColor="@color/black"
+                app:scale_height="100"
+                app:scale_left="130"
+                app:scale_textsize="20"
+                app:scale_width="270"
+                android:padding="10dp"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
 
@@ -90,15 +143,15 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/darker_gray_background"
             app:scale_base_height="60"
-            app:scale_base_width="400">
+            app:scale_base_width="400"
+            android:background="@drawable/darker_gray_background">
 
             <ImageButton
                 android:id="@+id/bottombar_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="0"
@@ -110,7 +163,7 @@
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="100"
@@ -122,7 +175,7 @@
                 android:id="@+id/bottombar_mypage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="200"
@@ -134,7 +187,7 @@
                 android:id="@+id/bottombar_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#f8f8f8"
+                android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="300"

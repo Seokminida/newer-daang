@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"  >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scale_base_height="130"
+        app:scale_base_width="300">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_background_round"
+        android:elevation="5dp"
+        app:scale_base_height="120"
+        app:scale_base_width="290"
+        app:scale_height="120"
+        app:scale_left="5"
+        app:scale_top="5"
+        app:scale_width="290">
+
+        <TextView
+            android:id="@+id/term_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="용어샘플"
+            android:textStyle="bold"
+            app:scale_height="20"
+            app:scale_left="10"
+            app:scale_textsize="15"
+            app:scale_top="5"
+            app:scale_width="220" />
+
+        <ImageButton
+            android:id="@+id/heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="#00FFFFFF"
+            android:gravity="center_vertical"
+            android:scaleType="center"
+            app:scale_height="20"
+            app:scale_left="240"
+            app:scale_top="5"
+            app:scale_width="20"
+            app:srcCompat="@drawable/heart_empty_24_edited" />
+
+        <ImageButton
+            android:id="@+id/bin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:gravity="center_vertical"
+            app:scale_height="20"
+            app:scale_left="260"
+            app:scale_top="5"
+            app:scale_width="20"
+            app:srcCompat="@drawable/bin_24_edited" />
+
+
+        <TextView
+            android:id="@+id/term_meaning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="meaning sample goes here with meaning sample goes here"
+            app:scale_height="31"
+            app:scale_left="10"
+            app:scale_textsize="12"
+            app:scale_top="34"
+            app:scale_width="270"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            app:scale_height="1"
+            app:scale_left="10"
+            app:scale_top="74"
+            app:scale_width="270" />
+
+        <TextView
+            android:id="@+id/term_cate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/aqua_darker_background_round"
+            android:gravity="center"
+            android:text="정치"
+            app:scale_height="25"
+            app:scale_left="10"
+            app:scale_textsize="12"
+            app:scale_top="85"
+            app:scale_width="50"/>
+
+        <TextView
+            android:id="@+id/term_tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/aqua_background_round"
+
+            android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:text="해시1"
+            app:scale_height="25"
+            app:scale_left="65"
+            app:scale_textsize="12"
+            app:scale_top="85"
+            app:scale_width="165" />
+
+        <ImageView
+            android:id="@+id/tag_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/aqua_background_round"
+            android:gravity="center"
+
+            android:scaleType="center"
+            android:src="@drawable/etc_35"
+            app:scale_height="25"
+            app:scale_left="235"
+            app:scale_top="85"
+            app:scale_width="45" />
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>

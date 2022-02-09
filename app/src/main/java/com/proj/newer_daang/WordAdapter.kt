@@ -47,4 +47,5 @@ class WordAdapter(private val context: Context):
     }
 
 
+
 }

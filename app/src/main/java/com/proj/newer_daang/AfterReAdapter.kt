@@ -1,6 +1,7 @@
 package com.example.recyclerview_ex
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.proj.newer_daang.ItemData
 import com.proj.newer_daang.R
+import com.proj.newer_daang.WordDetailActivity
 
 class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterReAdapter.ViewHolder>() {
 
@@ -32,8 +34,15 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
         fun bind(item: ItemData) {
             wna.text = item.name
             wme.text = item.mean
-
+            itemView.setOnClickListener {
+                Intent(context, WordDetailActivity::class.java).apply {
+                    putExtra("name", item.name)
+                    putExtra("mean", item.mean)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run { context.startActivity(this) }
+            }
         }
+
     }
 
 

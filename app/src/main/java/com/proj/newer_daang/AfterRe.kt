@@ -2,6 +2,7 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +13,8 @@ import kotlinx.android.synthetic.main.activity_after_search.*
 class AfterRe : AppCompatActivity() {
     lateinit var reAdapter: AfterReAdapter
     var datas = ArrayList<ItemData>()
-
-
+    var datas2 = ArrayList<ItemData>()
+    var str = String()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -48,25 +49,48 @@ class AfterRe : AppCompatActivity() {
 
 
     private fun initRecycler() {
-        reAdapter = AfterReAdapter(this)
-        val afterrec: RecyclerView = findViewById(R.id.after_search)
-        afterrec.adapter = reAdapter
-        datas = intent.getSerializableExtra("afterdata") as ArrayList<ItemData>
-        reAdapter.datas = datas
-        if(reAdapter.datas.size == 0){
-            sca.setVisibility(View.VISIBLE)
-            after_search.setVisibility(View.GONE)
-            no_search.setVisibility(View.VISIBLE)
-            birdI.setVisibility(View.VISIBLE)
-        }
-        else{
-            sca.setVisibility(View.GONE)
-            after_search.setVisibility(View.VISIBLE)
-            no_search.setVisibility(View.GONE)
-            birdI.setVisibility(View.GONE)
-        }
-        reAdapter.notifyDataSetChanged()
+        var ch = intent.getIntExtra("ch",0)
+        if(ch == 0) { // 검색 후 아이템 클릭
+            reAdapter = AfterReAdapter(this)
+            val afterrec: RecyclerView = findViewById(R.id.after_search)
+            afterrec.adapter = reAdapter
+            datas = intent.getSerializableExtra("afterdata") as ArrayList<ItemData>
+            reAdapter.datas = datas
 
+            if (reAdapter.datas.size == 0) {
+                sca.setVisibility(View.VISIBLE)
+                after_search.setVisibility(View.GONE)
+                no_search.setVisibility(View.VISIBLE)
+                birdI.setVisibility(View.VISIBLE)
+            } else {
+                sca.setVisibility(View.GONE)
+                after_search.setVisibility(View.VISIBLE)
+                no_search.setVisibility(View.GONE)
+                birdI.setVisibility(View.GONE)
+            }
+            reAdapter.notifyDataSetChanged()
+        }
+        else //최근검색 아이템 클릭
+        {
+            reAdapter = AfterReAdapter(this)
+            val afterrec: RecyclerView = findViewById(R.id.after_search)
+            afterrec.adapter = reAdapter
+            datas = intent.getSerializableExtra("array") as ArrayList<ItemData>
+            reAdapter.datas = datas
+
+            if (reAdapter.datas.size == 0) {
+                sca.setVisibility(View.VISIBLE)
+                after_search.setVisibility(View.GONE)
+                no_search.setVisibility(View.VISIBLE)
+                birdI.setVisibility(View.VISIBLE)
+            } else {
+                sca.setVisibility(View.GONE)
+                after_search.setVisibility(View.VISIBLE)
+                no_search.setVisibility(View.GONE)
+                birdI.setVisibility(View.GONE)
+            }
+            reAdapter.notifyDataSetChanged()
+        }
 
     }
     fun back(v : View) {

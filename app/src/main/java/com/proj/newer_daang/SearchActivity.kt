@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -17,13 +18,12 @@ class SearchActivity : AppCompatActivity(){
     lateinit var recentAdapter: RecentAdapter
     val datas = ArrayList<ItemData>()
     val redatas = ArrayList<ItemData>()
-    var redatas2 = ArrayList<ItemData>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         initRecycler()
         initRecycler2()
-
+        recentAdapter.listUpdate(datas)
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
             val intentHome = Intent(this, MainActivity::class.java)
@@ -67,6 +67,7 @@ class SearchActivity : AppCompatActivity(){
 
             }
             recentAdapter.recentList(redatas)
+
             Intent(this, AfterRe::class.java).apply{
                 putExtra("afterdata",datas2)
                 putExtra("search",searchBar.text.toString())
@@ -117,6 +118,7 @@ class SearchActivity : AppCompatActivity(){
             wordAdapter.datas = datas
             wordAdapter.notifyDataSetChanged()
         }
+
 
     }
 

@@ -63,41 +63,52 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:listitem="@layout/item_after_search" />
 
-    <com.ssomai.android.scalablelayout.ScalableLayout
-        android:id="@+id/sca"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D7EBEA"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/frame_bottombar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/after_search"
-        app:layout_constraintBottom_toTopOf="@id/frame_bottombar"
-        app:scale_base_height="1000"
-        app:scale_base_width="900"
-        app:scale_top="500">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/no_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="~~~~~에 대한 정보가 없습니다"
-            android:textAlignment="center"
-            android:visibility="gone"
-            app:scale_height="100"
-            app:scale_textsize="40"
-            app:scale_top="30"
-            app:scale_width="800" />
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/sca"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#D7EBEA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:scale_base_height="1000"
+            app:scale_base_width="900"
+            app:scale_top="500">
 
-        <ImageView
-            android:id="@+id/birdI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            app:scale_height="500"
-            app:scale_width="500"
-            app:srcCompat="@drawable/logo" />
-    </com.ssomai.android.scalablelayout.ScalableLayout>
+            <TextView
+                android:id="@+id/no_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="~~~~~에 대한 정보가 없습니다"
+                android:textAlignment="center"
+                app:scale_height="100"
+                app:scale_textsize="40"
+                app:scale_top="30"
+                app:scale_width="900" />
+
+            <ImageView
+                android:id="@+id/birdI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:scale_height="500"
+                app:scale_width="500"
+                app:srcCompat="@drawable/logo" />
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/frame_bottombar"

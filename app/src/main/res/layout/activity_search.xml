@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,8 +9,8 @@
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:id="@+id/scalableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="394dp"
+        android:layout_height="104dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,30 +28,31 @@
             android:inputType="text"
             android:paddingStart="45dp"
             app:scale_height="170"
-            app:scale_left="30"
             app:scale_textsize="50"
             app:scale_top="30"
-            app:scale_width="1175" />
+            app:scale_width="1220" />
 
         <ImageButton
             android:id="@+id/back_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
             android:onClick="back"
+            android:scaleType="fitXY"
             app:scale_height="130"
             app:scale_left="50"
-            app:scale_textsize="40"
             app:scale_top="58"
             app:scale_width="100"
-            tools:ignore="OnClick" />
+            tools:ignore="OnClick"
+            android:src="@drawable/back" />
 
 
         <ImageButton
             android:id="@+id/clearB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/cross_icon"
+            android:src="@drawable/cross_icon"
+            android:background="@android:color/transparent"
             android:backgroundTint="#d3d3d3"
             android:visibility="gone"
             app:scale_height="90"
@@ -75,26 +75,29 @@
             android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/search_icon1"
-            app:scale_height="120"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:scale_height="100"
             app:scale_left="1040"
             app:scale_top="70"
-            app:scale_width="100" />
+            app:scale_width="100"
+            android:src="@drawable/search_icon" />
+
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@color/white"
-            android:textColor="@color/black"
-            app:scale_textsize="70"
-            app:scale_height="150"
-            app:scale_width="1168"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
+            android:text="최근 검색어"
+            android:textColor="@color/black"
+            app:scale_height="150"
+
+            app:scale_textsize="70"
             app:scale_top="195"
-            app:scale_left="33"
-            android:text="최근 검색어" />
+            app:scale_width="1220" />
 
         <Button
             android:id="@+id/button"
@@ -102,53 +105,50 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="#00ff0000"
+            android:text="최근 검색 닫기"
             android:textColor="@color/black"
-            app:scale_textsize="40"
             app:scale_height="100"
-            app:scale_width="300"
-            app:scale_top="220"
             app:scale_left="890"
-            android:text="최근 검색 닫기" />
+            app:scale_textsize="40"
+            app:scale_top="220"
+            app:scale_width="300" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scalableLayout"
-        tools:layout_editor_absoluteY="72dp">
+        app:layout_constraintBottom_toTopOf="@+id/frame_bottombar"
+        app:layout_constraintEnd_toEndOf="@+id/scalableLayout"
+        app:layout_constraintStart_toStartOf="@+id/scalableLayout"
+        app:layout_constraintTop_toBottomOf="@+id/scalableLayout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/wordRe"
-            android:layout_width="396dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="-3dp"
             android:background="@drawable/recy"
             android:orientation="vertical"
-
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
             tools:listitem="@layout/item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recent"
-            android:layout_width="396dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="-3dp"
             android:background="@drawable/recy"
             android:orientation="vertical"
-            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
-            tools:listitem="@layout/item_recent"/>
+            tools:listitem="@layout/item_recent" />
 
 
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
@@ -161,9 +161,9 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/darker_gray_background"
             app:scale_base_height="60"
-            app:scale_base_width="400"
-            android:background="@drawable/darker_gray_background">
+            app:scale_base_width="400">
 
             <ImageButton
                 android:id="@+id/bottombar_home"

@@ -92,13 +92,12 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
     var ite = ArrayList<ItemData>()
     fun recentList(recentList: ArrayList<ItemData>) {
         ite = recentList
-        datas = ite;
+        datas = ite
         notifyDataSetChanged()
     }
 
     fun listUpdate(recentList2: ArrayList<ItemData>){
         datas2 = recentList2
-        Log.d("asdasdasdasd","$datas2")
 
     }
 

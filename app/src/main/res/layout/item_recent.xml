@@ -29,11 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="단어"
+            android:paddingTop="7dp"
             android:paddingStart="13dp"
             android:textColor="#000000"
             app:scale_height="11"
             app:scale_left="12"
-            app:scale_textsize="7"
+            app:scale_textsize="5.5"
             app:scale_top="3"
             app:scale_width="70"
             tools:ignore="MissingPrefix" />

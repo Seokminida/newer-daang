@@ -72,6 +72,7 @@ class AfterRe : AppCompatActivity() {
         }
         else //최근검색 아이템 클릭
         {
+            textView3.text=intent.getStringExtra("name2")
             reAdapter = AfterReAdapter(this)
             val afterrec: RecyclerView = findViewById(R.id.after_search)
             afterrec.adapter = reAdapter

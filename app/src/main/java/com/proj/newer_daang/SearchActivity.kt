@@ -49,6 +49,17 @@ class SearchActivity : AppCompatActivity(){
             searchBar.setText(null)
         }
 
+        recent_close_button.setOnClickListener {
+            if(recent.visibility == View.GONE) {
+                recent.setVisibility(View.VISIBLE)
+                recent_close_button.text="최근 검색 닫기"
+            }
+            else if(recent.visibility == View.VISIBLE)
+            {
+                recent_close_button.text="최근 검색 열기"
+                recent.setVisibility(View.GONE)
+            }
+        }
 
         search.setOnClickListener{
             var check = 0
@@ -60,9 +71,9 @@ class SearchActivity : AppCompatActivity(){
                     check = 1
                 }
             }
-            if(check == 0){
+            if(check == 0 && re_st.length > 0){
                 redatas.apply{
-                    add(ItemData("$re_st",""))
+                    add(0, ItemData("$re_st",""))
                 }
 
             }
@@ -84,12 +95,14 @@ class SearchActivity : AppCompatActivity(){
                 var searchT: String = p0.toString()
                 if(searchT.length == 0)
                 {
+                    scalableLayout2.setVisibility(View.VISIBLE)
                     clearB.setVisibility(View.GONE)
                     lineView.setVisibility(View.GONE)
                     wordRe.setVisibility(View.GONE)
                     recent.setVisibility(View.VISIBLE)
                 }
                 else {
+                    scalableLayout2.setVisibility(View.GONE)
                     clearB.setVisibility(View.VISIBLE)
                     wordRe.setVisibility(View.VISIBLE)
                     lineView.setVisibility(View.VISIBLE)

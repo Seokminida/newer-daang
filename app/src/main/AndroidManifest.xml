@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.proj.newer_daang">
 
+
     <application
 
         android:name = ".App"

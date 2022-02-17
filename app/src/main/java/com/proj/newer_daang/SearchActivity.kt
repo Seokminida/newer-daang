@@ -10,6 +10,10 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.RecentAdapter
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.item_recent.*
 
@@ -18,12 +22,25 @@ class SearchActivity : AppCompatActivity(){
     lateinit var recentAdapter: RecentAdapter
     val datas = ArrayList<ItemData>()
     val redatas = ArrayList<ItemData>()
+    var db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         initRecycler()
         initRecycler2()
         recentAdapter.listUpdate(datas)
+
+        val docRef = db.collection("category3")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    Log.d("asd", result["society"].toString())
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
             val intentHome = Intent(this, MainActivity::class.java)

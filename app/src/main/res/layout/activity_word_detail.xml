@@ -29,6 +29,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="#FFFFFF"
@@ -39,7 +40,6 @@
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 app:scale_base_height="80"
                 app:scale_base_width="100">
 
@@ -94,6 +94,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_marginTop="19dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="15dp"
@@ -145,72 +146,74 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
 
-    <FrameLayout
-        android:id="@+id/frame_bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.ssomai.android.scalablelayout.ScalableLayout
+        <FrameLayout
+            android:id="@+id/frame_bottombar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:scale_base_height="60"
-            app:scale_base_width="400"
-            android:background="@drawable/darker_gray_background">
+            android:layout_weight="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <ImageButton
-                android:id="@+id/bottombar_home"
+            <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/mere_white"
-                android:clickable="true"
-                app:scale_height="59"
-                app:scale_left="0"
-                app:scale_top="1"
-                app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/darker_gray_background"
+                app:scale_base_height="60"
+                app:scale_base_width="400">
 
-            <ImageButton
-                android:id="@+id/bottombar_bookmark"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/mere_white"
-                android:clickable="true"
-                app:scale_height="59"
-                app:scale_left="100"
-                app:scale_top="1"
-                app:scale_width="100"
-                app:srcCompat="@drawable/bookmark_lined" />
+                <ImageButton
+                    android:id="@+id/bottombar_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/mere_white"
+                    android:clickable="true"
+                    app:scale_height="59"
+                    app:scale_left="0"
+                    app:scale_top="1"
+                    app:scale_width="100"
+                    app:srcCompat="@drawable/home_lined" />
 
-            <ImageButton
-                android:id="@+id/bottombar_mypage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/mere_white"
-                android:clickable="true"
-                app:scale_height="59"
-                app:scale_left="200"
-                app:scale_top="1"
-                app:scale_width="100"
-                app:srcCompat="@drawable/mypage_lined" />
+                <ImageButton
+                    android:id="@+id/bottombar_bookmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/mere_white"
+                    android:clickable="true"
+                    app:scale_height="59"
+                    app:scale_left="100"
+                    app:scale_top="1"
+                    app:scale_width="100"
+                    app:srcCompat="@drawable/bookmark_lined" />
 
-            <ImageButton
-                android:id="@+id/bottombar_info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/mere_white"
-                android:clickable="true"
-                app:scale_height="59"
-                app:scale_left="300"
-                app:scale_top="1"
-                app:scale_width="100"
-                app:srcCompat="@drawable/info_lined" />
-        </com.ssomai.android.scalablelayout.ScalableLayout>
+                <ImageButton
+                    android:id="@+id/bottombar_mypage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/mere_white"
+                    android:clickable="true"
+                    app:scale_height="59"
+                    app:scale_left="200"
+                    app:scale_top="1"
+                    app:scale_width="100"
+                    app:srcCompat="@drawable/mypage_lined" />
 
-    </FrameLayout>
+                <ImageButton
+                    android:id="@+id/bottombar_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/mere_white"
+                    android:clickable="true"
+                    app:scale_height="59"
+                    app:scale_left="300"
+                    app:scale_top="1"
+                    app:scale_width="100"
+                    app:srcCompat="@drawable/info_lined" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

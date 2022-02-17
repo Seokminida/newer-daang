@@ -27,8 +27,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-
+        android:layout_height="500dp"
+        android:layout_margin="10dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="2dp"
@@ -37,7 +37,7 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:scale_base_height="80"
+            app:scale_base_height="180"
             app:scale_base_width="100">
 
             <TextView

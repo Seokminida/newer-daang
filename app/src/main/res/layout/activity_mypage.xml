@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:elevation="5dp"
-            app:scale_base_height="200"
+            app:scale_base_height="270"
             app:scale_base_width="400">
 
             <ImageView
@@ -59,7 +59,7 @@
                 android:gravity="center"
                 app:scale_height="120"
                 app:scale_left="140"
-                app:scale_top="15"
+                app:scale_top="65"
                 app:scale_width="120" />
 
             <TextView
@@ -75,7 +75,7 @@
                 app:scale_height="40"
                 app:scale_left="140"
                 app:scale_textsize="20"
-                app:scale_top="150"
+                app:scale_top="200"
                 app:scale_width="120" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>

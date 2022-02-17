@@ -3,6 +3,7 @@ package com.proj.newer_daang
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,8 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class TermsListActivity : AppCompatActivity() {
@@ -18,6 +21,9 @@ class TermsListActivity : AppCompatActivity() {
     lateinit var categoryAdapter_: CategoryAdapter
     val terms = mutableListOf<TermData>()
     val categories = mutableListOf<CategoryAdapter.CateData>()
+
+    var db = Firebase.firestore
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -25,7 +25,7 @@ class SearchActivity : AppCompatActivity(){
     var db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        setContentView(R.layout.activity_search_2)
         initRecycler()
         initRecycler2()
         recentAdapter.listUpdate(datas)

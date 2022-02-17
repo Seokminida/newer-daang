@@ -43,7 +43,7 @@
                 android:textColor="#97000000"
                 android:maxLines="2"
                 android:ellipsize="end"
-                app:scale_height="12"
+                app:scale_height="20"
                 app:scale_left="4"
                 app:scale_textsize="5"
                 app:scale_top="16"

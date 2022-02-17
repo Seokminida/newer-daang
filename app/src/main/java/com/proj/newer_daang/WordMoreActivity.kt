@@ -2,6 +2,7 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -50,6 +51,7 @@ class WordMoreActivity : AppCompatActivity(){
         wmean = intent.getSerializableExtra("mean").toString()
         wn.text = wname
         wm.text = wmean
+        wm.setMovementMethod(ScrollingMovementMethod())
 
     }
 

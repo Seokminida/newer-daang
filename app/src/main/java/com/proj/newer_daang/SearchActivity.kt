@@ -30,11 +30,12 @@ class SearchActivity : AppCompatActivity(){
         initRecycler2()
         recentAdapter.listUpdate(datas)
 
-        val docRef = db.collection("category3")
+        val docRef = db.collection("economy")
         docRef.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    Log.d("asd", result["society"].toString())
+                    val insertD = ItemData(result["name"].toString(),result["meaning"].toString())
+                    datas.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -141,10 +142,6 @@ class SearchActivity : AppCompatActivity(){
         wordrec.adapter = wordAdapter
 
         datas.apply{
-            add(ItemData("가나다라","예시11231231231231231231asdasdasdasdsad23"))
-            add(ItemData("나다라마바","예시2"))
-            add(ItemData("가다마아자","예시3"))
-            add(ItemData("abcd","예시3"))
             wordAdapter.datas = datas
             wordAdapter.notifyDataSetChanged()
         }

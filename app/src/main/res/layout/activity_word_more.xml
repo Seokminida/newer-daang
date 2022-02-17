@@ -37,7 +37,7 @@
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:scale_base_height="180"
+            app:scale_base_height="130"
             app:scale_base_width="100">
 
             <TextView
@@ -59,14 +59,12 @@
                 android:layout_height="wrap_content"
                 android:text="설명"
                 android:textColor="#97000000"
-                app:scale_height="12"
+                app:scale_height="110"
                 app:scale_left="4"
                 app:scale_textsize="5"
                 app:scale_top="16"
                 app:scale_width="86"
-                app:textview_wrapcontent_direction="bottom"
-                app:textview_wrapcontent_movesiblings="true"
-                app:textview_wrapcontent_resizesurrounded="true"
+                android:scrollbars="vertical"
                 tools:ignore="MissingPrefix" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>

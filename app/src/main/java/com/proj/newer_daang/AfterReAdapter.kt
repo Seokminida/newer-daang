@@ -29,11 +29,13 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
 
         private val wna: TextView = itemView.findViewById(R.id.wna)
         private val wme: TextView = itemView.findViewById(R.id.wme)
+        private val whash: TextView = itemView.findViewById(R.id.hashT)
 
 
         fun bind(item: ItemData) {
             wna.text = item.name
             wme.text = item.mean
+            whash.text = item.hashT
             itemView.setOnClickListener {
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)

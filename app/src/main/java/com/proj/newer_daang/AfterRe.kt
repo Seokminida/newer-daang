@@ -72,7 +72,8 @@ class AfterRe : AppCompatActivity() {
         }
         else //최근검색 아이템 클릭
         {
-            textView3.text=intent.getStringExtra("name2")
+            var click_name = intent.getStringExtra("name2")
+            textView3.text = click_name
             reAdapter = AfterReAdapter(this)
             val afterrec: RecyclerView = findViewById(R.id.after_search)
             afterrec.adapter = reAdapter
@@ -84,6 +85,7 @@ class AfterRe : AppCompatActivity() {
                 after_search.setVisibility(View.GONE)
                 no_search.setVisibility(View.VISIBLE)
                 birdI.setVisibility(View.VISIBLE)
+                no_search.text=("\"$click_name\"" +" 에 대한 결과가 없습니다.")
             } else {
                 sca.setVisibility(View.GONE)
                 after_search.setVisibility(View.VISIBLE)

@@ -50,6 +50,10 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
                         if(datas[pos].name.length > datas2[i].name.length)
                             break
                         var check = 1
+                        if(datas[pos].name[0] == '#'){
+                            if(datas[pos].name == datas2[i].hashT)
+                                datas3.add(datas2[i])
+                        }
                         for (j in 0 until datas[pos].name.length){
                             if(datas[pos].name[j] != datas2[i].name[j]){
                                 check = 0

@@ -30,17 +30,42 @@ class SearchActivity : AppCompatActivity(){
         initRecycler2()
         recentAdapter.listUpdate(datas)
 
-        val docRef = db.collection("economy")
-        docRef.get()
+        val economy = db.collection("economy")
+        economy.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(),result["meaning"].toString())
+                    val insertD = ItemData(result["name"].toString(),result["meaning"].toString(),"#장우")
                     datas.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
                 Log.d("asd", "get failed with ", exception)
             }
+
+        val politics = db.collection("politics")
+        politics.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(),result["meaning"].toString(),"#장우")
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val society = db.collection("society")
+        society.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(),result["meaning"].toString(),"#장우")
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
 
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
@@ -91,7 +116,7 @@ class SearchActivity : AppCompatActivity(){
             }
             if(check == 0 && re_st.length > 0){
                 redatas.apply{
-                    add(0, ItemData("$re_st",""))
+                    add(0, ItemData("$re_st","",""))
                 }
 
             }
@@ -167,14 +192,20 @@ class SearchActivity : AppCompatActivity(){
                 if(str.length > datas[i].name.length)
                     break
                 var check = 1
-                for (j in 0 until str.length){
-                    if(str[j] != datas[i].name[j]){
-                        check = 0
-                        break
-                    }
+                if(str[0] == '#'){
+                    if(str == datas[i].hashT)
+                        datas2.add(datas[i])
                 }
-                if(check == 1 )
-                    datas2.add(datas[i])
+                else {
+                    for (j in 0 until str.length) {
+                        if (str[j] != datas[i].name[j]) {
+                            check = 0
+                            break
+                        }
+                    }
+                    if (check == 1)
+                        datas2.add(datas[i])
+                }
             }
         }
         if(str.length > 1) {

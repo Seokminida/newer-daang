@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_search.*
 
 
 class TermsListActivity : AppCompatActivity() {
@@ -28,6 +29,7 @@ class TermsListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_termslist)
+
         val pressed_category = intent.getStringExtra("category")
         val cates = listOf("정치", "사회", "군사","문화","경제","IT/과학")
 
@@ -96,14 +98,6 @@ class TermsListActivity : AppCompatActivity() {
         //if pressed_category == cate, cate의 인덱스에 해당하는 recyclerview background 변경
 
 
-
-
-
-
-
-
-
-
         val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
         termAdapter = TermAdapter(this)
         recyclerView_termsList.adapter = termAdapter
@@ -114,6 +108,12 @@ class TermsListActivity : AppCompatActivity() {
 
         termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: TermData, pos: Int) {
+                intentWordDetail.apply{
+                    putExtra("name", data.name)
+                    putExtra("mean",data.meaning)
+                    startActivity(this)
+                }
+
                 startActivity(intentWordDetail)
                 //Toast.makeText( App.ApplicationContext(), "용어목록에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
                 /*
@@ -136,30 +136,34 @@ class TermsListActivity : AppCompatActivity() {
             5 -> selected_category="IT"
         }
 
-        terms.apply {
-            val docRef = db.collection(selected_category)
-            docRef.get()
-                .addOnSuccessListener { document ->
-                    for(result in document){
-                        val insertD = TermData(result["name"].toString(),result["meaning"].toString())
-                        Log.d("jonnjoon",insertD.name)
-                        terms.add(insertD)
-                    }
+        val docRef = db.collection(selected_category)
+        docRef.get()
+            .addOnSuccessListener {
+                    document ->
+                terms.clear()
+                for(result in document){
+                    val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                    //Log.d("jonnjoon",insertD.name)
+                    terms.add(term_item)
                 }
-                .addOnFailureListener { exception ->
-                    Log.d("asd", "get failed with ", exception)
+                /*
+
+                //카테 클릭시 뜨는 단어 바뀌게 하기
+
+                for(item in terms){
+                    Log.d("isitokay",item.name)
                 }
-        }
+                 */
+                terms.apply {
+                    termAdapter.termsList = terms
+                    termAdapter.notifyDataSetChanged()
+                }
 
-        terms.apply {
-            termAdapter.termsList = terms
-            termAdapter.notifyDataSetChanged()
-        }
 
-        terms.add(TermData("이름", "뜻"))
-        for(item in terms){
-            Log.d("jonnjoon2",item.name)
-        }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
 
 
     }

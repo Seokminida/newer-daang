@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#000000" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/frame_bottombar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tmp_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/wn"
+                android:layout_width="match_parent"
+                android:layout_height="20pt"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:text="단어"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@id/wm"
+                app:layout_constraintEnd_toEndOf="@id/tmp_constraint"
+                app:layout_constraintStart_toStartOf="@id/tmp_constraint"
+                app:layout_constraintTop_toTopOf="@id/tmp_constraint" />
+
+                <TextView
+                    android:id="@+id/wm"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tmp_constraint"
+                    app:layout_constraintEnd_toEndOf="@id/tmp_constraint"
+                    app:layout_constraintStart_toStartOf="@id/tmp_constraint"
+                    app:layout_constraintTop_toBottomOf="@id/wn"
+
+                    android:scrollbars="vertical"
+                    android:text="설명"
+                    android:textColor="#000000"
+                    android:autoSizeTextType="uniform"
+
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeMaxTextSize="100sp"
+                    android:autoSizeStepGranularity="2sp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/frame_bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_base_height="60"
+            app:scale_base_width="400"
+            android:background="@drawable/darker_gray_background">
+
+            <ImageButton
+                android:id="@+id/bottombar_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mere_white"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="0"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/home_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_bookmark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mere_white"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="100"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/bookmark_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mere_white"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="200"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/mypage_lined" />
+
+            <ImageButton
+                android:id="@+id/bottombar_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/mere_white"
+                android:clickable="true"
+                app:scale_height="59"
+                app:scale_left="300"
+                app:scale_top="1"
+                app:scale_width="100"
+                app:srcCompat="@drawable/info_lined" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

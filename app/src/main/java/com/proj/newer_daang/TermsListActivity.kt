@@ -19,8 +19,8 @@ class TermsListActivity : AppCompatActivity() {
 
     lateinit var termAdapter: TermAdapter
     lateinit var categoryAdapter_: CategoryAdapter
-    val terms = mutableListOf<TermData>()
-    val categories = mutableListOf<CategoryAdapter.CateData>()
+    val terms = ArrayList<TermData>()
+    var categories = ArrayList<CategoryAdapter.CateData>()
 
     var db = Firebase.firestore
 
@@ -28,7 +28,6 @@ class TermsListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_termslist)
-
         val pressed_category = intent.getStringExtra("category")
         val cates = listOf("정치", "사회", "군사","문화","경제","IT/과학")
 
@@ -59,52 +58,6 @@ class TermsListActivity : AppCompatActivity() {
             val intentInfo = Intent(this, InfoActivity::class.java)
             startActivity(intentInfo)
         }
-
-        val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
-        termAdapter = TermAdapter(this)
-        recyclerView_termsList.adapter = termAdapter
-        recyclerView_termsList.addItemDecoration(VerticalItemDecorator_rv(5))
-        recyclerView_termsList.addItemDecoration(HorizontalItemDecorator_rv(5))
-
-        val intentWordDetail = Intent(this, WordDetailActivity::class.java)
-
-        termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: TermData, pos: Int) {
-                startActivity(intentWordDetail)
-                //Toast.makeText( App.ApplicationContext(), "용어목록에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
-                /*
-                Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {
-                    putExtra("data", data)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run { startActivity(this) }
-                 */
-            }
-        })
-
-        terms.apply {
-            add(TermData( name = "용어1입니다", meaning = "sampletext"))
-            add(TermData( name = "term_sample_length_check", meaning = "sampletext"))
-            add(TermData( name = "term_sample", meaning = "sampletext"))
-            add(TermData( name = "term_sample_length_check", meaning = "sampletext"))
-            add(TermData( name = "term_sample", meaning = "sampletext"))
-            add(TermData( name = "term_sample_length_check", meaning = "sampletext"))
-            add(TermData( name = "term_sample", meaning = "sampletext"))
-            add(TermData( name = "term_sample_length_check", meaning = "sampletext"))
-            termAdapter.termsList = terms
-            termAdapter.notifyDataSetChanged()
-
-        }
-
-
-        //initRecycler()
-
-        /*
-
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerView_termsList.setLayoutManager(layoutManager)
-        //val menuAdapter = MenuAdapter(menuArrayList,this)
-        */
-
 
 
         val recyclerView_category = findViewById<RecyclerView>(R.id.recyclerView_category)
@@ -140,7 +93,6 @@ class TermsListActivity : AppCompatActivity() {
         }
         categoryAdapter_.notifyDataSetChanged()
 
-
         //if pressed_category == cate, cate의 인덱스에 해당하는 recyclerview background 변경
 
 
@@ -150,7 +102,88 @@ class TermsListActivity : AppCompatActivity() {
 
 
 
+
+
+        val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
+        termAdapter = TermAdapter(this)
+        recyclerView_termsList.adapter = termAdapter
+        recyclerView_termsList.addItemDecoration(VerticalItemDecorator_rv(5))
+        recyclerView_termsList.addItemDecoration(HorizontalItemDecorator_rv(5))
+
+        val intentWordDetail = Intent(this, WordDetailActivity::class.java)
+
+        termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, data: TermData, pos: Int) {
+                startActivity(intentWordDetail)
+                //Toast.makeText( App.ApplicationContext(), "용어목록에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
+                /*
+                Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {
+                    putExtra("data", data)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run { startActivity(this) }
+                 */
+            }
+        })
+
+        var selected_category = ""
+
+        when(categoryAdapter_.selected){
+            0 -> selected_category="politics"
+            1 -> selected_category="society"
+            2 -> selected_category="military"
+            3 -> selected_category="culture"
+            4 -> selected_category="economy"
+            5 -> selected_category="IT"
+        }
+
+        terms.apply {
+            val docRef = db.collection(selected_category)
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    for(result in document){
+                        val insertD = TermData(result["name"].toString(),result["meaning"].toString())
+                        Log.d("jonnjoon",insertD.name)
+                        terms.add(insertD)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("asd", "get failed with ", exception)
+                }
+        }
+
+        terms.apply {
+            termAdapter.termsList = terms
+            termAdapter.notifyDataSetChanged()
+        }
+
+        terms.add(TermData("이름", "뜻"))
+        for(item in terms){
+            Log.d("jonnjoon2",item.name)
+        }
+
+
     }
+
+
+
+
+/*
+    private fun initRecycler(){
+        termAdapter = TermAdapter(this)
+        val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView_termsList.adapter = termAdapter
+
+        terms.apply{
+            termAdapter.termsList = terms
+            termAdapter.notifyDataSetChanged()
+        }
+*/
+
+
+
+
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item!!.itemId){

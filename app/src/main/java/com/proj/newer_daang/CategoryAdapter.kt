@@ -10,7 +10,7 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 
 
 class CategoryAdapter(private val context: Context) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>(){
-    var cateList = mutableListOf<CateData>()
+    var cateList = ArrayList<CateData>()
     var selected = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.ViewHolder {

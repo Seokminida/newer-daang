@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapter.ViewHolder>(){
-    var termsList = mutableListOf<TermData>()
+    var termsList = ArrayList<TermData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermAdapter.ViewHolder {
 

@@ -31,7 +31,8 @@ class TermsListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_termslist)
 
         val pressed_category = intent.getStringExtra("category")
-        val cates = listOf("정치", "사회", "군사","문화","경제","IT/과학")
+        var selected_category = ""
+
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -71,15 +72,46 @@ class TermsListActivity : AppCompatActivity() {
         if (pressed_category != null) {
             categoryAdapter_.selected = pressed_category.toInt()
         }
+
         categoryAdapter_.setOnItemClickListener(object: CategoryAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: CategoryAdapter.CateData, pos: Int) {
-                Toast.makeText( App.ApplicationContext(), "용어목록의 카테고리가 변경됩니다", Toast.LENGTH_SHORT ).show()
-                /*
-                Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {
-                    putExtra("data", data)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run { startActivity(this) }
-                 */
+                terms.apply {
+                    terms.clear()
+                    termAdapter.termsList = terms
+                    termAdapter.notifyDataSetChanged()
+                }
+
+
+                when(pos){
+                    0 -> selected_category="politics"
+                    1 -> selected_category="society"
+                    2 -> selected_category="military"
+                    3 -> selected_category="culture"
+                    4 -> selected_category="economy"
+                    5 -> selected_category="IT"
+                }
+
+                val docRef = db.collection(selected_category)
+                docRef.get()
+                    .addOnSuccessListener {
+                            document ->
+                        terms.clear()
+                        for(result in document){
+                            val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                            //Log.d("jonnjoon",selected_category)
+                            terms.add(term_item)
+                        }
+
+                        terms.apply {
+                            termAdapter.termsList = terms
+                            termAdapter.notifyDataSetChanged()
+                        }
+
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d("asd", "get failed with ", exception)
+                    }
+
             }
         })
 
@@ -125,8 +157,6 @@ class TermsListActivity : AppCompatActivity() {
             }
         })
 
-        var selected_category = ""
-
         when(categoryAdapter_.selected){
             0 -> selected_category="politics"
             1 -> selected_category="society"
@@ -143,29 +173,17 @@ class TermsListActivity : AppCompatActivity() {
                 terms.clear()
                 for(result in document){
                     val term_item = TermData(result["name"].toString(),result["meaning"].toString())
-                    //Log.d("jonnjoon",insertD.name)
+                    //Log.d("jonnjoon",selected_category)
                     terms.add(term_item)
                 }
-                /*
-
-                //카테 클릭시 뜨는 단어 바뀌게 하기
-
-                for(item in terms){
-                    Log.d("isitokay",item.name)
-                }
-                 */
                 terms.apply {
                     termAdapter.termsList = terms
                     termAdapter.notifyDataSetChanged()
                 }
-
-
             }
             .addOnFailureListener { exception ->
                 Log.d("asd", "get failed with ", exception)
             }
-
-
     }
 
 

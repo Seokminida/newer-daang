@@ -102,7 +102,6 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
 
     fun listUpdate(recentList2: ArrayList<ItemData>){
         datas2 = recentList2
-
     }
 
 }

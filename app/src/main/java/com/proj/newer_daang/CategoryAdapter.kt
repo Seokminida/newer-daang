@@ -49,7 +49,7 @@ class CategoryAdapter(private val context: Context) : RecyclerView.Adapter<Categ
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val item : ScalableLayout? = itemView?.findViewById(R.id.catebox)
 
-        private val tvTerm: TextView = itemView.findViewById(R.id.term_name)
+        private val tvTerm: TextView = itemView.findViewById(R.id.term)
 
         fun bind(item: CateData) {
             tvTerm.text = item.name

@@ -446,16 +446,34 @@
                     app:scale_top="10"
                     app:scale_width="100" />
 
-                <ListView
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:background="@color/aqua"
+                    android:text="문제 나갑니다! \n아직 나가는 중일지도?"
+                    android:textColor="@color/darker_gray2"
+                    android:textStyle="bold"
+                    app:scale_height="100"
+                    app:scale_left="11"
+                    app:scale_textsize="15"
+                    app:scale_top="50"
+                    app:scale_width="360" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/quiz_panel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/aqua_background_round"
                     android:gravity="center"
-
-                    app:scale_height="210"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:scale_height="105"
                     app:scale_left="10"
-                    app:scale_top="50"
-                    app:scale_width="362" />
+                    app:scale_top="155"
+                    app:scale_width="362"
+                    app:spanCount="2" />
+
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
 

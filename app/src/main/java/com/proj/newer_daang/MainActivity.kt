@@ -2,15 +2,31 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.SystemClock
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageButton
-import android.widget.TextView
+import android.view.View
+import android.widget.*
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.ssomai.android.scalablelayout.ScalableLayout
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var quizPanelAdapter: QuizPanelAdapter
+    var quizitemList = mutableListOf<TermData>()
+    var answer = -1
+    var refreshed = 0
+    lateinit var question : TermData
+    lateinit var tv_question : TextView
+    var db = Firebase.firestore
+    private var lastClickTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_2_1)
@@ -123,12 +139,141 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentTermsList)
         }
 
-        //
+        val imgCate_politics = findViewById<ImageView>(R.id.img_politics);
+        imgCate_politics.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","0")
+            startActivity(intentTermsList)
+        }
+        val imgCate_social = findViewById<ImageView>(R.id.img_social);
+        imgCate_social.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","1")
+            startActivity(intentTermsList)
+        }
+        val imgCate_economy = findViewById<ImageView>(R.id.img_economy);
+        imgCate_economy.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","4")
+            startActivity(intentTermsList)
+        }
+        val imgCate_culture = findViewById<ImageView>(R.id.img_culture);
+        imgCate_culture.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","3")
+            startActivity(intentTermsList)
+        }
+        val imgCate_military = findViewById<ImageView>(R.id.img_military);
+        imgCate_military.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","2")
+            startActivity(intentTermsList)
+        }
+        val imgCate_IT = findViewById<ImageView>(R.id.img_IT);
+        imgCate_IT.setOnClickListener {
+            val intentTermsList = Intent(this, TermsListActivity::class.java)
+            intentTermsList.putExtra("category","5")
+            startActivity(intentTermsList)
+        }
+
+        //get summary from firebase and set on listView
 
 
+        val recyclerView_quiz = findViewById<RecyclerView>(R.id.quiz_panel);
+        quizPanelAdapter = QuizPanelAdapter(this)
+        recyclerView_quiz.adapter = quizPanelAdapter
+        recyclerView_quiz.addItemDecoration(VerticalItemDecorator_rv(5))
+        recyclerView_quiz.addItemDecoration(HorizontalItemDecorator_rv(5))
 
+        quizPanelAdapter.answer = answer
+        tv_question = findViewById<TextView>(R.id.question);
+        quizPanelAdapter.setOnItemClickListener(object: QuizPanelAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, data: TermData, pos: Int) {
+
+                //if (SystemClock.elapsedRealtime() - lastClickTime > 1500 || refreshed == 1) {
+                if ( refreshed == 1) {
+                    refreshed = 0
+
+                    var beforePos = quizPanelAdapter.selectPos
+                    quizPanelAdapter.selectPos = pos
+                    quizPanelAdapter.clicked = 1
+                    quizPanelAdapter.notifyItemChanged(beforePos)
+                    quizPanelAdapter.notifyItemChanged(quizPanelAdapter.answer)
+                    quizPanelAdapter.notifyItemChanged(quizPanelAdapter.selectPos)
+
+                    //getQuizContents()
+                    val handler = Handler()
+                    handler.postDelayed(Runnable {
+                        getQuizContents()
+                        quizPanelAdapter.clicked = 0
+                        quizPanelAdapter.selectPos = -1
+                    }, 1000)
+                }
+                //lastClickTime = SystemClock.elapsedRealtime()
+
+            }
+
+            })
+
+        getQuizContents()
+        quizPanelAdapter.clicked = 0
+        quizPanelAdapter.selectPos = -1
 
     }
+
+    fun getQuizContents(){
+        val docRef = db.collection("economy")
+        docRef.get()
+            .addOnSuccessListener {
+                    document ->
+                var count = 0
+                quizitemList.clear()
+
+                answer = (0..3).random()
+
+                for(result in document){
+                    if(count>=4) break
+                    //아이템 뽑을때 랜덤으로 가져오기
+
+                    val random = (1..2).random()
+                    if(random == 1) {
+                        val term_item = TermData(result["name"].toString(), result["meaning"].toString())
+                        //Log.d("sampleshowshowshow",term_item.name)
+                        if (count == answer){
+                            question = term_item
+                            //tv_question.text = (answer+1).toString() + term_item.meaning  //term_item.meaning
+                            quizPanelAdapter.answer = answer
+                        }
+                        quizitemList.add(term_item)
+                        count++
+                    }
+                }
+
+                quizitemList.apply {
+                    val handler = Handler()
+                    handler.postDelayed(Runnable {
+                        /*
+
+                        if(!(tv_question.text.equals(quizitemList[answer].meaning))){
+                            tv_question.text = quizitemList[answer].meaning
+                        }
+                         */
+                        tv_question.text = question.meaning
+                        quizPanelAdapter.optionList = quizitemList
+                        quizPanelAdapter.notifyDataSetChanged()
+                        refreshed = 1
+                    }, 500)
+
+                    //quizitemList.clear()
+                }
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+    }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.

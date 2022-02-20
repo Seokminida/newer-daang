@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_search.*
 
 
 class TermsListActivity : AppCompatActivity() {
@@ -28,8 +29,10 @@ class TermsListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_termslist)
+
         val pressed_category = intent.getStringExtra("category")
-        val cates = listOf("정치", "사회", "군사","문화","경제","IT/과학")
+        var selected_category = ""
+
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -69,15 +72,46 @@ class TermsListActivity : AppCompatActivity() {
         if (pressed_category != null) {
             categoryAdapter_.selected = pressed_category.toInt()
         }
+
         categoryAdapter_.setOnItemClickListener(object: CategoryAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: CategoryAdapter.CateData, pos: Int) {
-                Toast.makeText( App.ApplicationContext(), "용어목록의 카테고리가 변경됩니다", Toast.LENGTH_SHORT ).show()
-                /*
-                Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {
-                    putExtra("data", data)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run { startActivity(this) }
-                 */
+                terms.apply {
+                    terms.clear()
+                    termAdapter.termsList = terms
+                    termAdapter.notifyDataSetChanged()
+                }
+
+
+                when(pos){
+                    0 -> selected_category="politics"
+                    1 -> selected_category="society"
+                    2 -> selected_category="military"
+                    3 -> selected_category="culture"
+                    4 -> selected_category="economy"
+                    5 -> selected_category="IT"
+                }
+
+                val docRef = db.collection(selected_category)
+                docRef.get()
+                    .addOnSuccessListener {
+                            document ->
+                        terms.clear()
+                        for(result in document){
+                            val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                            //Log.d("jonnjoon",selected_category)
+                            terms.add(term_item)
+                        }
+
+                        terms.apply {
+                            termAdapter.termsList = terms
+                            termAdapter.notifyDataSetChanged()
+                        }
+
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d("asd", "get failed with ", exception)
+                    }
+
             }
         })
 
@@ -96,14 +130,6 @@ class TermsListActivity : AppCompatActivity() {
         //if pressed_category == cate, cate의 인덱스에 해당하는 recyclerview background 변경
 
 
-
-
-
-
-
-
-
-
         val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
         termAdapter = TermAdapter(this)
         recyclerView_termsList.adapter = termAdapter
@@ -114,6 +140,12 @@ class TermsListActivity : AppCompatActivity() {
 
         termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: TermData, pos: Int) {
+                intentWordDetail.apply{
+                    putExtra("name", data.name)
+                    putExtra("mean",data.meaning)
+                    startActivity(this)
+                }
+
                 startActivity(intentWordDetail)
                 //Toast.makeText( App.ApplicationContext(), "용어목록에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
                 /*
@@ -125,8 +157,6 @@ class TermsListActivity : AppCompatActivity() {
             }
         })
 
-        var selected_category = ""
-
         when(categoryAdapter_.selected){
             0 -> selected_category="politics"
             1 -> selected_category="society"
@@ -136,32 +166,24 @@ class TermsListActivity : AppCompatActivity() {
             5 -> selected_category="IT"
         }
 
-        terms.apply {
-            val docRef = db.collection(selected_category)
-            docRef.get()
-                .addOnSuccessListener { document ->
-                    for(result in document){
-                        val insertD = TermData(result["name"].toString(),result["meaning"].toString())
-                        Log.d("jonnjoon",insertD.name)
-                        terms.add(insertD)
-                    }
+        val docRef = db.collection(selected_category)
+        docRef.get()
+            .addOnSuccessListener {
+                    document ->
+                terms.clear()
+                for(result in document){
+                    val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                    //Log.d("jonnjoon",selected_category)
+                    terms.add(term_item)
                 }
-                .addOnFailureListener { exception ->
-                    Log.d("asd", "get failed with ", exception)
+                terms.apply {
+                    termAdapter.termsList = terms
+                    termAdapter.notifyDataSetChanged()
                 }
-        }
-
-        terms.apply {
-            termAdapter.termsList = terms
-            termAdapter.notifyDataSetChanged()
-        }
-
-        terms.add(TermData("이름", "뜻"))
-        for(item in terms){
-            Log.d("jonnjoon2",item.name)
-        }
-
-
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
     }
 
 

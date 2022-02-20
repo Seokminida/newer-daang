@@ -145,12 +145,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="앱 설명 링크"
-                android:background="@color/aqua"
+                android:text="뉴어당이란?"
+                android:background="@drawable/aqua_background_round_sharp"
                 android:textColor="@color/black"
-                app:scale_height="100"
+                app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="400" />
+                app:scale_left = "125"
+                app:scale_top = "25"
+                app:scale_width="150" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
 

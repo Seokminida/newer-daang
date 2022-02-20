@@ -26,13 +26,11 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d("success", "signInWithEmail:success")
                         val user = auth.currentUser
                         updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.w("faile", "signInWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.makeText(baseContext, "로그인에 실패하였습니다.",
                             Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
@@ -42,16 +40,17 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    public override fun onStart() {
+        super.onStart()
+        updateUI(auth?.currentUser)
+    }
+
 
     private fun updateUI(user: FirebaseUser?) { //update ui code here
         if (user != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }
-        else
-        {
-            Toast.makeText(this@LoginActivity,"로그인 실패",Toast.LENGTH_SHORT).show()
         }
     }
 

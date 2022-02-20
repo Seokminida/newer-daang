@@ -39,6 +39,7 @@ class WordAdapter(private val context: Context):
             }
         }
     }
+
     var ite = ArrayList<ItemData>()
     fun filterList(filteredList: ArrayList<ItemData>) {
         ite = filteredList

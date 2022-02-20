@@ -143,6 +143,7 @@ class SearchActivity : AppCompatActivity(){
                     lineView.setVisibility(View.GONE)
                     wordRe.setVisibility(View.GONE)
                     recent.setVisibility(View.VISIBLE)
+
                 }
                 else {
                     scalableLayout2.setVisibility(View.GONE)
@@ -157,6 +158,19 @@ class SearchActivity : AppCompatActivity(){
             override fun afterTextChanged(p0: Editable?) {
                 var searchT: String = p0.toString()
                 searchFilter(searchT)
+            }
+        })
+
+        searchBar.setOnFocusChangeListener(object : View.OnFocusChangeListener{
+            override fun onFocusChange(view: View, hasFocus: Boolean) {
+                if(hasFocus){
+                    recent_textView.setVisibility(View.VISIBLE)
+                    recent_close_button.setVisibility(View.VISIBLE)
+                } else
+                {
+                    recent_textView.setVisibility(View.GONE)
+                    recent_close_button.setVisibility(View.GONE)
+                }
             }
         })
 

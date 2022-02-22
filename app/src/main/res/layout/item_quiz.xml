@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"  >
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:scale_base_height="160"
+        app:scale_base_width="800">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_background_round"
+        android:elevation="5dp"
+        app:scale_base_height="70"
+        app:scale_base_width="400"
+        app:scale_height="144"
+        app:scale_left="8"
+        app:scale_top="8"
+        app:scale_width="784">
+
+        <TextView
+            android:id="@+id/term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+
+            android:text="용어샘플"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:scale_height="60"
+            app:scale_left="16"
+            app:scale_textsize="17"
+            app:scale_top="0"
+            app:scale_width="200" />
+
+        <ImageButton
+            android:id="@+id/answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="#00FFFFFF"
+
+            android:gravity="center"
+            android:scaleType="centerCrop"
+            app:scale_height="30"
+            app:scale_left="354"
+            app:scale_top="0"
+            app:scale_width="30"
+            app:srcCompat="@drawable/quiz_o" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>

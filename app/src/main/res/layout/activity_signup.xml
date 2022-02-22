@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aqua_darker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scale_base_height="300"
+        app:scale_base_width="400">
+
+        <ImageView
+            android:id="@+id/signin_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_height="240"
+            app:scale_left="20"
+            app:scale_top="60"
+            app:scale_width="360"
+            app:srcCompat="@drawable/logo_head" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout_signin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scalableLayout_logo"
+        app:scale_base_height="355"
+        app:scale_base_width="400">
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="닉네임"
+            android:paddingStart="20dp"
+            app:scale_height="50"
+            app:scale_left="25"
+            app:scale_textsize="20"
+            app:scale_top="20"
+            app:scale_width="350"
+            android:background="@drawable/inputbox_selector"/>
+
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="abcdefg@mail.com"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20dp"
+            app:scale_height="50"
+            app:scale_left="25"
+            app:scale_textsize="20"
+            app:scale_top="90"
+            app:scale_width="350"
+            android:background="@drawable/inputbox_selector"/>
+
+        <EditText
+            android:id="@+id/password_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputbox_selector"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            app:scale_height="50"
+            app:scale_left="25"
+            app:scale_textsize="20"
+            app:scale_top="160"
+            app:scale_width="350" />
+
+        <EditText
+            android:id="@+id/password2_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputbox_selector"
+            android:hint="비밀번호 재입력"
+            android:inputType="textPassword"
+            android:paddingStart="20dp"
+            app:scale_height="50"
+            app:scale_left="25"
+            app:scale_textsize="20"
+            app:scale_top="230"
+            app:scale_width="350" />
+
+        <Button
+            android:id="@+id/continueB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginaround"
+            android:backgroundTint="@color/aqua_darker"
+            android:text="SIGN UP"
+            android:textColor="@color/white"
+
+            app:scale_height="50"
+            app:scale_left="50"
+            app:scale_textsize="20"
+            app:scale_top="300"
+            app:scale_width="300" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout_OR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scalableLayout_signin"
+        app:layout_constraintBottom_toTopOf="@id/bottom_login"
+        app:scale_base_height="30"
+        app:scale_base_width="400">
+
+        <TextView
+            android:id="@+id/Aleady"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OR"
+            android:textAlignment="center"
+
+            app:scale_height="30"
+            app:scale_left="50"
+            app:scale_textsize="15"
+            app:scale_top="0"
+            app:scale_width="300" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+    <FrameLayout
+            android:id="@+id/bottom_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:id="@+id/scalableLayout_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scalableLayout_signin"
+            app:layout_constraintBottom_toTopOf="@id/bottom_login"
+            app:scale_base_height="50"
+            app:scale_base_width="400">
+
+
+            <Button
+                android:id="@+id/loginB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D7EBEA"
+                android:text="LOGIN"
+                android:textAlignment="center"
+                app:scale_height="50"
+                app:scale_textsize="15"
+                app:scale_width="400"/>
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+        </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

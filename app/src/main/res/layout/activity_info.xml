@@ -24,11 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            app:scale_height="130"
-            app:scale_width="200"
-            app:scale_left="100"
+            app:scale_height="210"
+            app:scale_width="305"
+            app:scale_left="47.5"
             app:scale_top="90"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo_head" />
 
         <TextView
             android:id="@+id/login_b"
@@ -40,7 +40,7 @@
             app:scale_height="30"
             app:scale_left="100"
             app:scale_textsize="25"
-            app:scale_top="240"
+            app:scale_top="60"
             app:scale_width="200" />
 
     </com.ssomai.android.scalablelayout.ScalableLayout>
@@ -49,16 +49,17 @@
         android:id="@+id/frame_dev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scalable_logo"
-        android:padding="10dp">
+        app:layout_constraintTop_toBottomOf="@+id/scalable_logo">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:scale_base_height="100"
+            app:scale_base_height="120"
             app:scale_base_width="400">
 
             <TextView
@@ -68,24 +69,25 @@
                 android:gravity="center"
                 android:text="Developers"
                 android:textColor="@color/black"
-                app:scale_height="100"
+                app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="130"/>
+                app:scale_width="400" />
 
             <TextView
                 android:id="@+id/developers_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="developers_detail"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="목요플젝단\npoptanza@g.skku.edu"
                 android:textColor="@color/black"
-                app:scale_height="100"
-                app:scale_left="130"
-                app:scale_textsize="20"
-                app:scale_width="270"
-                android:padding="10dp"/>
-            </com.ssomai.android.scalablelayout.ScalableLayout>
-        </FrameLayout>
+                app:scale_height="60"
+                app:scale_left="0"
+                app:scale_textsize="15"
+                app:scale_top="50"
+                app:scale_width="400" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+    </FrameLayout>
     <FrameLayout
         android:id="@+id/frame_app"
         android:layout_width="match_parent"
@@ -98,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:scale_base_height="100"
+        app:scale_base_height="120"
         app:scale_base_width="400">
             <TextView
                 android:id="@+id/app_info"
@@ -107,21 +109,21 @@
                 android:gravity="center"
                 android:text="Application"
                 android:textColor="@color/black"
-                app:scale_height="100"
+                app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="130"/>
+                app:scale_width="400"/>
 
             <TextView
                 android:id="@+id/app_info_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="app_info_detail"
+                android:gravity="center"
+                android:text="뉴스가 어려운 당신에게\nNewer_Danng"
                 android:textColor="@color/black"
-                app:scale_height="100"
-                app:scale_left="130"
-                app:scale_textsize="20"
-                app:scale_width="270"
+                app:scale_height="60"
+                app:scale_top="50"
+                app:scale_textsize="15"
+                app:scale_width="400"
                 android:padding="10dp"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
@@ -138,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:scale_base_height="100"
+            app:scale_base_height="70"
             app:scale_base_width="400">
             <TextView
                 android:id="@+id/link"
@@ -148,10 +150,10 @@
                 android:text="뉴어당이란?"
                 android:background="@drawable/aqua_background_round_sharp"
                 android:textColor="@color/black"
-                app:scale_height="50"
+                app:scale_height="40"
                 app:scale_textsize="20"
                 app:scale_left = "125"
-                app:scale_top = "25"
+                app:scale_top = "15"
                 app:scale_width="150" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>

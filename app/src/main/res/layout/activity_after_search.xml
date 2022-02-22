@@ -22,7 +22,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="15dp"
-            android:background="@drawable/logo_60"
+            android:background="@drawable/logo_circle_40"
             android:onClick="back" />
 
         <ImageButton
@@ -106,7 +106,7 @@
                 android:visibility="gone"
                 app:scale_height="500"
                 app:scale_width="500"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/logo_body" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

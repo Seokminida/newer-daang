@@ -11,20 +11,22 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="20dp"
         android:paddingLeft="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_weight="0"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000" />
+        app:titleTextColor="#000000"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"

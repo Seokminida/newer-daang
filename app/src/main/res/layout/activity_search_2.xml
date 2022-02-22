@@ -16,13 +16,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
-            android:id="@+id/scalableLayout"
+            android:id="@+id/scalableLayout_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            app:scale_base_height="340"
+            app:scale_base_height="300"
             app:scale_base_width="2120">
 
             <EditText
@@ -34,7 +34,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:paddingStart="45dp"
-                app:scale_height="310"
+                app:scale_height="270"
                 app:scale_textsize="100"
                 app:scale_top="30"
                 app:scale_width="2120" />
@@ -45,12 +45,12 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:onClick="back"
-                android:scaleType="fitXY"
-                android:src="@drawable/back"
+                android:scaleType="center"
+                app:srcCompat="@drawable/back_25"
                 app:scale_height="150"
-                app:scale_left="70"
-                app:scale_top="110"
-                app:scale_width="150"
+                app:scale_left="50"
+                app:scale_top="90"
+                app:scale_width="100"
                 tools:ignore="OnClick" />
 
 
@@ -58,24 +58,24 @@
                 android:id="@+id/clearB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:backgroundTint="#d3d3d3"
-                android:src="@drawable/cross_icon"
+                android:background="#ffffff"
+                app:srcCompat="@drawable/cross_2"
                 android:visibility="gone"
-                app:scale_height="180"
-                app:scale_left="1620"
-                app:scale_top="100"
-                app:scale_width="180" />
+                android:scaleType="centerCrop"
+                app:scale_height="130"
+                app:scale_left="1645"
+                app:scale_top="95"
+                app:scale_width="130" />
 
             <View
                 android:id="@+id/lineView"
                 android:layout_width="wrap_content"
                 android:layout_height="0.3dp"
-                android:background="#d3d3d3"
+                android:background = "#d3d3d3"
                 android:visibility="gone"
-                app:scale_height="180"
+                app:scale_height="185"
                 app:scale_left="1830"
-                app:scale_top="100"
+                app:scale_top="70"
                 app:scale_width="5" />
 
             <ImageButton
@@ -84,11 +84,11 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
-                android:src="@drawable/search_icon"
-                app:scale_height="180"
-                app:scale_left="1870"
-                app:scale_top="100"
-                app:scale_width="180" />
+                app:srcCompat="@drawable/search_2"
+                app:scale_height="140"
+                app:scale_left="1900"
+                app:scale_top="90"
+                app:scale_width="140" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
 
@@ -97,8 +97,10 @@
         android:id="@+id/lin"
         android:layout_width="0dp"
         android:layout_height="500dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/Frame"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Frame"
         app:layout_constraintTop_toBottomOf="@+id/Frame">
 
@@ -119,9 +121,9 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="12dp"
                 android:text="최근 검색어"
-                android:visibility="gone"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:scale_height="280"
                 app:scale_textsize="100"
                 app:scale_width="2120" />
@@ -133,8 +135,8 @@
                 android:layout_marginStart="16dp"
                 android:background="#00ff0000"
                 android:paddingTop="1dp"
-                android:visibility="gone"
                 android:text="최근 검색 닫기"
+                android:visibility="gone"
 
                 app:scale_height="120"
                 app:scale_left="1540"
@@ -147,26 +149,26 @@
             android:id="@+id/wordRe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/recy"
             android:orientation="vertical"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             tools:listitem="@layout/item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/recy"
             android:orientation="vertical"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constrainedHeight="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             tools:listitem="@layout/item_recent" />
 
 

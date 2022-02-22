@@ -24,7 +24,7 @@ class MyPageActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.logo_60); //제목앞에 아이콘 넣기
+        toolbar.setNavigationIcon(R.drawable.logo_circle_40); //제목앞에 아이콘 넣기
         //toolbar.setTitle("뉴어당");
 
 
@@ -54,6 +54,14 @@ class MyPageActivity : AppCompatActivity() {
 
 
 
+        val tvRecentQuiz = findViewById<TextView>(R.id.recent_quiz)
+        tvRecentQuiz.setOnClickListener {
+            val intentRecentQuiz = Intent(this, RecentQuizActivity::class.java)
+            startActivity(intentRecentQuiz)
+        }
+
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -68,7 +76,7 @@ class MyPageActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.func_search, menu)
+        menuInflater.inflate(R.menu.func_nothing, menu)
         return true
     }
 

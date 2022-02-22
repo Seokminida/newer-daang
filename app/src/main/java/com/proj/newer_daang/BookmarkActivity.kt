@@ -20,8 +20,7 @@ class BookmarkActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.logo_60); //제목앞에 아이콘 넣기
-        toolbar.setTitle("북마크");
+        toolbar.setNavigationIcon(R.drawable.logo_circle_40); //제목앞에 아이콘 넣기
 
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home);
         btnHome.setOnClickListener {

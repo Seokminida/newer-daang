@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.logo_60); //제목앞에 아이콘 넣기
-        //toolbar.setTitle("뉴어당");
+        toolbar.setNavigationIcon(R.drawable.logo_circle_40); //제목앞에 아이콘 넣기
 
 
         //bottom bar: onclick intent move
@@ -61,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         val tvBestWord = findViewById<TextView>(R.id.bestword);
         tvBestWord.setOnClickListener {
             val intentBestWord = Intent(this, WordDetailActivity::class.java)
+            /*
+            intentBestWord.apply{
+                putExtra("name", data.name)
+                putExtra("mean",data.meaning)
+                startActivity(this)
+            }
+             */
+
             startActivity(intentBestWord)
         }
 

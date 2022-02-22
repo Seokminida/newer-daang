@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout_appname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aqua_darker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scalableLayout_startLogo"
+        app:scale_base_height="300"
+        app:scale_base_width="400">
+
+        <TextView
+            android:id="@+id/appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뉴스가\n어려운\n당신에게"
+            android:textAlignment="center"
+            app:scale_height="300"
+            app:scale_left="0"
+            app:scale_top="0"
+            app:scale_textsize="70"
+            app:scale_width="400"/>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scalableLayout_startLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aqua_darker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:scale_base_height="260"
+        app:scale_base_width="400">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:scale_height="260"
+            app:scale_left="5"
+            app:scale_top="0"
+            app:scale_width="390"
+            app:srcCompat="@drawable/logo_head" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,10 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.email_l
+import kotlinx.android.synthetic.main.activity_login.login_b
+import kotlinx.android.synthetic.main.activity_login.password_l
+import kotlinx.android.synthetic.main.activity_login_2.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_2)
         auth = Firebase.auth
+        //파이어베이스 로그인
         login_b.setOnClickListener {
             var email = email_l.text.toString()
             var password = password_l.text.toString()
@@ -35,11 +40,15 @@ class LoginActivity : AppCompatActivity() {
                         updateUI(null)
                     }
                 }
+        }
 
+        signup.setOnClickListener {
+            val intent = Intent(this, SignActivity::class.java)
+            startActivity(intent)
         }
 
     }
-
+    //자동로그인
     public override fun onStart() {
         super.onStart()
         updateUI(auth?.currentUser)

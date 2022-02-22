@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
-        android:id="@+id/scalableLayout_logo"
+        android:id="@+id/scalableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:scale_base_height="1417"
@@ -15,12 +15,11 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="182dp"
             android:background="#B0D8D7"
-            android:layout_gravity=""
-            app:scale_height="600"
+            app:scale_height="650"
             app:scale_width="800"
-            app:srcCompat="@drawable/logo_head" />
+            app:srcCompat="@drawable/logo" />
 
         <EditText
             android:id="@+id/email_l"

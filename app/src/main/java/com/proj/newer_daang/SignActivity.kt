@@ -25,6 +25,7 @@ class SignActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         auth = Firebase.auth
+        //파이어베이스 회원가입
         continueB.setOnClickListener {
             if(nickname.text.length == 0 ||password_edittext.text.length == 0||password2_edittext.text.length == 0||email_edittext.text.length == 0){
                 Toast.makeText(
@@ -33,7 +34,7 @@ class SignActivity : AppCompatActivity() {
                 ).show()
             }
             else{
-                if(password_edittext.text.toString() == password2_edittext.text.toString()) {
+                if(password_edittext.text.toString() == password2_edittext.text.toString()) { // 패스워드가 동일하다면
                     var email = email_edittext.text.toString()
                     var password = password_edittext.text.toString()
                     //회원가입

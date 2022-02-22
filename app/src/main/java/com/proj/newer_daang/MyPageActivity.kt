@@ -44,6 +44,7 @@ class MyPageActivity : AppCompatActivity() {
             val intentInfo = Intent(this, InfoActivity::class.java)
             startActivity(intentInfo)
         }
+        //로그아웃
         auth = Firebase.auth
         logout.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)

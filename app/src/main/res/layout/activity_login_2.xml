@@ -36,7 +36,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/scalableLayout_logo"
-        app:scale_base_height="210"
+        app:scale_base_height="215"
         app:scale_base_width="400">
 
         <EditText

@@ -27,19 +27,29 @@ class LoginActivity : AppCompatActivity() {
         login_b.setOnClickListener {
             var email = email_l.text.toString()
             var password = password_l.text.toString()
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        val user = auth.currentUser
-                        updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(baseContext, "로그인에 실패하였습니다.",
-                            Toast.LENGTH_SHORT).show()
-                        updateUI(null)
+            if (email.length == 0 || password.length == 0) {
+                Toast.makeText(
+                    baseContext, "빈 칸이 있습니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            val user = auth.currentUser
+                            updateUI(user)
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(
+                                baseContext, "로그인에 실패하였습니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            updateUI(null)
+                        }
                     }
-                }
+            }
         }
 
         signup.setOnClickListener {

@@ -2,6 +2,7 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
@@ -47,13 +48,18 @@ class MyPageActivity : AppCompatActivity() {
         //로그아웃
         auth = Firebase.auth
         logout.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, StartActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            auth.signOut()
             startActivity(intent)
-            auth?.signOut()
         }
 
-
+        val user = Firebase.auth.currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val name = user.email
+            Log.d("asda","$name")
+        }
 
         val tvRecentQuiz = findViewById<TextView>(R.id.recent_quiz)
         tvRecentQuiz.setOnClickListener {

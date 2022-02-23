@@ -32,13 +32,13 @@
             android:gravity="center_vertical"
 
             android:text="용어샘플"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textColor="@color/black_to_white"
             app:scale_height="60"
             app:scale_left="16"
             app:scale_textsize="17"
             app:scale_top="0"
-            app:scale_width="200" />
+            app:scale_width="200"
+            android:fontFamily="@font/pretendard_bold"/>
 
         <ImageButton
             android:id="@+id/heart"

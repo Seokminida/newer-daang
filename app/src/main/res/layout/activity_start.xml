@@ -51,7 +51,8 @@
             app:scale_left="50"
             app:scale_textsize="20"
             app:scale_top="100"
-            app:scale_width="300"/>
+            app:scale_width="300"
+            android:fontFamily="@font/pretendard_bold"/>
 
 
 
@@ -66,6 +67,7 @@
             app:scale_left="50"
             app:scale_textsize="20"
             app:scale_top="170"
-            app:scale_width="300"/>
+            app:scale_width="300"
+            android:fontFamily="@font/pretendard_bold"/>
     </com.ssomai.android.scalablelayout.ScalableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

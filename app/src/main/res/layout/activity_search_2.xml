@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D7EBEA"
+    android:background="@color/aqua_to_black"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -34,10 +34,13 @@
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:paddingStart="45dp"
+                android:textColor="@color/black_to_white"
+                android:textColorHint="@color/black_to_white"
                 app:scale_height="270"
                 app:scale_textsize="100"
                 app:scale_top="30"
-                app:scale_width="2120" />
+                app:scale_width="2120"
+                android:fontFamily="@font/pretendard_regular"/>
 
             <ImageButton
                 android:id="@+id/back_icon"
@@ -47,6 +50,7 @@
                 android:onClick="back"
                 android:scaleType="center"
                 app:srcCompat="@drawable/back_25"
+
                 app:scale_height="150"
                 app:scale_left="50"
                 app:scale_top="90"
@@ -58,8 +62,8 @@
                 android:id="@+id/clearB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#ffffff"
                 app:srcCompat="@drawable/cross_2"
+                android:background="@android:color/transparent"
                 android:visibility="gone"
                 android:scaleType="centerCrop"
                 app:scale_height="130"
@@ -117,16 +121,16 @@
                 android:id="@+id/recent_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@color/white_box"
                 android:paddingLeft="20dp"
                 android:paddingTop="12dp"
                 android:text="최근 검색어"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:textColor="@color/black_to_white"
                 android:visibility="gone"
                 app:scale_height="280"
                 app:scale_textsize="100"
-                app:scale_width="2120" />
+                app:scale_width="2120"
+                android:fontFamily="@font/pretendard_bold"/>
 
             <Button
                 android:id="@+id/recent_close_button"
@@ -136,8 +140,9 @@
                 android:background="#00ff0000"
                 android:paddingTop="1dp"
                 android:text="최근 검색 닫기"
+                android:textColor="@color/black_to_white"
                 android:visibility="gone"
-
+                android:fontFamily="@font/pretendard_regular"
                 app:scale_height="120"
                 app:scale_left="1540"
                 app:scale_textsize="75"

@@ -5,13 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/white">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:id="@+id/scalable_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B0D8D7"
+        android:background="@color/aqua_darker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +41,8 @@
             app:scale_left="100"
             app:scale_textsize="25"
             app:scale_top="60"
-            app:scale_width="200" />
+            app:scale_width="200"
+            android:fontFamily="@font/pretendard_bold"/>
 
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
@@ -50,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scalable_logo">
@@ -68,10 +68,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Developers"
-                android:textColor="@color/black"
+                android:textColor="@color/black_to_white"
                 app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="400" />
+                app:scale_width="400"
+                android:fontFamily="@font/pretendard_regular"/>
 
             <TextView
                 android:id="@+id/developers_detail"
@@ -80,12 +81,13 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="목요플젝단\npoptanza@g.skku.edu"
-                android:textColor="@color/black"
+                android:textColor="@color/black_to_white"
                 app:scale_height="60"
                 app:scale_left="0"
                 app:scale_textsize="15"
                 app:scale_top="50"
-                app:scale_width="400" />
+                app:scale_width="400"
+                android:fontFamily="@font/pretendard_regular"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
     <FrameLayout
@@ -94,8 +96,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_dev"
-        android:padding="10dp">
+        app:layout_constraintTop_toBottomOf="@+id/frame_dev">
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,10 +109,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Application"
-                android:textColor="@color/black"
+                android:textColor="@color/black_to_white"
                 app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="400"/>
+                app:scale_width="400"
+                android:fontFamily="@font/pretendard_regular"/>
 
             <TextView
                 android:id="@+id/app_info_detail"
@@ -119,12 +121,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="뉴스가 어려운 당신에게\nNewer_Danng"
-                android:textColor="@color/black"
+                android:textColor="@color/black_to_white"
                 app:scale_height="60"
                 app:scale_top="50"
                 app:scale_textsize="15"
                 app:scale_width="400"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:fontFamily="@font/pretendard_regular"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
     <FrameLayout
@@ -134,13 +137,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_app"
-        app:layout_constraintBottom_toTopOf="@+id/frame_bottombar"
-        android:padding="10dp">
+        app:layout_constraintBottom_toTopOf="@+id/frame_bottombar">
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:scale_base_height="70"
+            app:scale_base_height="30"
             app:scale_base_width="400">
             <TextView
                 android:id="@+id/link"
@@ -148,13 +150,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="뉴어당이란?"
-                android:background="@drawable/aqua_background_round_sharp"
-                android:textColor="@color/black"
-                app:scale_height="40"
+                android:textColor="@color/black_to_white"
+                app:scale_height="30"
                 app:scale_textsize="20"
                 app:scale_left = "125"
-                app:scale_top = "15"
-                app:scale_width="150" />
+                app:scale_top = "0"
+                app:scale_width="150"
+                android:fontFamily="@font/pretendard_regular"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
 

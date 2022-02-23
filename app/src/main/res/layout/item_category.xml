@@ -34,12 +34,13 @@
                 android:gravity="center"
 
                 android:text="용어샘플"
-                android:textColor="@color/black"
+                android:textColor="@color/darker_gray3"
                 app:scale_height="35"
                 app:scale_left="2.5"
                 app:scale_textsize="20"
                 app:scale_top="2.5"
-                app:scale_width="75" />
+                app:scale_width="75"
+                android:fontFamily="@font/pretendard_regular"/>
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
 

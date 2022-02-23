@@ -8,11 +8,12 @@
 
         android:name = ".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_bird_head"
+        android:roundIcon="@mipmap/ic_bird_head_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewerDaang">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

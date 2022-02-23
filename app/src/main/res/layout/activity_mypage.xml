@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/white">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -19,14 +19,14 @@
         android:paddingLeft="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000"
+        app:title="마이페이지"
+        app:titleTextColor="@color/darker_gray3"
         app:titleTextAppearance="@style/Toolbar.TitleText">
-
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -70,12 +70,13 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:text="username"
-                android:textColor="@color/black"
+                android:textColor="@color/black_to_white"
                 app:scale_height="40"
                 app:scale_left="140"
                 app:scale_textsize="20"
                 app:scale_top="200"
-                app:scale_width="120" />
+                app:scale_width="120"
+                android:fontFamily="@font/pretendard_bold"/>
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
@@ -119,17 +120,18 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="최근 푼 퀴즈"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/darker_gray2_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
                     app:scale_top="15"
-                    app:scale_width="350" />
+                    app:scale_width="350"
+                    android:fontFamily="@font/pretendard_regular"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
+                    android:background="@color/darker_gray2"
                     app:scale_height="2"
                     app:scale_left="20"
                     app:scale_top="69"
@@ -142,12 +144,13 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="다크모드"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/darker_gray2_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
                     app:scale_top="85"
-                    app:scale_width="100" />
+                    app:scale_width="100"
+                    android:fontFamily="@font/pretendard_regular"/>
 
                 <Switch
                     android:id="@+id/darkmode_toggle"
@@ -155,8 +158,6 @@
                     android:layout_height="wrap_content"
                     android:track="@drawable/switch_track_selector"
                     android:thumb="@drawable/switch_thumb"
-                    android:checked="false"
-                    android:clickable="true"
                     app:scale_height="40"
                     app:scale_left="300"
                     app:scale_top="85"
@@ -205,12 +206,13 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="로그아웃"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/darker_gray2_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
                     app:scale_top="15"
-                    app:scale_width="350" />
+                    app:scale_width="350"
+                android:fontFamily="@font/pretendard_regular"/>
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>

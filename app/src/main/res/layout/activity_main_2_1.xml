@@ -18,14 +18,14 @@
         android:paddingLeft="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000"
+        app:title="뉴어당"
+        app:titleTextColor="@color/darker_gray3"
         app:titleTextAppearance="@style/Toolbar.TitleText">
-
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -71,13 +71,14 @@
                     android:gravity="start|center_vertical"
                     android:paddingStart="10dp"
                     android:text="오늘의 베스트 단어"
-                    android:textColor="@color/darker_gray2"
+                    android:textColor="@color/darker_gray2_to_white"
                     android:textStyle="bold"
                     app:scale_height="60"
                     app:scale_left="9"
                     app:scale_textsize="20"
                     app:scale_top="10"
-                    app:scale_width="382" />
+                    app:scale_width="382"
+                    android:fontFamily="@font/pretendard_bold"/>
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </FrameLayout>
@@ -141,7 +142,8 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
                     <ImageView
                         android:id="@+id/img_military"
                         android:layout_width="wrap_content"
@@ -184,7 +186,8 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
                     <ImageView
                         android:id="@+id/img_social"
                         android:layout_width="wrap_content"
@@ -229,7 +232,8 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
 
                     <ImageView
                         android:id="@+id/img_politics"
@@ -299,7 +303,8 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
                     <ImageView
                         android:id="@+id/img_IT"
                         android:layout_width="wrap_content"
@@ -341,7 +346,9 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
+
                     <ImageView
                         android:id="@+id/img_culture"
                         android:layout_width="wrap_content"
@@ -383,7 +390,8 @@
                         app:scale_left="10"
                         app:scale_textsize="20"
                         app:scale_top="5"
-                        app:scale_width="70" />
+                        app:scale_width="70"
+                        android:fontFamily="@font/pretendard_bold"/>
                     <ImageView
                         android:id="@+id/img_economy"
                         android:layout_width="wrap_content"
@@ -441,13 +449,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="start"
                     android:text="단어퀴즈"
-                    android:textColor="@color/darker_gray2"
+                    android:textColor="@color/darker_gray2_to_white"
                     android:textStyle="bold"
                     app:scale_height="25"
                     app:scale_left="10"
                     app:scale_textsize="20"
                     app:scale_top="10"
-                    app:scale_width="100" />
+                    app:scale_width="100"
+                    android:fontFamily="@font/pretendard_bold"/>
 
                 <TextView
                     android:id="@+id/question"
@@ -463,12 +472,14 @@
                     app:scale_left="11"
                     app:scale_textsize="15"
                     app:scale_top="50"
-                    app:scale_width="360" />
+                    app:scale_width="360"
+                    android:fontFamily="@font/pretendard_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/quiz_panel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white_box"
                     android:gravity="center"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:scale_height="105"

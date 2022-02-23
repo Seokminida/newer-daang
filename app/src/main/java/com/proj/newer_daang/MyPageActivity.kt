@@ -7,16 +7,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_mypage.*
 
+
+var isDarkmodeOn : Boolean = false
+
+
 class MyPageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
@@ -26,7 +31,7 @@ class MyPageActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.logo_circle_40); //제목앞에 아이콘 넣기
-        //toolbar.setTitle("뉴어당");
+
 
 
         //bottom bar: onclick intent move
@@ -45,6 +50,61 @@ class MyPageActivity : AppCompatActivity() {
             val intentInfo = Intent(this, InfoActivity::class.java)
             startActivity(intentInfo)
         }
+
+
+        val darkmode_toggle = findViewById<Switch>(R.id.darkmode_toggle)
+
+        if (isDarkmodeOn) {
+            darkmode_toggle.isChecked = true
+            //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+        } else {
+            darkmode_toggle.isChecked = false
+            //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+
+
+
+        darkmode_toggle.setOnCheckedChangeListener{_, isChecked ->
+            if(isChecked) {
+                if(darkmode_toggle.isPressed == true) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    isDarkmodeOn=true
+                }
+
+            }
+            else{
+                if(darkmode_toggle.isPressed == true) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    isDarkmodeOn=false
+                }
+            }
+        }
+
+
+        /*
+        darkmode_toggle.setOnCheckedChangeListener{CompoundButton, onSwitch ->
+            //  스위치가 켜지면
+            if (onSwitch){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                darkmode_toggle.isChecked = true
+            }
+
+            //  스위치가 꺼지면
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                darkmode_toggle.isChecked = false
+            }
+            //ThemeManager.applyTheme(ThemeManager.ThemeMode.Dark)
+        }
+
+         */
+
+
+
+
+
         //로그아웃
         auth = Firebase.auth
         logout.setOnClickListener{

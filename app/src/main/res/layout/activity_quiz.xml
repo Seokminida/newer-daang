@@ -18,14 +18,14 @@
         android:paddingLeft="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000"
+        app:title="최근 푼 퀴즈"
+        app:titleTextColor="@color/darker_gray3"
         app:titleTextAppearance="@style/Toolbar.TitleText">
-
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
@@ -37,6 +37,7 @@
         android:paddingEnd="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

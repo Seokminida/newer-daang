@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/mere_white">
+    android:layout_height="wrap_content">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="match_parent"
@@ -26,8 +25,12 @@
             android:id="@+id/term"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="false"
+            android:fontFamily="@font/pretendard_regular"
             android:gravity="center"
-            android:text="용어샘플"
+
+            android:text="선지"
+            android:textColor="@drawable/color_presed"
             android:textStyle="bold"
             app:scale_height="30"
             app:scale_left="5"

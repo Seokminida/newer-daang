@@ -18,14 +18,14 @@
         android:paddingLeft="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="#000000"
+        app:title="카테고리"
+        app:titleTextColor="@color/darker_gray3"
         app:titleTextAppearance="@style/Toolbar.TitleText">
-
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -33,6 +33,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,14 +55,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
                 android:text="주제별 보기"
-                android:textColor="@android:color/black"
-
-                android:textStyle="bold"
+                android:textColor="@color/black_to_white"
                 app:scale_height="30"
                 app:scale_left="10"
                 app:scale_textsize="15"
                 app:scale_top="10"
-                app:scale_width="320" />
+                app:scale_width="320"
+                android:fontFamily="@font/pretendard_bold"/>
 
             <View
                 android:layout_width="match_parent"

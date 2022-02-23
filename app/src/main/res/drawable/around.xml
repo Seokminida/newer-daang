@@ -9,7 +9,7 @@
                 android:topRightRadius="7dp"
                 ></corners>
 
-            <solid android:color="#FFF" />
+            <solid android:color="@color/white_box" />
 
         </shape>
     </item>

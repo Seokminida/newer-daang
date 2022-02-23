@@ -7,16 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
 
-    <color name="white">#FFFFFFFF</color>
-    <color name="white_box">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
+    <color name="white_box">#272727</color>
 
-
-    <color name="darker_gray2_to_white">#707070</color>
-    <color name="darker_gray2_to_black">#707070</color>
-    <color name="mere_white_to_black">#F8F8F8</color>
-    <color name="black_to_white">#FF000000</color>
-    <color name="aqua_to_black">#D7EBEA</color>
-
+    <color name="darker_gray2_to_white">#FFFFFF</color>
+    <color name="darker_gray2_to_black">#FF000000</color>
+    <color name="mere_white_to_black">#FF000000</color>
+    <color name="black_to_white">#FFFFFF</color>
+    <color name="aqua_to_black">#FF000000</color>
 
 
     <color name="orange_point">#FF5940</color>
@@ -25,5 +23,6 @@
     <color name="darker_gray">#AAAAAA</color>
     <color name="darker_gray2">#707070</color>
     <color name="darker_gray3">#505050</color>
-    <color name="mere_white">#F8F8F8</color>
+
+    <color name="mere_white">#272727</color>
 </resources>

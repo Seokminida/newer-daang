@@ -50,7 +50,10 @@
             app:scale_textsize="20"
             app:scale_top="20"
             app:scale_width="350"
-            android:background="@drawable/inputbox_selector"/>
+            android:textColor="@color/black_to_white"
+            android:textColorHint="@color/darker_gray2_to_white"
+            android:background="@drawable/inputbox_selector"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <EditText
             android:id="@+id/email_edittext"
@@ -64,7 +67,10 @@
             app:scale_textsize="20"
             app:scale_top="90"
             app:scale_width="350"
-            android:background="@drawable/inputbox_selector"/>
+            android:textColor="@color/black_to_white"
+            android:textColorHint="@color/darker_gray2_to_white"
+            android:background="@drawable/inputbox_selector"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <EditText
             android:id="@+id/password_edittext"
@@ -78,7 +84,10 @@
             app:scale_left="25"
             app:scale_textsize="20"
             app:scale_top="160"
-            app:scale_width="350" />
+            app:scale_width="350"
+            android:textColor="@color/black_to_white"
+            android:textColorHint="@color/darker_gray2_to_white"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <EditText
             android:id="@+id/password2_edittext"
@@ -92,7 +101,10 @@
             app:scale_left="25"
             app:scale_textsize="20"
             app:scale_top="230"
-            app:scale_width="350" />
+            app:scale_width="350"
+            android:textColor="@color/black_to_white"
+            android:textColorHint="@color/darker_gray2_to_white"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <Button
             android:id="@+id/continueB"
@@ -107,7 +119,8 @@
             app:scale_left="50"
             app:scale_textsize="20"
             app:scale_top="300"
-            app:scale_width="300" />
+            app:scale_width="300"
+            android:fontFamily="@font/pretendard_bold"/>
 
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
@@ -129,7 +142,7 @@
             android:gravity="center"
             android:text="OR"
             android:textAlignment="center"
-
+            android:fontFamily="@font/pretendard_regular"
             app:scale_height="30"
             app:scale_left="50"
             app:scale_textsize="15"
@@ -169,7 +182,8 @@
                 android:textAlignment="center"
                 app:scale_height="50"
                 app:scale_textsize="15"
-                app:scale_width="400"/>
+                app:scale_width="400"
+                android:fontFamily="@font/pretendard_bold"/>
         </com.ssomai.android.scalablelayout.ScalableLayout>
         </FrameLayout>
 

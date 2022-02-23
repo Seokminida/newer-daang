@@ -15,7 +15,7 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
 
     var datas = ArrayList<ItemData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_after_search,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_after_search_2,parent,false)
         return ViewHolder(view)
     }
 

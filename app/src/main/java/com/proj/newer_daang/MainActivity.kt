@@ -229,6 +229,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getQuizContents(){
+
         val docRef = db.collection("economy")
         docRef.get()
             .addOnSuccessListener {

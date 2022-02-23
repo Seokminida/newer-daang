@@ -29,12 +29,13 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="용어샘플"
-            android:textStyle="bold"
+            android:textColor="@color/darker_gray2_to_white"
             app:scale_height="20"
             app:scale_left="10"
             app:scale_textsize="15"
             app:scale_top="5"
-            app:scale_width="220" />
+            app:scale_width="220"
+            android:fontFamily="@font/pretendard_bold"/>
 
         <ImageButton
             android:id="@+id/heart"
@@ -68,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="meaning sample goes here with meaning sample goes here"
+            android:textColor="@color/darker_gray2_to_white"
             app:scale_height="31"
             app:scale_left="10"
             app:scale_textsize="12"
@@ -76,11 +78,12 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/darker_gray"
+            android:background="@color/darker_gray"
             app:scale_height="1"
             app:scale_left="10"
             app:scale_top="74"
-            app:scale_width="270" />
+            app:scale_width="270"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <TextView
             android:id="@+id/term_cate"
@@ -93,7 +96,8 @@
             app:scale_left="10"
             app:scale_textsize="12"
             app:scale_top="85"
-            app:scale_width="50"/>
+            app:scale_width="50"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <TextView
             android:id="@+id/term_tag1"
@@ -108,7 +112,8 @@
             app:scale_left="65"
             app:scale_textsize="12"
             app:scale_top="85"
-            app:scale_width="165" />
+            app:scale_width="165"
+            android:fontFamily="@font/pretendard_regular"/>
 
         <ImageView
             android:id="@+id/tag_more"

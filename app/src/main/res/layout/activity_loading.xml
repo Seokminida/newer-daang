@@ -16,20 +16,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/scalableLayout_startLogo"
-        app:scale_base_height="300"
+        app:scale_base_height="260"
         app:scale_base_width="400">
 
-        <TextView
+        <ImageView
             android:id="@+id/appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="뉴스가\n어려운\n당신에게"
-            android:textAlignment="center"
-            app:scale_height="300"
-            app:scale_left="0"
+            android:scaleType="fitCenter"
+            app:scale_height="260"
+            app:scale_left="5"
             app:scale_top="0"
-            app:scale_textsize="70"
-            app:scale_width="400"/>
+            app:scale_width="390"
+            app:srcCompat="@drawable/appname" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
 

@@ -9,7 +9,14 @@
 
 
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/darker_gray3</item>
         <item name="android:textSize">23sp</item>
     </style>
 </resources>

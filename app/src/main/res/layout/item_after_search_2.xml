@@ -80,9 +80,7 @@
                 app:scale_textsize="4"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp"
-                android:paddingTop="7dp"
-                app:textview_wrapcontent_direction="right"
-                app:textview_wrapcontent_movesiblings="false" />
+                android:paddingTop="7dp"/>
 
 
             <TextView
@@ -99,9 +97,7 @@
                 app:scale_width="49"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
-                android:paddingTop="7dp"
-                app:textview_wrapcontent_resizesurrounded="false"
-                app:textview_wrapcontent_direction="right" />
+                android:paddingTop="7dp"/>
 
 
             <ImageView

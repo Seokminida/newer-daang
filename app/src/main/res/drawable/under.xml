@@ -12,7 +12,7 @@
                 android:width="3dp"
                 android:color="#d3d3d3" />
 
-            <solid android:color="#FFF" />
+            <solid android:color="@color/white_box" />
 
         </shape>
     </item>

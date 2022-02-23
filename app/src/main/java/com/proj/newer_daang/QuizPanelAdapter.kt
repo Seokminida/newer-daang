@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import androidx.core.content.ContextCompat.startActivity
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -43,20 +44,30 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(optionList[position])
         if(selectPos == position) {
-            if(answer!=selectPos)
+            if(answer!=selectPos) {
                 holder.itemView.setBackgroundResource(R.color.orange_point)
+                val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
+            }
 
             else{
                 holder.itemView.setBackgroundResource(R.color.aqua)
+                val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
+
             }
         } else {
             if(answer == position && clicked==1 ){
                 holder.itemView.setBackgroundResource(R.color.aqua)
-                //clicked = 0
+                val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
             }
 
-            else
-                holder.itemView.setBackgroundResource(R.color.white)
+            else {
+                holder.itemView.setBackgroundResource(R.color.white_box)
+                val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2_to_white))
+            }
         }
     }
 
@@ -81,10 +92,11 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
             {
                 itemView.setOnClickListener {
                     listener?.onItemClick(itemView,item,pos)
+
                     notifyDataSetChanged()
+
                 }
             }
-
         }
 
 

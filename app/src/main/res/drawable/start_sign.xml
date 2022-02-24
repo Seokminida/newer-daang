@@ -13,9 +13,9 @@
 
             <stroke
                 android:width="3dp"
-                android:color="@color/white" />
+                android:color="@color/white_fixed" />
 
-            <solid android:color="?attr/colorPrimary" />
+            <solid android:color="@color/aqua_darker" />
 
         </shape>
     </item>

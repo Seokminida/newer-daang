@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="단어"
-            android:textColor="@color/black_to_white"
+            android:textColor="@color/darker_gray_to_white"
 
             android:paddingTop="7dp"
             app:scale_height="11"

@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="#FFFFFF"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/white_box"
         app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
+        app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
@@ -32,12 +30,12 @@
                 android:fontFamily="@font/pretendard_bold"
                 android:gravity="center_vertical"
                 android:text="단어"
-                android:textColor="#000000"
+                android:textColor="@color/darker_gray_to_white"
                 app:scale_height="12"
                 app:scale_left="5"
                 app:scale_textsize="6"
                 app:scale_top="5"
-                app:scale_width="90"
+                app:scale_width="70"
                 tools:ignore="MissingPrefix" />
 
             <TextView
@@ -45,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="설명"
-                android:textColor="#97000000"
+                android:textColor="@color/darker_gray_to_white"
                 android:maxLines="2"
                 android:ellipsize="end"
                 app:scale_height="12"
@@ -75,12 +73,12 @@
                 app:scale_height="9"
                 app:scale_left="5"
                 app:scale_top="44.5"
-                android:textColor="@color/black"
+                android:textColor="@color/darker_gray"
                 app:scale_width="20"
                 app:scale_textsize="4"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp"
-                android:paddingTop="7dp"/>
+                android:gravity="center_vertical"/>
 
 
             <TextView
@@ -89,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/aqua_background_round_sharp"
                 android:text="# 해시태그  "
-                android:textColor="@color/black"
+                android:textColor="@color/darker_gray"
                 app:scale_height="9"
                 app:scale_left="28"
                 app:scale_textsize="4"
@@ -97,7 +95,7 @@
                 app:scale_width="49"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
-                android:paddingTop="7dp"/>
+                android:gravity="center_vertical"/>
 
 
             <ImageView
@@ -120,7 +118,7 @@
                 android:scaleType="center"
                 app:scale_height="12"
                 app:scale_left="77"
-                app:scale_top="3"
+                app:scale_top="5"
                 app:scale_width="8"/>
 
             <ImageButton
@@ -132,7 +130,7 @@
                 android:scaleType="center"
                 app:scale_height="12"
                 app:scale_left="87"
-                app:scale_top="3"
+                app:scale_top="5"
                 app:scale_width="8"/>
 
 

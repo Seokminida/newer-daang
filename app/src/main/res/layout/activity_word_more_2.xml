@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="단어"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
@@ -48,9 +48,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="단어"
-                    android:textColor="#000000"
+                    android:textColor="@color/darker_gray_to_white"
                     android:layout_margin="20dp"
                     android:textSize="30dp"
+                    android:fontFamily="@font/pretendard_bold"
                     tools:ignore="MissingPrefix" />
 
                 <TextView
@@ -61,8 +62,9 @@
                     android:text="설명"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textColor="#97000000"
+                    android:textColor="@color/darker_gray_to_white"
                     android:textSize="25dp"
+                    android:fontFamily="@font/pretendard_regular"
                     tools:ignore="MissingPrefix" />
 
 

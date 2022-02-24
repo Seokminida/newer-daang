@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="마이페이지"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
@@ -86,31 +86,26 @@
         android:id="@+id/frame_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_my">
 
-        <com.ssomai.android.scalablelayout.ScalableLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:scale_base_height="150"
-            app:scale_base_width="400">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardBackgroundColor="@color/white_box"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/white_background_round"
-                android:elevation="5dp"
                 app:scale_base_height="140"
-                app:scale_base_width="390"
-                app:scale_height="140"
-                app:scale_left="5"
-                app:scale_top="5"
-                app:scale_width="390">
+                app:scale_base_width="390">
 
 
                 <TextView
@@ -120,7 +115,7 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="최근 푼 퀴즈"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
@@ -131,7 +126,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/darker_gray2"
+                    android:background="@color/darker_gray"
                     app:scale_height="2"
                     app:scale_left="20"
                     app:scale_top="69"
@@ -144,7 +139,7 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="다크모드"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
@@ -164,7 +159,7 @@
                     app:scale_width="70" />
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
-        </com.ssomai.android.scalablelayout.ScalableLayout>
+        </androidx.cardview.widget.CardView>
     </FrameLayout>
 
     <FrameLayout
@@ -172,30 +167,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_weight="0"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_box">
 
-        <com.ssomai.android.scalablelayout.ScalableLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:scale_base_height="80"
-            app:scale_base_width="400">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardBackgroundColor="@color/white_box"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/white_background_round"
-                android:elevation="5dp"
                 app:scale_base_height="70"
-                app:scale_base_width="390"
-                app:scale_height="70"
-                app:scale_left="5"
-                app:scale_top="5"
-                app:scale_width="390">
+                app:scale_base_width="390">
 
 
 
@@ -206,7 +196,7 @@
                     android:clickable="true"
                     android:gravity="start|center_vertical"
                     android:text="로그아웃"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="40"
                     app:scale_left="20"
                     app:scale_textsize="20"
@@ -214,7 +204,7 @@
                     app:scale_width="350"
                 android:fontFamily="@font/pretendard_regular"/>
             </com.ssomai.android.scalablelayout.ScalableLayout>
-        </com.ssomai.android.scalablelayout.ScalableLayout>
+        </androidx.cardview.widget.CardView>
     </FrameLayout>
 
 

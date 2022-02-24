@@ -16,7 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_after_search.*
 import kotlinx.android.synthetic.main.activity_after_search.searchBar
-import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.activity_search_2.*
 
 class AfterRe : AppCompatActivity() {
     lateinit var reAdapter: AfterReAdapter

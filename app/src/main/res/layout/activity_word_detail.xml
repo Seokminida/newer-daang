@@ -25,19 +25,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="단어"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_margin="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white_box"
             app:cardCornerRadius="15dp"
-            app:cardElevation="2dp"
+            app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
@@ -51,12 +53,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="단어"
-                    android:textColor="@color/black_to_white"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="12"
                     app:scale_left="5"
                     app:scale_textsize="6"
                     app:scale_top="3"
-                    app:scale_width="60"
+                    app:scale_width="70"
                     tools:ignore="MissingPrefix"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/pretendard_bold"/>
@@ -92,7 +96,7 @@
                     android:fontFamily="@font/pretendard_regular"
                     android:maxLines="2"
                     android:text="설명"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="12"
                     app:scale_left="5"
                     app:scale_textsize="5"
@@ -109,10 +113,11 @@
                     android:layout_height="wrap_content"
                     android:background="#00ff0000"
                     android:text="더보기"
-                    android:textColor="@color/black_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="11"
                     app:scale_left="5"
                     app:scale_textsize="5"
+
                     app:scale_top="40"
                     app:scale_width="90"
                     android:fontFamily="@font/pretendard_regular"/>
@@ -136,6 +141,7 @@
                     app:scale_height="10"
                     app:scale_left="5"
                     app:scale_textsize="4.5"
+                    android:textColor="@color/darker_gray"
                     app:scale_top="58"
                     app:scale_width="20"
                     android:fontFamily="@font/pretendard_regular"/>
@@ -148,6 +154,7 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:background="@drawable/aqua_background_round_sharp"
+                    android:textColor="@color/darker_gray"
                     android:text="#해시태그 #해시태그 #해시"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -181,17 +188,17 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             app:cardBackgroundColor="@color/white_box"
             app:cardCornerRadius="15dp"
-            app:cardElevation="2dp"
+            app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 app:scale_base_height="70"
                 app:scale_base_width="100">
 
@@ -200,9 +207,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="관련기사"
-                    android:textColor="@color/black_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="12"
-                    app:scale_left="4"
+                    app:scale_left="5"
                     app:scale_textsize="6"
                     app:scale_top="3"
                     app:scale_width="90"
@@ -216,12 +223,12 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="내용"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     app:scale_height="12"
-                    app:scale_left="4"
+                    app:scale_left="5"
                     app:scale_textsize="5"
                     app:scale_top="16"
-                    app:scale_width="86"
+                    app:scale_width="90"
                     app:textview_wrapcontent_direction="bottom"
                     app:textview_wrapcontent_movesiblings="true"
                     app:textview_wrapcontent_resizesurrounded="true"

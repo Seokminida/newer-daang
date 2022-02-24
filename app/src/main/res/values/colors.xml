@@ -11,19 +11,24 @@
     <color name="white_box">#FFFFFFFF</color>
 
 
-    <color name="darker_gray2_to_white">#707070</color>
-    <color name="darker_gray2_to_black">#707070</color>
+    <color name="darker_gray_to_white">#505050</color>
+    <color name="darker_gray_to_black">#505050</color>
+    <color name="darker_gray3_to_black">#BBBBBB</color>
     <color name="mere_white_to_black">#F8F8F8</color>
     <color name="black_to_white">#FF000000</color>
     <color name="aqua_to_black">#D7EBEA</color>
+    <color name="white_to_darker_gray">#FFFFFF</color>
+
+
+    <color name="white_fixed">#FFFFFF</color>
+
 
 
 
     <color name="orange_point">#FF5940</color>
     <color name="aqua">#D7EBEA</color>
     <color name="aqua_darker">#B0D8D7</color>
-    <color name="darker_gray">#AAAAAA</color>
-    <color name="darker_gray2">#707070</color>
-    <color name="darker_gray3">#505050</color>
+    <color name="darker_gray">#505050</color>
+
     <color name="mere_white">#F8F8F8</color>
 </resources>

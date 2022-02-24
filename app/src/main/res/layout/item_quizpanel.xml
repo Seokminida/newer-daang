@@ -30,7 +30,7 @@
             android:gravity="center"
 
             android:text="선지"
-            android:textColor="@drawable/color_presed"
+            android:textColor="@color/darker_gray_to_white"
             android:textStyle="bold"
             app:scale_height="30"
             app:scale_left="5"

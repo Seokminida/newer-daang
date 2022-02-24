@@ -4,7 +4,7 @@
     android:id="@+id/lay1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aqua"
+    android:background="@color/aqua_to_black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <FrameLayout
@@ -34,8 +34,8 @@
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:paddingStart="45dp"
-                android:textColor="@color/black_to_white"
-                android:textColorHint="@color/black_to_white"
+                android:textColor="@color/darker_gray_to_white"
+                android:textColorHint="@color/darker_gray_to_white"
                 app:scale_height="270"
                 app:scale_textsize="100"
                 app:scale_top="30"
@@ -75,7 +75,7 @@
                 android:id="@+id/lineView2"
                 android:layout_width="wrap_content"
                 android:layout_height="0.3dp"
-                android:background = "#d3d3d3"
+                android:background = "@color/darker_gray"
                 android:visibility="gone"
                 app:scale_height="185"
                 app:scale_left="1830"
@@ -162,6 +162,7 @@
         android:id="@+id/after_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
         android:orientation="vertical"
         android:visibility="gone"
@@ -172,7 +173,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toTopOf="@+id/frame_bottombar"
-        tools:listitem="@layout/item_after_search" />
+        tools:listitem="@layout/item_after_search_2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -187,7 +188,7 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/aqua"
+            android:background="@color/aqua_to_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -203,6 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="~~~~~에 대한 정보가 없습니다"
+                android:textColor="@color/darker_gray_to_white"
                 android:textAlignment="center"
                 app:scale_height="100"
                 app:scale_textsize="40"

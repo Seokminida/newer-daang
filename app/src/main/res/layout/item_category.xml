@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/aqua_background_round_sharp"
-            android:elevation="5dp"
+            android:elevation="4dp"
             app:scale_base_height="40"
 
             app:scale_base_width="80"
@@ -34,7 +34,7 @@
                 android:gravity="center"
 
                 android:text="용어샘플"
-                android:textColor="@color/darker_gray3"
+                android:textColor="@color/darker_gray"
                 app:scale_height="35"
                 app:scale_left="2.5"
                 app:scale_textsize="20"

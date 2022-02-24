@@ -47,26 +47,26 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
             if(answer!=selectPos) {
                 holder.itemView.setBackgroundResource(R.color.orange_point)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
-                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
             }
 
             else{
                 holder.itemView.setBackgroundResource(R.color.aqua)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
-                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
 
             }
         } else {
             if(answer == position && clicked==1 ){
                 holder.itemView.setBackgroundResource(R.color.aqua)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
-                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2))
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
             }
 
             else {
                 holder.itemView.setBackgroundResource(R.color.white_box)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
-                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray2_to_white))
+                tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray_to_white))
             }
         }
     }

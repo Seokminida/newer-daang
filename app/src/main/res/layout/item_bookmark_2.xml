@@ -5,23 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"  >
 
-    <com.ssomai.android.scalablelayout.ScalableLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:scale_base_height="130"
-        app:scale_base_width="300">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:cardBackgroundColor="@color/white_box"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
 
     <com.ssomai.android.scalablelayout.ScalableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/white_background_round"
-        android:elevation="5dp"
         app:scale_base_height="120"
-        app:scale_base_width="290"
-        app:scale_height="120"
-        app:scale_left="5"
-        app:scale_top="5"
-        app:scale_width="290">
+        app:scale_base_width="290">
 
         <TextView
             android:id="@+id/term"
@@ -29,7 +27,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="용어샘플"
-            android:textColor="@color/darker_gray2_to_white"
+            android:textColor="@color/darker_gray_to_white"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:scale_height="20"
             app:scale_left="10"
             app:scale_textsize="15"
@@ -69,7 +69,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="meaning sample goes here with meaning sample goes here"
-            android:textColor="@color/darker_gray2_to_white"
+            android:textColor="@color/darker_gray_to_white"
+            android:maxLines="2"
+            android:ellipsize="end"
             app:scale_height="31"
             app:scale_left="10"
             app:scale_textsize="12"
@@ -91,6 +93,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/aqua_darker_background_round"
             android:gravity="center"
+            android:textColor="@color/darker_gray"
             android:text="정치"
             app:scale_height="25"
             app:scale_left="10"
@@ -104,10 +107,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/aqua_background_round"
-
             android:gravity="center_vertical"
-            android:paddingStart="5dp"
             android:text="해시1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/darker_gray"
             app:scale_height="25"
             app:scale_left="65"
             app:scale_textsize="12"
@@ -132,5 +138,5 @@
 
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
-</com.ssomai.android.scalablelayout.ScalableLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

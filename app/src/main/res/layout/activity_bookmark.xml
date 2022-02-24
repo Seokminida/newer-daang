@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,18 +24,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="북마크"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="16dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
         app:layout_constraintEnd_toEndOf="parent"

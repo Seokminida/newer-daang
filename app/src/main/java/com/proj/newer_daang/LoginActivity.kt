@@ -9,10 +9,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.email_l
-import kotlinx.android.synthetic.main.activity_login.login_b
-import kotlinx.android.synthetic.main.activity_login.password_l
+import kotlinx.android.synthetic.main.activity_login_2.*
+import kotlinx.android.synthetic.main.activity_login_2.email_l
+import kotlinx.android.synthetic.main.activity_login_2.login_b
+import kotlinx.android.synthetic.main.activity_login_2.password_l
 import kotlinx.android.synthetic.main.activity_login_2.*
 
 class LoginActivity : AppCompatActivity() {

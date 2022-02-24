@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="카테고리"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
@@ -32,20 +32,27 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="16dp"
         android:background="@color/white"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardBackgroundColor="@color/white_box"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@drawable/white_background_round"
-            android:elevation="5dp"
-            android:padding="5dp"
             app:scale_base_height="110"
             app:scale_base_width="350">
 
@@ -55,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
                 android:text="주제별 보기"
-                android:textColor="@color/black_to_white"
+                android:textColor="@color/darker_gray_to_white"
                 app:scale_height="30"
                 app:scale_left="10"
                 app:scale_textsize="15"
@@ -88,10 +95,11 @@
 
 
 
-
-        </com.ssomai.android.scalablelayout.ScalableLayout>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
+
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

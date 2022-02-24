@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="뉴어당"
-        app:titleTextColor="@color/darker_gray3"
+        app:titleTextColor="@color/darker_gray"
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
@@ -44,43 +44,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:cardBackgroundColor="@color/white_box"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/white"
                 app:scale_base_height="80"
                 app:scale_base_width="400">
-
 
                 <TextView
                     android:id="@+id/bestword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/white_background_round"
                     android:clickable="true"
-
-                    android:elevation="5dp"
                     android:gravity="start|center_vertical"
                     android:paddingStart="10dp"
                     android:text="오늘의 베스트 단어"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     android:textStyle="bold"
                     app:scale_height="60"
-                    app:scale_left="9"
+                    app:scale_left="5"
                     app:scale_textsize="20"
                     app:scale_top="10"
-                    app:scale_width="382"
+                    app:scale_width="390"
                     android:fontFamily="@font/pretendard_bold"/>
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
+            </androidx.cardview.widget.CardView>
         </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,8 +102,6 @@
             android:id="@+id/frame_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/frame_category2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +114,10 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 app:scale_base_height="140"
-                app:scale_base_width="400">
+                app:scale_base_width="400"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:cardUseCompatPadding="true">
 
 
                 <com.ssomai.android.scalablelayout.ScalableLayout
@@ -126,7 +132,7 @@
                     app:scale_base_height="120"
                     app:scale_base_width="115"
                     app:scale_height="120"
-                    app:scale_left="276"
+                    app:scale_left="280"
                     app:scale_top="10"
                     app:scale_width="115">
 
@@ -136,7 +142,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="군사"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -180,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="사회"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -215,7 +221,7 @@
 
                     app:scale_base_width="115"
                     app:scale_height="120"
-                    app:scale_left="9"
+                    app:scale_left="5"
                     app:scale_textsize="20"
                     app:scale_top="10"
                     app:scale_width="115">
@@ -226,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="정치"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -250,6 +256,7 @@
                 </com.ssomai.android.scalablelayout.ScalableLayout>
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
+
         </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -262,9 +269,7 @@
             android:id="@+id/frame_category2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:background="@color/white">
 
             <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
@@ -272,7 +277,10 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 app:scale_base_height="140"
-                app:scale_base_width="400">
+                app:scale_base_width="400"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:cardUseCompatPadding="true">
 
 
                 <com.ssomai.android.scalablelayout.ScalableLayout
@@ -287,7 +295,7 @@
                     app:scale_base_height="120"
                     app:scale_base_width="115"
                     app:scale_height="120"
-                    app:scale_left="276"
+                    app:scale_left="280"
                     app:scale_top="10"
                     app:scale_width="115">
 
@@ -297,7 +305,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="IT/과학"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -330,7 +338,7 @@
                     app:scale_base_height="120"
                     app:scale_base_width="115"
                     app:scale_height="120"
-                    app:scale_left="9"
+                    app:scale_left="5"
                     app:scale_top="10"
                     app:scale_width="115">
 
@@ -340,7 +348,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="문화"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -384,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="경제"
-                        android:textColor="@color/darker_gray2"
+                        android:textColor="@color/darker_gray"
                         android:textStyle="bold"
                         app:scale_height="25"
                         app:scale_left="10"
@@ -418,9 +426,7 @@
         android:id="@+id/frame_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/white">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
@@ -428,7 +434,10 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             app:scale_base_height="300"
-            app:scale_base_width="400">
+            app:scale_base_width="400"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardUseCompatPadding="true">
 
 
             <com.ssomai.android.scalablelayout.ScalableLayout
@@ -436,12 +445,12 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/white_background_round"
                 android:elevation="5dp"
-                app:scale_base_height="280"
-                app:scale_base_width="382"
-                app:scale_height="280"
-                app:scale_left="9"
+                app:scale_base_height="265"
+                app:scale_base_width="390"
+                app:scale_height="265"
+                app:scale_left="5"
                 app:scale_top="10"
-                app:scale_width="382">
+                app:scale_width="390">
 
                 <TextView
                     android:id="@+id/textView"
@@ -449,7 +458,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="start"
                     android:text="단어퀴즈"
-                    android:textColor="@color/darker_gray2_to_white"
+                    android:textColor="@color/darker_gray_to_white"
                     android:textStyle="bold"
                     app:scale_height="25"
                     app:scale_left="10"
@@ -466,13 +475,13 @@
                     android:padding="5dp"
                     android:background="@color/aqua"
                     android:text="문제 나갑니다! \n아직 나가는 중일지도?"
-                    android:textColor="@color/darker_gray2"
+                    android:textColor="@color/darker_gray"
                     android:textStyle="bold"
                     app:scale_height="100"
-                    app:scale_left="11"
+                    app:scale_left="10"
                     app:scale_textsize="15"
                     app:scale_top="50"
-                    app:scale_width="360"
+                    app:scale_width="370"
                     android:fontFamily="@font/pretendard_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -485,7 +494,7 @@
                     app:scale_height="105"
                     app:scale_left="10"
                     app:scale_top="155"
-                    app:scale_width="362"
+                    app:scale_width="370"
                     app:spanCount="2" />
 
 

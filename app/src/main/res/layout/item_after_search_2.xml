@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/aqua"
+    android:background="@color/white"
     >
 
     <androidx.cardview.widget.CardView
@@ -111,6 +111,29 @@
                 app:scale_left="80"
                 app:scale_top="44.5"
                 app:scale_width="15" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                app:srcCompat = "@drawable/heart_empty"
+                android:scaleType="center"
+                app:scale_height="12"
+                app:scale_left="77"
+                app:scale_top="3"
+                app:scale_width="8"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                app:srcCompat = "@drawable/bookmark_empty"
+                android:scaleType="center"
+                app:scale_height="12"
+                app:scale_left="87"
+                app:scale_top="3"
+                app:scale_width="8"/>
 
 
         </com.ssomai.android.scalablelayout.ScalableLayout>

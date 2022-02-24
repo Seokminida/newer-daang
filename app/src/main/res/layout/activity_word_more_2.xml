@@ -27,29 +27,21 @@
         app:titleTextAppearance="@style/Toolbar.TitleText">
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@id/frame_bottombar">
+        android:layout_height="650dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <com.ssomai.android.scalablelayout.ScalableLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:scale_base_height="20"
-                app:scale_base_width="100">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/wn"
@@ -57,44 +49,30 @@
                     android:layout_height="wrap_content"
                     android:text="단어"
                     android:textColor="#000000"
-                    app:scale_height="10"
-                    app:scale_left="5"
-                    app:scale_textsize="7"
-                    app:scale_top="5"
-                    app:scale_width="90"
+                    android:layout_margin="20dp"
+                    android:textSize="30dp"
                     tools:ignore="MissingPrefix" />
-            </com.ssomai.android.scalablelayout.ScalableLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"/>
-            <com.ssomai.android.scalablelayout.ScalableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:scale_base_height="130"
-                app:scale_base_width="100">
+
                 <TextView
                     android:id="@+id/wm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="vertical"
                     android:text="설명"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:textColor="#97000000"
-                    app:scale_height="125"
-                    app:scale_left="5"
-                    app:scale_textsize="5"
-                    app:scale_top="0"
-                    app:scale_width="90"
+                    android:textSize="25dp"
                     tools:ignore="MissingPrefix" />
 
-            </com.ssomai.android.scalablelayout.ScalableLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"/>
-        </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/frame_bottombar"

@@ -40,53 +40,59 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/frame_bottombar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/tmp_constraint"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/wn"
+            <com.ssomai.android.scalablelayout.ScalableLayout
                 android:layout_width="match_parent"
-                android:layout_height="20pt"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:autoSizeMaxTextSize="100sp"
-                android:autoSizeMinTextSize="12sp"
+                android:layout_height="match_parent"
+                app:scale_base_height="20"
+                app:scale_base_width="100">
 
-                android:autoSizeStepGranularity="2sp"
-                android:autoSizeTextType="uniform"
-                android:text="단어"
-                android:textColor="#000000"
-                app:layout_constraintBottom_toTopOf="@id/wm"
-                app:layout_constraintEnd_toEndOf="@id/tmp_constraint"
-                app:layout_constraintStart_toStartOf="@id/tmp_constraint"
-                app:layout_constraintTop_toTopOf="@id/tmp_constraint" />
-
+                <TextView
+                    android:id="@+id/wn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="단어"
+                    android:textColor="#000000"
+                    app:scale_height="10"
+                    app:scale_left="5"
+                    app:scale_textsize="7"
+                    app:scale_top="5"
+                    app:scale_width="90"
+                    tools:ignore="MissingPrefix" />
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"/>
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:scale_base_height="130"
+                app:scale_base_width="100">
                 <TextView
                     android:id="@+id/wm"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintBottom_toBottomOf="@id/tmp_constraint"
-                    app:layout_constraintEnd_toEndOf="@id/tmp_constraint"
-                    app:layout_constraintStart_toStartOf="@id/tmp_constraint"
-                    app:layout_constraintTop_toBottomOf="@id/wn"
-
+                    android:layout_height="wrap_content"
                     android:scrollbars="vertical"
                     android:text="설명"
-                    android:textColor="#000000"
-                    android:autoSizeTextType="uniform"
+                    android:textColor="#97000000"
+                    app:scale_height="125"
+                    app:scale_left="5"
+                    app:scale_textsize="5"
+                    app:scale_top="0"
+                    app:scale_width="90"
+                    tools:ignore="MissingPrefix" />
 
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeMaxTextSize="100sp"
-                    android:autoSizeStepGranularity="2sp" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"/>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

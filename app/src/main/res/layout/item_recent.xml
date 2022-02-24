@@ -50,7 +50,7 @@
             app:scale_top="5"
             app:scale_width="7"
             tools:ignore="MissingPrefix"
-            android:background="@drawable/cross_icon" />
+            android:background="@drawable/xbutton" />
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
 </LinearLayout>

@@ -29,19 +29,27 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/frame_bottombar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/white_box"
             app:cardCornerRadius="15dp"
             app:cardElevation="2dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -49,7 +57,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -67,6 +75,7 @@
                             android:textColor="@color/darker_gray_to_white"
                             android:textSize="27dp"
                             tools:ignore="MissingPrefix" />
+
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -75,18 +84,19 @@
                         <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
                             android:layout_gravity="center_vertical"
-                            app:srcCompat="@drawable/heart_empty" />
+                            android:background="@android:color/transparent"
+                            android:scaleType="center"
+                            app:srcCompat="@drawable/heart_filled_50_2" />
 
                         <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
                             android:layout_gravity="center_vertical"
-                            android:scaleType="center"
                             android:layout_marginRight="15dp"
-                            app:srcCompat="@drawable/bookmark_empty" />
+                            android:background="@android:color/transparent"
+                            android:scaleType="center"
+                            app:srcCompat="@drawable/bookmark_filled_50_2" />
                     </LinearLayout>
 
                     <TextView
@@ -106,16 +116,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="1.5dp"
                         android:layout_margin="20dp"
-                        android:background="@color/darker_gray"
-                        />
+                        android:background="@color/darker_gray" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:paddingBottom="15dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingBottom="15dp">
 
                         <TextView
                             android:id="@+id/category"
@@ -124,30 +133,30 @@
                             android:background="@drawable/aqua_darker_background_round_sharp"
                             android:fontFamily="@font/pretendard_regular"
                             android:gravity="center"
-                            android:text="정치"
                             android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
                             android:paddingTop="5dp"
+                            android:paddingRight="15dp"
                             android:paddingBottom="5dp"
+                            android:text="정치"
                             android:textColor="@color/darker_gray"
-                            android:textSize="25dp"/>
+                            android:textSize="25dp" />
 
                         <TextView
                             android:id="@+id/hashtag"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/aqua_background_round_sharp"
                             android:ellipsize="end"
                             android:fontFamily="@font/pretendard_regular"
                             android:gravity="center_vertical"
                             android:maxLines="1"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:layout_marginLeft="10dp"
                             android:paddingStart="10dp"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="5dp"
                             android:paddingEnd="10dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="5dp"
                             android:text="#해시태그 "
                             android:textColor="@color/darker_gray"
                             android:textSize="25dp" />
@@ -164,7 +173,6 @@
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

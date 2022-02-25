@@ -50,7 +50,6 @@ class RecentQuizActivity : AppCompatActivity() {
         recentQuizAdapter = RecentQuizAdapter(this)
         recyclerView_quiz.adapter = recentQuizAdapter
         recyclerView_quiz.addItemDecoration(VerticalItemDecorator_rv(3))
-        recyclerView_quiz.addItemDecoration(HorizontalItemDecorator_rv(5))
 
         val intentWordDetail = Intent(this, WordDetailActivity::class.java)
 
@@ -69,12 +68,6 @@ class RecentQuizActivity : AppCompatActivity() {
             add(TermData( name = "용어북마크1", meaning = "근로자는 근로조건의 향상을 위하여 자주적인 단결권·단체교섭권 및 단체행동권을 가진다. "))
             add(TermData( name = "용어북마크2입니다", meaning = "이 헌법공포 당시의 국회의원의 임기는 제1항에 의한 국회의 최초의 집회일 전일까지로 한다."))
             add(TermData( name = "용어북마크3", meaning = "광물 기타 중요한 지하자원·수산자원·수력과 경제상 이용할 수 있는 자연력은 법률이 정하는 바에 의하여 일정한 기간 그 채취·개발 또는 이용을 특허할 수 있다."))
-            add(TermData( name = "term_sample_length_check", meaning = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a dolor luctus, fringilla est sed, volutpat eros. Vivamus tristique gravida."))
-            add(TermData( name = "term_sample", meaning = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a dolor luctus."))
-            add(TermData( name = "term_sample_length_check", meaning = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a dolor luctus, fringilla est sed, volutpat eros. Vivamus tristique gravida."))
-            add(TermData( name = "term_sample", meaning = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a dolor luctus."))
-            add(TermData( name = "term_sample_length_check", meaning = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a dolor luctus, fringilla est sed, volutpat eros. Vivamus tristique gravida."))
-
             recentQuizAdapter.quizList = quizList
             recentQuizAdapter.notifyDataSetChanged()
         }

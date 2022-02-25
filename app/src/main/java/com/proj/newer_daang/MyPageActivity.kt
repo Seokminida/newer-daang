@@ -15,7 +15,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_mypage.*
 
 
-var isDarkmodeOn : Boolean = false
+
 
 
 class MyPageActivity : AppCompatActivity() {

@@ -46,11 +46,13 @@
             android:layout_height="wrap_content"
             app:scale_height="7"
             app:scale_left="87"
-            app:scale_textsize="7"
             app:scale_top="5"
             app:scale_width="7"
             tools:ignore="MissingPrefix"
-            android:background="@drawable/xbutton" />
+            android:scaleType="center"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/x_white_18"
+            app:tint="@color/darker_gray_to_white"/>
     </com.ssomai.android.scalablelayout.ScalableLayout>
 
 </LinearLayout>

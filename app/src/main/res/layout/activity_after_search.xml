@@ -48,8 +48,9 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:onClick="back"
-                android:scaleType="center"
-                app:srcCompat="@drawable/back_25"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/back_white"
+                app:tint="@color/darker_gray_to_white"
                 app:scale_height="150"
                 app:scale_left="50"
                 app:scale_top="90"
@@ -86,8 +87,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/search_2"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/search_white"
+                app:tint="@color/darker_gray_to_white"
                 app:scale_height="140"
                 app:scale_left="1900"
                 app:scale_top="90"
@@ -111,40 +113,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="단어"
         app:titleTextColor="@color/darker_gray"
+        app:title="단어"
+        android:ellipsize="marquee"
         android:visibility="gone"
         app:titleTextAppearance="@style/Toolbar.TitleText">
-
-        <ImageButton
-            android:id="@+id/birdIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/logo_circle_40"
-            android:onClick="back" />
-
-        <ImageButton
-            android:id="@+id/search_icon"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/search_icon1"
-            android:onClick="search" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="100dp"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
-            android:text="검색한 단어"
-            android:textColor="#000000"
-            android:textSize="25sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

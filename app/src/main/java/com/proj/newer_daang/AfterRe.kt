@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.AfterReAdapter
 import com.google.firebase.firestore.ktx.firestore
@@ -30,11 +33,21 @@ class AfterRe : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_after_search)
+
         var st = intent.getStringExtra("search")
-        textView3.text = intent.getStringExtra("search")
         no_search.text = ("\"$st\"" +" 에 대한 결과가 없습니다.")
         initRecycler()
         initRecycler3()
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        toolbar.setNavigationIcon(R.drawable.logo_circle_40) //제목앞에 아이콘 넣기
+        toolbar.setNavigationOnClickListener(View.OnClickListener {
+            finish()
+        })
+        toolbar.title = intent.getStringExtra("search")
+
+
 
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
@@ -171,7 +184,8 @@ class AfterRe : AppCompatActivity() {
         else //최근검색 아이템 클릭
         {
             var click_name = intent.getStringExtra("name2")
-            textView3.text = click_name
+
+            toolbar.title = click_name
             reAdapter = AfterReAdapter(this)
             val afterrec: RecyclerView = findViewById(R.id.after_search)
             afterrec.adapter = reAdapter
@@ -261,4 +275,25 @@ class AfterRe : AppCompatActivity() {
         val intentSearch = Intent(this, SearchActivity::class.java)
         startActivity(intentSearch)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item!!.itemId){
+            R.id.app_bar_search->{ // 메뉴 버튼
+                val intentSearch = Intent(this, SearchActivity::class.java)
+                startActivity(intentSearch)
+                //Snackbar.make(toolbar,"Menu pressed",Snackbar.LENGTH_SHORT).show()
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.func_search, menu)
+        return true
+    }
+
+
 }
+
+

@@ -82,9 +82,6 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     }.run { context.startActivity(this) }
 
-
-
-
             }
                 itemView.recent_delete.setOnClickListener {
                     datas.removeAt(pos)

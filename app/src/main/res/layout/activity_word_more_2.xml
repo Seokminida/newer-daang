@@ -41,7 +41,6 @@
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             app:cardBackgroundColor="@color/white_box"
@@ -74,7 +73,7 @@
                             android:text="단어"
                             android:textColor="@color/darker_gray_to_white"
                             android:textSize="27dp"
-                            tools:ignore="MissingPrefix" />
+                            tools:ignore="MissingPrefix"/>
 
                         <View
                             android:layout_width="0dp"
@@ -82,35 +81,35 @@
                             android:layout_weight="1" />
 
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="10dp"
                             android:background="@android:color/transparent"
-                            android:scaleType="center"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/heart_filled_50_2" />
 
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="15dp"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_gravity="center"
                             android:background="@android:color/transparent"
-                            android:scaleType="center"
+                            android:scaleType="fitCenter"
+                            android:layout_marginRight="20dp"
                             app:srcCompat="@drawable/bookmark_filled_50_2" />
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/wm"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:fontFamily="@font/pretendard_regular"
-                        android:scrollbars="vertical"
                         android:text="설명"
                         android:textColor="@color/darker_gray_to_white"
-                        android:textSize="25dp"
-                        tools:ignore="MissingPrefix" />
+                        tools:ignore="MissingPrefix"
+                        android:textSize="25dp"/>
 
                     <View
                         android:layout_width="match_parent"

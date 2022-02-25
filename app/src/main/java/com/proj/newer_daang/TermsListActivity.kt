@@ -146,7 +146,7 @@ class TermsListActivity : AppCompatActivity() {
                     startActivity(this)
                 }
 
-                startActivity(intentWordDetail)
+                // startActivity(intentWordDetail)
                 //Toast.makeText( App.ApplicationContext(), "용어목록에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
                 /*
                 Intent(this@MainActivity, ProfileDetailActivity::class.java).apply {

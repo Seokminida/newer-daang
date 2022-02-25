@@ -118,8 +118,6 @@ class AfterRe : AppCompatActivity() {
                     clearB2.setVisibility(View.GONE)
                     lineView2.setVisibility(View.GONE)
                     sca.setVisibility(View.VISIBLE)
-
-
                 }
                 else {
                     sca.setVisibility(View.GONE)
@@ -149,6 +147,8 @@ class AfterRe : AppCompatActivity() {
             reAdapter.datas = datas
 
             if (reAdapter.datas.size == 0) {
+                search2.setVisibility(View.VISIBLE)
+                back_icon2.setVisibility(View.VISIBLE)
                 sca.setVisibility(View.VISIBLE)
                 after_search.setVisibility(View.GONE)
                 no_search.setVisibility(View.VISIBLE)
@@ -156,6 +156,8 @@ class AfterRe : AppCompatActivity() {
                 toolbar.setVisibility(View.GONE)
                 searchBar.setVisibility(View.VISIBLE)
             } else {
+                search2.setVisibility(View.GONE)
+                back_icon2.setVisibility(View.GONE)
                 searchBar.setVisibility(View.GONE)
                 toolbar.setVisibility(View.VISIBLE)
                 sca.setVisibility(View.GONE)

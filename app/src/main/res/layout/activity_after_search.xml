@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.ssomai.android.scalablelayout.ScalableLayout
-            android:id="@+id/scalableLayout_logo"
+            android:id="@+id/scalableLayout_logo2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -43,14 +43,13 @@
                 android:fontFamily="@font/pretendard_regular"/>
 
             <ImageButton
-                android:id="@+id/back_icon"
+                android:id="@+id/back_icon2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:onClick="back"
                 android:scaleType="center"
                 app:srcCompat="@drawable/back_25"
-
                 app:scale_height="150"
                 app:scale_left="50"
                 app:scale_top="90"
@@ -98,13 +97,24 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/aqua"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingStart="20dp"
+        android:paddingLeft="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="단어"
+        app:titleTextColor="@color/darker_gray"
+        android:visibility="gone"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
 
         <ImageButton
             android:id="@+id/birdIcon"

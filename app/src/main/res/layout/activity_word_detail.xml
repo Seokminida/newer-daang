@@ -17,7 +17,7 @@
         android:minHeight="?attr/actionBarSize"
         android:paddingStart="20dp"
         android:paddingLeft="10dp"
-        android:paddingEnd="10dp"
+        android:paddingEnd="20dp"
         android:paddingRight="10dp"
         android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,27 +66,29 @@
                     android:fontFamily="@font/pretendard_bold"/>
 
                 <ImageButton
+                    android:id="@+id/heart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:background="@android:color/transparent"
-                    app:srcCompat = "@drawable/heart_filled_50_2"
+                    app:srcCompat = "@drawable/heart_empty_50_2"
                     android:scaleType="fitCenter"
-                    app:scale_height="6"
-                    app:scale_left="80"
-                    app:scale_top="6"
-                    app:scale_width="6"/>
+                    app:scale_height="5.5"
+                    app:scale_left="83"
+                    app:scale_top="6.5"
+                    app:scale_width="5.5"/>
                 <ImageButton
+                    android:id="@+id/bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:background="@android:color/transparent"
                     app:srcCompat = "@drawable/bookmark_filled_50_2"
                     android:scaleType="fitCenter"
-                    app:scale_height="6"
-                    app:scale_left="89"
-                    app:scale_top="6"
-                    app:scale_width="6"/>
+                    app:scale_height="5.5"
+                    app:scale_left="89.5"
+                    app:scale_top="6.5"
+                    app:scale_width="5.5"/>
 
                 <TextView
                     android:id="@+id/wm"
@@ -126,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/darker_gray"
-                    app:scale_height="0.5"
+                    app:scale_height="0.2"
                     app:scale_left="5"
                     app:scale_top="54"
                     app:scale_width="90" />

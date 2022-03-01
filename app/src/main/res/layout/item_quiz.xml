@@ -25,15 +25,13 @@
             android:id="@+id/term"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-
             android:text="용어샘플"
             android:textColor="@color/darker_gray_to_white"
             app:scale_height="60"
             app:scale_left="16"
             app:scale_textsize="17"
-            app:scale_top="0"
+            app:scale_top="5"
             app:scale_width="200"
             android:fontFamily="@font/pretendard_bold"/>
 
@@ -41,15 +39,13 @@
             android:id="@+id/answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:background="#00FFFFFF"
-
             android:gravity="center"
             android:scaleType="centerCrop"
-            app:scale_height="30"
-            app:scale_left="354"
-            app:scale_top="0"
-            app:scale_width="30"
+            app:scale_height="25"
+            app:scale_left="359"
+            app:scale_top="22.5"
+            app:scale_width="25"
             app:srcCompat="@drawable/quiz_o" />
 
     </com.ssomai.android.scalablelayout.ScalableLayout>

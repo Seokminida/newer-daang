@@ -186,7 +186,7 @@ class SearchActivity : AppCompatActivity(){
         wordAdapter = WordAdapter(this)
         val wordrec: RecyclerView = findViewById(R.id.wordRe)
         wordrec.adapter = wordAdapter
-        val customDecoration = RecyclerDecoration(3f, 25f, Color.DKGRAY)
+        val customDecoration = RecyclerDecoration(3f, 25f, Color.parseColor("#D7EBEA")) //aqua색으로 바꾸기
         wordrec.addItemDecoration(customDecoration)
 
         datas.apply{
@@ -200,7 +200,7 @@ class SearchActivity : AppCompatActivity(){
     private fun initRecycler2(){
         recentAdapter = RecentAdapter(this)
         val recentrec: RecyclerView = findViewById(R.id.recent)
-        val customDecoration = RecyclerDecoration(3f, 25f, Color.DKGRAY)
+        val customDecoration = RecyclerDecoration(3f, 25f, Color.parseColor("#D7EBEA"))
         recentrec.addItemDecoration(customDecoration)
         recentrec.adapter = recentAdapter
         recent.setVisibility(View.VISIBLE)

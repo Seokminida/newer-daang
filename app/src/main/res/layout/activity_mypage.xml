@@ -127,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/darker_gray"
-                    app:scale_height="2"
+                    app:scale_height="1"
                     app:scale_left="20"
                     app:scale_top="69"
                     app:scale_width="350" />

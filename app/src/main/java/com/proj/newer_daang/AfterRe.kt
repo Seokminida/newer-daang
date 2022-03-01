@@ -237,7 +237,8 @@ class AfterRe : AppCompatActivity() {
         wordAdapter = WordAdapter(this)
         val wordrec: RecyclerView = findViewById(R.id.wordRe2)
         wordrec.adapter = wordAdapter
-        val customDecoration = RecyclerDecoration(3f, 25f, Color.DKGRAY)
+        val customDecoration = RecyclerDecoration(3f, 25f, Color.parseColor("#D7EBEA")) //aqua 색으로 바꾸기
+
         wordrec.addItemDecoration(customDecoration)
 
         datas3.apply {

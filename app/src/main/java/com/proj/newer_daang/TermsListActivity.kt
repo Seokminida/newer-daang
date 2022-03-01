@@ -114,6 +114,25 @@ class TermsListActivity : AppCompatActivity() {
                         Log.d("asd", "get failed with ", exception)
                     }
 
+                val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+                docLikes.get()
+                    .addOnSuccessListener {
+                            document ->
+                        likes.clear()
+                        for(result in document){
+                            val term_item = result["name"].toString()
+                            likes.add(term_item)
+                        }
+
+                        likes.apply {
+                            termAdapter.likesList = likes
+                            termAdapter.notifyDataSetChanged()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d("likesListSetUp", "get failed with ", exception)
+                    }
+
             }
         })
 

@@ -24,7 +24,7 @@
             app:scale_base_width="100">
 
             <TextView
-                android:id="@+id/wna"
+                android:id="@+id/term"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pretendard_bold"
@@ -39,7 +39,7 @@
                 tools:ignore="MissingPrefix" />
 
             <TextView
-                android:id="@+id/wme"
+                android:id="@+id/term_meaning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="설명"
@@ -65,14 +65,14 @@
                 app:scale_width="90" />
 
             <TextView
-                android:id="@+id/cate"
+                android:id="@+id/term_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="카테고리"
                 android:background="@drawable/aqua_darker_background_round_sharp"
                 app:scale_height="9"
                 app:scale_left="5"
-                app:scale_top="40.5"
+                app:scale_top="40.2"
                 android:textColor="@color/darker_gray"
                 app:scale_width="20"
                 app:scale_textsize="4"
@@ -82,21 +82,22 @@
 
 
             <TextView
-                android:id="@+id/hashT"
+                android:id="@+id/term_tag1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/aqua_background_round_sharp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:text="# 해시태그  "
                 android:textColor="@color/darker_gray"
                 app:scale_height="9"
                 app:scale_left="28"
                 app:scale_textsize="4"
-                app:scale_top="40.5"
-                app:scale_width="49"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:gravity="center_vertical"/>
-
+                app:scale_top="40.2"
+                app:scale_width="49" />
 
             <ImageView
                 android:id="@+id/tag_more"
@@ -107,9 +108,11 @@
                 android:src="@drawable/etc_35"
                 app:scale_height="9"
                 app:scale_left="80"
-                app:scale_top="40.5"
+                app:scale_top="40.2"
                 app:scale_width="15" />
+
             <ImageButton
+                android:id="@+id/heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -122,11 +125,12 @@
                 app:scale_width="5.5"/>
 
             <ImageButton
+                android:id="@+id/bin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:background="@android:color/transparent"
-                app:srcCompat = "@drawable/bookmark_empty_50_2"
+                app:srcCompat = "@drawable/bin_50_2"
                 android:scaleType="fitEnd"
                 app:scale_height="5.5"
                 app:scale_left="89.5"

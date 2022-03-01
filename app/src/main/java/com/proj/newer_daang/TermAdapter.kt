@@ -1,9 +1,7 @@
 package com.proj.newer_daang
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
-import android.text.Layout
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +9,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.extensions.LayoutContainer
 
 class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapter.ViewHolder>(){
     var termsList = ArrayList<TermData>()
@@ -27,21 +22,6 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermAdapter.ViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_termslist,parent,false)
-
-        val docRef = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
-        docRef.get()
-            .addOnSuccessListener {
-                    document ->
-                likesList.clear()
-                for(result in document){
-                    val term_item = result["name"].toString()
-                    likesList.add(term_item)
-                    Log.d("likesListSetUp", "setting goes on")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("likesListSetUp", "get failed with ", exception)
-            }
         return ViewHolder(view)
 
 

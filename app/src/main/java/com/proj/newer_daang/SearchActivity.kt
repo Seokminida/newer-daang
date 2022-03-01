@@ -128,10 +128,10 @@ class SearchActivity : AppCompatActivity(){
                 db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어")
                     .document(tmp).set(na)
                     .addOnSuccessListener { documentReference ->
-
+                        Log.d("firebaseaddedRecent", "succeccful")
                     }
                     .addOnFailureListener { e ->
-                        Log.w("firebaseadded", "Error adding document", e)
+                        Log.w("firebaseaddedRecent", "Error adding document", e)
                     }
             }
             // 불러오기

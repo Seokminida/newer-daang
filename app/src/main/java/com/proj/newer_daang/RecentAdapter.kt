@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.proj.newer_daang.AfterRe
 import com.proj.newer_daang.ItemData
 import com.proj.newer_daang.R
@@ -20,7 +23,7 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
     var datas = ArrayList<ItemData>()
     var datas2 = ArrayList<ItemData>()
     var datas3 = ArrayList<ItemData>()
-
+    var db = Firebase.firestore
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_recent,parent,false)
         return ViewHolder(view)
@@ -83,7 +86,11 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
                     }.run { context.startActivity(this) }
 
             }
+
                 itemView.recent_delete.setOnClickListener {
+                    db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").document(datas[pos].name)
+                        .delete()
+
                     datas.removeAt(pos)
                     notifyDataSetChanged()
                 }

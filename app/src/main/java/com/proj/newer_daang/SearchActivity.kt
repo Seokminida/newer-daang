@@ -14,13 +14,18 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.RecentAdapter
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search_2.*
 import kotlinx.android.synthetic.main.activity_termslist.*
 import kotlinx.android.synthetic.main.item_recent.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SearchActivity : AppCompatActivity(){
     lateinit var wordAdapter: WordAdapter
@@ -112,22 +117,45 @@ class SearchActivity : AppCompatActivity(){
         }
 
         search.setOnClickListener{
-            var check = 0
-            var re_st: String
-            re_st = searchBar.text.toString()
-            for (i in 0 until redatas.size){
-                if(redatas[i].name == re_st)
-                {
-                    check = 1
-                }
+            val tmp = searchBar.text.toString()
+            var date = Timestamp.now()
+            val na = hashMapOf(
+                "name" to tmp,
+                "time" to date
+            )
+            //db에 최근검색어 추가
+            if(tmp!="") {
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어")
+                    .document(tmp).set(na)
+                    .addOnSuccessListener { documentReference ->
+
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("firebaseadded", "Error adding document", e)
+                    }
             }
-            if(check == 0 && re_st.length > 0){
-                redatas.apply{
-                    add(0, ItemData("$re_st","",""))
+            // 불러오기
+            val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").orderBy("time",
+                Query.Direction.DESCENDING)
+            docRecent.get()
+                .addOnSuccessListener {
+                        document ->
+                    redatas.clear()
+
+                    var re_st: String
+                    for(result in document){
+                        re_st = result["name"].toString()
+                        redatas.add(ItemData("$re_st","",""))
+                    }
+
+
+                    recentAdapter.recentList(redatas)
+
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
                 }
 
-            }
-            recentAdapter.recentList(redatas)
 
             Intent(this, AfterRe::class.java).apply{
                 putExtra("afterdata",datas2)
@@ -135,6 +163,7 @@ class SearchActivity : AppCompatActivity(){
                 startActivity(this)
             }
         }
+
 
         searchBar.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -173,10 +202,12 @@ class SearchActivity : AppCompatActivity(){
                 if(hasFocus){
                     recent_textView.setVisibility(View.VISIBLE)
                     recent_close_button.setVisibility(View.VISIBLE)
+                    recent.setVisibility(View.VISIBLE)
                 } else
                 {
                     recent_textView.setVisibility(View.GONE)
                     recent_close_button.setVisibility(View.GONE)
+                    recent.setVisibility(View.GONE)
                 }
             }
         })
@@ -203,7 +234,25 @@ class SearchActivity : AppCompatActivity(){
         val customDecoration = RecyclerDecoration(3f, 25f, Color.DKGRAY)
         recentrec.addItemDecoration(customDecoration)
         recentrec.adapter = recentAdapter
-        recent.setVisibility(View.VISIBLE)
+        val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").orderBy("time",
+            Query.Direction.DESCENDING)
+        docRecent.get()
+            .addOnSuccessListener {
+                    document ->
+                redatas.clear()
+
+                var re_st: String
+                for(result in document){
+                    re_st = result["name"].toString()
+                    redatas.add(ItemData("$re_st","",""))
+                }
+
+                recentAdapter.recentList(redatas)
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
 
     }
 
@@ -251,5 +300,6 @@ class SearchActivity : AppCompatActivity(){
         val intent = Intent()
         finish()
     }
+
 
 }

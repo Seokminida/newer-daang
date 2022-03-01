@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.AfterReAdapter
 import com.example.recyclerview_ex.RecentAdapter
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -95,6 +96,45 @@ class AfterRe : AppCompatActivity() {
         }
 
         search2.setOnClickListener {
+            val tmp = searchBar.text.toString()
+            var date = Timestamp.now()
+            val na = hashMapOf(
+                "name" to tmp,
+                "time" to date
+            )
+            //db에 최근검색어 추가
+            if(tmp!="") {
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어")
+                    .document(tmp).set(na)
+                    .addOnSuccessListener { documentReference ->
+
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("firebaseadded", "Error adding document", e)
+                    }
+            }
+            // 불러오기
+            val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").orderBy("time",
+                Query.Direction.DESCENDING)
+            docRecent.get()
+                .addOnSuccessListener {
+                        document ->
+                    redatas.clear()
+
+                    var re_st: String
+                    for(result in document){
+                        re_st = result["name"].toString()
+                        redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                    }
+
+
+                    recentAdapter.recentList(redatas)
+
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
+                }
+
             Intent(this, AfterRe::class.java).apply {
                 putExtra("afterdata", datas2)
                 putExtra("search", searchBar.text.toString())

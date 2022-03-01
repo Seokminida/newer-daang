@@ -9,6 +9,8 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.view.KeyEvent
+import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.AfterReAdapter
+import com.example.recyclerview_ex.RecentAdapter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_after_search.*
@@ -27,9 +32,11 @@ import kotlinx.android.synthetic.main.activity_search_2.*
 class AfterRe : AppCompatActivity() {
     lateinit var reAdapter: AfterReAdapter
     lateinit var wordAdapter: WordAdapter
+    lateinit var recentAdapter: RecentAdapter
     var datas = ArrayList<ItemData>()
     var datas2 = ArrayList<ItemData>()
     var datas3 = ArrayList<ItemData>()
+    var redatas = ArrayList<ItemData>()
     var str = String()
     var db = Firebase.firestore
 
@@ -46,6 +53,7 @@ class AfterRe : AppCompatActivity() {
 
 
         initRecycler()
+        initRecycler2()
         initRecycler3()
 
 
@@ -120,7 +128,19 @@ class AfterRe : AppCompatActivity() {
                 Log.d("asd", "get failed with ", exception)
             }
 
+        recent_close_button2.setOnClickListener {
+            if(recentRe2.visibility == View.GONE) {
+                recentRe2.setVisibility(View.VISIBLE)
+                recent_close_button2.text="최근 검색 닫기"
+            }
+            else if(recentRe2.visibility == View.VISIBLE)
+            {
+                recent_close_button2.text="최근 검색 열기"
+                recentRe2.setVisibility(View.GONE)
+            }
+        }
 
+        var check = 0
         searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -132,12 +152,18 @@ class AfterRe : AppCompatActivity() {
                     wordRe2.setVisibility(View.GONE)
                     clearB2.setVisibility(View.GONE)
                     lineView2.setVisibility(View.GONE)
-                    sca.setVisibility(View.VISIBLE)
+                    scalableLayout3.setVisibility(View.VISIBLE)
+                    if(check == 0)
+                        sca.setVisibility(View.VISIBLE)
+                    recentRe2.setVisibility(View.VISIBLE)
                 } else {
+                    check = 1
+                    scalableLayout3.setVisibility(View.GONE)
                     sca.setVisibility(View.GONE)
                     clearB2.setVisibility(View.VISIBLE)
                     wordRe2.setVisibility(View.VISIBLE)
                     lineView2.setVisibility(View.VISIBLE)
+                    recentRe2.setVisibility(View.GONE)
                 }
                 searchFilter(searchT)
             }
@@ -145,6 +171,27 @@ class AfterRe : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
                 var searchT: String = p0.toString()
                 searchFilter(searchT)
+            }
+        })
+
+        searchBar.setOnFocusChangeListener(object : View.OnFocusChangeListener{
+            override fun onFocusChange(view: View, hasFocus: Boolean) {
+                if(hasFocus){
+                    check = 1
+                    scalableLayout3.setVisibility(View.VISIBLE)
+                    recent_textView2.setVisibility(View.VISIBLE)
+                    recent_close_button2.setVisibility(View.VISIBLE)
+                    recentRe2.setVisibility(View.VISIBLE)
+                    sca.setVisibility(View.GONE)
+                } else
+                {
+                    check = 0
+                    scalableLayout3.setVisibility(View.GONE)
+                    recent_textView2.setVisibility(View.GONE)
+                    recent_close_button2.setVisibility(View.GONE)
+                    recentRe2.setVisibility(View.GONE)
+                    sca.setVisibility(View.VISIBLE)
+                }
             }
         })
     }
@@ -233,7 +280,35 @@ class AfterRe : AppCompatActivity() {
 
     }
 
-    private fun initRecycler3() {
+    private fun initRecycler2() {
+        recentAdapter = RecentAdapter(this)
+        val recentrec: RecyclerView = findViewById(R.id.recentRe2)
+        recentrec.adapter = recentAdapter
+        val customDecoration = RecyclerDecoration(3f, 25f, Color.parseColor("#D7EBEA")) //aqua 색으로 바꾸기
+        recentrec.addItemDecoration(customDecoration)
+
+        val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").orderBy("time",
+            Query.Direction.DESCENDING)
+        docRecent.get()
+            .addOnSuccessListener {
+                    document ->
+                redatas.clear()
+
+                var re_st: String
+                for(result in document){
+                    re_st = result["name"].toString()
+                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                }
+                recentAdapter.recentList(redatas)
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
+
+    }
+
+    private fun initRecycler3() { //연관검색
         wordAdapter = WordAdapter(this)
         val wordrec: RecyclerView = findViewById(R.id.wordRe2)
         wordrec.adapter = wordAdapter
@@ -246,8 +321,8 @@ class AfterRe : AppCompatActivity() {
             wordAdapter.notifyDataSetChanged()
         }
 
-
     }
+
 
     fun searchFilter(str: String) {
         datas2.clear()

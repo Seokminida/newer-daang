@@ -28,7 +28,20 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_termslist,parent,false)
 
-
+        val docRef = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+        docRef.get()
+            .addOnSuccessListener {
+                    document ->
+                likesList.clear()
+                for(result in document){
+                    val term_item = result["name"].toString()
+                    likesList.add(term_item)
+                    Log.d("likesListSetUp", "setting goes on")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
         return ViewHolder(view)
 
 
@@ -47,19 +60,7 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
                 //if already in likes
                 var intheList = false
 /*
-                val docRef = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
-                docRef.get()
-                    .addOnSuccessListener {
-                            document ->
-                        likesList.clear()
-                        for(result in document){
-                            val term_item = result["name"].toString()
-                            likesList.add(term_item)
-                        }
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.d("likesListSetUp", "get failed with ", exception)
-                    }
+
  */
 
                 //해당 아이템의 필드값이 좋아요 = true 이면 ㄱㄱ
@@ -72,7 +73,7 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
                 }
 
                 if(intheList){
-                    Toast.makeText(App.ApplicationContext(), "삭제됨 "+tmp + " "+ holder.adapterPosition, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(App.ApplicationContext(), "삭제됨 "+tmp + " "+ holder.adapterPosition, Toast.LENGTH_SHORT).show()
                     holder.imgLike.setImageResource(R.drawable.heart_empty)
                     db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요").document(tmp)
                         .delete()
@@ -82,7 +83,7 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
                 }
                 //if not in likes yet
                 else{
-                    Toast.makeText(App.ApplicationContext(), "추가됨 "+tmp + " "+ holder.adapterPosition, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(App.ApplicationContext(), "추가됨 "+tmp + " "+ holder.adapterPosition, Toast.LENGTH_SHORT).show()
                     holder.imgLike.setImageResource(R.drawable.heart_filled)
                     val user = hashMapOf(
                         "like" to "true",

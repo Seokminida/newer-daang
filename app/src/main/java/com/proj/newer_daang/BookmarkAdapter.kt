@@ -12,7 +12,7 @@ class BookmarkAdapter(private val context: Context) : RecyclerView.Adapter<Bookm
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkAdapter.ViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.item_bookmark_2,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_bookmark_3,parent,false)
         //val view = LayoutInflater.from(context).inflate(R.layout.item_bookmark_2,parent,false)
         return ViewHolder(view)
 

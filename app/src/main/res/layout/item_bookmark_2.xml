@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
 
             android:background="#00FFFFFF"
-            android:gravity="center_vertical"
-            android:scaleType="center"
+            android:gravity="center_vertical|end"
+            android:scaleType="fitEnd"
             app:scale_height="20"
             app:scale_left="240"
             app:scale_top="5"
@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:gravity="center_vertical"
+            android:scaleType="fitEnd"
             app:scale_height="20"
             app:scale_left="260"
             app:scale_top="5"

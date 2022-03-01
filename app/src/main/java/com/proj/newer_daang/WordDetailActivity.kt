@@ -1,7 +1,6 @@
 package com.proj.newer_daang
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,9 +13,6 @@ class WordDetailActivity : AppCompatActivity() {
 
     lateinit var wname: String
     lateinit var wmean: String
-    lateinit var hash: String
-    lateinit var article: String
-    lateinit var link: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -50,14 +46,9 @@ class WordDetailActivity : AppCompatActivity() {
 
         wname = intent.getSerializableExtra("name").toString()
         wmean = intent.getSerializableExtra("mean").toString()
-        hash = intent.getSerializableExtra("hash").toString()
-        article = intent.getSerializableExtra("article").toString()
-        link = intent.getSerializableExtra("link").toString()
+
         wn.text = wname
         wm.text = wmean
-        hashtag.text = hash
-        news.text = article
-        news2.text  = link
 
         more.setOnClickListener {
             Intent(this, WordMoreActivity::class.java).apply {
@@ -65,11 +56,6 @@ class WordDetailActivity : AppCompatActivity() {
                 putExtra("mean", wm.text)
                 startActivity(this)
             }
-        }
-
-        news2.setOnClickListener{
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-            startActivity(intent)
         }
 
 

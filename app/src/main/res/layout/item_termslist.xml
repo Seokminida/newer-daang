@@ -34,7 +34,7 @@
             app:scale_left="16"
             app:scale_textsize="17"
             app:scale_top="0"
-            app:scale_width="200"
+            app:scale_width="300"
             android:fontFamily="@font/pretendard_bold"/>
 
         <ImageButton

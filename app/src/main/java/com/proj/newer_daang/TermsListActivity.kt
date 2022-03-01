@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search_2.*
@@ -21,6 +22,7 @@ class TermsListActivity : AppCompatActivity() {
     lateinit var termAdapter: TermAdapter
     lateinit var categoryAdapter_: CategoryAdapter
     val terms = ArrayList<TermData>()
+    val likes = ArrayList<String>()
     var categories = ArrayList<CategoryAdapter.CateData>()
 
     var db = Firebase.firestore
@@ -184,6 +186,26 @@ class TermsListActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.d("asd", "get failed with ", exception)
             }
+
+        val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+        docLikes.get()
+            .addOnSuccessListener {
+                    document ->
+                likes.clear()
+                for(result in document){
+                    val term_item = result["name"].toString()
+                    likes.add(term_item)
+                }
+
+                likes.apply {
+                    termAdapter.likesList = likes
+                    termAdapter.notifyDataSetChanged()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
+
     }
 
 
@@ -200,10 +222,6 @@ class TermsListActivity : AppCompatActivity() {
             termAdapter.notifyDataSetChanged()
         }
 */
-
-
-
-
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

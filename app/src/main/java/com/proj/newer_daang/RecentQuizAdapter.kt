@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class RecentQuizAdapter(private val context: Context) : RecyclerView.Adapter<RecentQuizAdapter.ViewHolder>(){
-    var quizList = mutableListOf<TermData>()
-
+    var quizList = mutableListOf<QuizData>()
+    val db = Firebase.firestore
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentQuizAdapter.ViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.item_quiz,parent,false)
@@ -28,7 +30,7 @@ class RecentQuizAdapter(private val context: Context) : RecyclerView.Adapter<Rec
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: TermData, pos : Int)
+        fun onItemClick(v:View, data: QuizData, pos: Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -40,17 +42,14 @@ class RecentQuizAdapter(private val context: Context) : RecyclerView.Adapter<Rec
         private val tvTerm: TextView = itemView.findViewById(R.id.term)
         private val ivAnswer: ImageView = itemView.findViewById(R.id.answer)
 
-        fun bind(item: TermData) {
+        fun bind(item: QuizData) {
             tvTerm.text = item.name
-
-            /*
-            if(item.answer == true){
-                ivAnswer.setBackgroundResource(R.drawable.quiz_o)
+            if(item.answer.equals("true")){
+                ivAnswer.setImageResource(R.drawable.quiz_o)
             }
             else{
-                ivAnswer.setBackgroundResource(R.drawable.quiz_x)
+                ivAnswer.setImageResource(R.drawable.quiz_x)
             }
-            */
 
             //Glide.with(itemView).load(item.img).into(imgProfile)
             val pos = adapterPosition

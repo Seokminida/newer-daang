@@ -229,8 +229,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getQuizContents(){
+        var selected_category=""
+        val randomCategory = (0..2).random()
+        when(randomCategory){
+            0 -> selected_category="politics_sum"
+            1 -> selected_category="society_sum"
+            //2 -> selected_category="military_sum"
+            //3 -> selected_category="culture_sum"
+            2 -> selected_category="economy_sum"
+            //5 -> selected_category="IT_sum"
+        }
 
-        val docRef = db.collection("economy")
+        val docRef = db.collection(selected_category)
         docRef.get()
             .addOnSuccessListener {
                     document ->
@@ -245,7 +255,7 @@ class MainActivity : AppCompatActivity() {
 
                     val random = (1..2).random()
                     if(random == 1) {
-                        val term_item = TermData(result["name"].toString(), result["meaning"].toString())
+                        val term_item = TermData(result["name"].toString(), result["sum"].toString())
                         //Log.d("sampleshowshowshow",term_item.name)
                         if (count == answer){
                             question = term_item

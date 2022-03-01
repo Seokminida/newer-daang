@@ -20,6 +20,8 @@ import android.graphics.Color
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.ktx.auth
 import com.ssomai.android.scalablelayout.ScalableLayout
 
 
@@ -44,19 +46,47 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(optionList[position])
         if(selectPos == position) {
+
+            //being clicked
             if(answer!=selectPos) {
+                //wrong answer
                 holder.itemView.setBackgroundResource(R.color.orange_point)
+
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
                 tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
+                val user = hashMapOf(
+                    "ans" to "false",
+                    "name" to optionList[answer].name,
+                    "time" to Timestamp.now()
+                )
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
+                    .set(user)
+                    .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
+                    .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
+
+
             }
 
             else{
+                //correct answer
                 holder.itemView.setBackgroundResource(R.color.aqua)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)
                 tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
+                val user = hashMapOf(
+                    "ans" to "true",
+                    "name" to tvTerm.text,
+                    "time" to Timestamp.now()
+                )
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
+                    .set(user)
+                    .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
+                    .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
+
+
 
             }
         } else {
+            //not being clicked
             if(answer == position && clicked==1 ){
                 holder.itemView.setBackgroundResource(R.color.aqua)
                 val tvTerm: TextView = holder.itemView.findViewById(R.id.term)

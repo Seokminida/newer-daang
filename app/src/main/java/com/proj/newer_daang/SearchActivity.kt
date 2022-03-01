@@ -33,6 +33,7 @@ class SearchActivity : AppCompatActivity(){
     val datas = ArrayList<ItemData>()
     val redatas = ArrayList<ItemData>()
     var db = Firebase.firestore
+    var check = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_2)
@@ -108,11 +109,13 @@ class SearchActivity : AppCompatActivity(){
             if(recent.visibility == View.GONE) {
                 recent.setVisibility(View.VISIBLE)
                 recent_close_button.text="최근 검색 닫기"
+                check = 0
             }
             else if(recent.visibility == View.VISIBLE)
             {
                 recent_close_button.text="최근 검색 열기"
                 recent.setVisibility(View.GONE)
+                check = 1
             }
         }
 
@@ -178,7 +181,10 @@ class SearchActivity : AppCompatActivity(){
                     clearB.setVisibility(View.GONE)
                     lineView.setVisibility(View.GONE)
                     wordRe.setVisibility(View.GONE)
-                    recent.setVisibility(View.VISIBLE)
+                    if(check == 0)
+                        recent.setVisibility(View.VISIBLE)
+                    else
+                        recent.setVisibility(View.GONE)
 
                 }
                 else {
@@ -187,6 +193,7 @@ class SearchActivity : AppCompatActivity(){
                     wordRe.setVisibility(View.VISIBLE)
                     lineView.setVisibility(View.VISIBLE)
                     recent.setVisibility(View.GONE)
+
                 }
                 searchFilter(searchT)
             }
@@ -211,6 +218,11 @@ class SearchActivity : AppCompatActivity(){
                 }
             }
         })
+
+    }
+    override fun onResume(){
+        super.onResume()
+        initRecycler2()
 
     }
     private fun initRecycler(){

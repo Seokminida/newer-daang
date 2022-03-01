@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import com.google.firebase.Timestamp
 import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
@@ -15,12 +16,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview_ex.AfterReAdapter
 import com.example.recyclerview_ex.RecentAdapter
-import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -38,7 +39,7 @@ class AfterRe : AppCompatActivity() {
     var datas2 = ArrayList<ItemData>()
     var datas3 = ArrayList<ItemData>()
     var redatas = ArrayList<ItemData>()
-    var str = String()
+    var check_recnet = 0
     var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -134,7 +135,7 @@ class AfterRe : AppCompatActivity() {
                 .addOnFailureListener { exception ->
                     Log.d("likesListSetUp", "get failed with ", exception)
                 }
-
+            
             Intent(this, AfterRe::class.java).apply {
                 putExtra("afterdata", datas2)
                 putExtra("search", searchBar.text.toString())
@@ -172,11 +173,13 @@ class AfterRe : AppCompatActivity() {
             if(recentRe2.visibility == View.GONE) {
                 recentRe2.setVisibility(View.VISIBLE)
                 recent_close_button2.text="최근 검색 닫기"
+                check_recnet = 0
             }
             else if(recentRe2.visibility == View.VISIBLE)
             {
                 recent_close_button2.text="최근 검색 열기"
                 recentRe2.setVisibility(View.GONE)
+                check_recnet = 1
             }
         }
 
@@ -193,9 +196,15 @@ class AfterRe : AppCompatActivity() {
                     clearB2.setVisibility(View.GONE)
                     lineView2.setVisibility(View.GONE)
                     scalableLayout3.setVisibility(View.VISIBLE)
+                    recentRe2.setVisibility(View.VISIBLE)
                     if(check == 0)
                         sca.setVisibility(View.VISIBLE)
-                    recentRe2.setVisibility(View.VISIBLE)
+
+                    if(check_recnet == 0)
+                        recentRe2.setVisibility(View.VISIBLE)
+                    else
+                        recentRe2.setVisibility(View.GONE)
+
                 } else {
                     check = 1
                     scalableLayout3.setVisibility(View.GONE)
@@ -204,6 +213,7 @@ class AfterRe : AppCompatActivity() {
                     wordRe2.setVisibility(View.VISIBLE)
                     lineView2.setVisibility(View.VISIBLE)
                     recentRe2.setVisibility(View.GONE)
+
                 }
                 searchFilter(searchT)
             }
@@ -234,6 +244,12 @@ class AfterRe : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onResume(){
+        super.onResume()
+        initRecycler2()
+
     }
 
 

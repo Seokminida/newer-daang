@@ -40,6 +40,9 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)
                     putExtra("mean", item.mean)
+                    putExtra("hash",item.hashT)
+                    putExtra("link",item.link)
+                    putExtra("article",item.article)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
             }

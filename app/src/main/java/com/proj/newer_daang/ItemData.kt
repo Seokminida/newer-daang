@@ -5,5 +5,7 @@ import java.io.Serializable
 data class ItemData (
     val name : String,
     val mean : String,
-    val hashT : String
+    val hashT : String,
+    val article : String,
+    val link : String
 ) : Serializable

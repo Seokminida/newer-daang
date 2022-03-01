@@ -74,7 +74,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for (result in document) {
                     val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(), "#장우")
+                        ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas3.add(insertD)
                 }
             }
@@ -99,7 +99,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for (result in document) {
                     val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(), "#장우")
+                        ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas3.add(insertD)
                 }
             }
@@ -112,7 +112,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for (result in document) {
                     val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(), "#장우")
+                        ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas3.add(insertD)
                 }
             }

@@ -117,7 +117,8 @@ class WordDetailActivity : AppCompatActivity() {
         val bookmark = findViewById<ImageButton>(R.id.bookmark)
         bookmark.setOnClickListener(object: View.OnClickListener{
             override fun onClick(v: View){
-                onBookmarkClicked(ItemData(wname,wmean,category, hash, article, link))
+                var meaning = wmean.replace("\n", "\\n");
+                onBookmarkClicked(ItemData(wname,meaning,category, hash, article, link))
             }
         })
         val docBookmark = db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크")
@@ -195,9 +196,15 @@ class WordDetailActivity : AppCompatActivity() {
             bookmarked = false
         }
         else{
+
+
             val bookmarks_info = hashMapOf(
-                "term_infomation" to term,
                 "name" to term.name,
+                "meaning" to term.meaning,
+                "category" to term.category,
+                "hashtag" to term.hashT,
+                "article" to term.article,
+                "link" to term.link,
             )
             db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크").document(term.name)
                 .set(bookmarks_info)

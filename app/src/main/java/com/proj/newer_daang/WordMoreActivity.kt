@@ -55,6 +55,7 @@ class WordMoreActivity : AppCompatActivity(){
 
         wname = intent.getSerializableExtra("name").toString()
         wmean = intent.getSerializableExtra("mean").toString()
+        wmean = wmean.replace("\\n", "\n");
         wn.text = wname
         wm.text = wmean
         wm.setMovementMethod(ScrollingMovementMethod())

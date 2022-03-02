@@ -28,7 +28,7 @@ class WordDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_word_detail)
+        setContentView(R.layout.activity_word_detail_2)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,14 +57,15 @@ class WordDetailActivity : AppCompatActivity() {
 
         wname = intent.getSerializableExtra("name").toString()
         wmean = intent.getSerializableExtra("mean").toString()
+        wmean = wmean.replace("\\n", "\n");
         hash = intent.getSerializableExtra("hash").toString()
         article = intent.getSerializableExtra("article").toString()
         link = intent.getSerializableExtra("link").toString()
         wn.text = wname
         wm.text = wmean
         hashtag.text = hash
-        news.text = article
-        news2.text  = link
+        //news.text =
+        news2.text  = article
 
         more.setOnClickListener {
             Intent(this, WordMoreActivity::class.java).apply {

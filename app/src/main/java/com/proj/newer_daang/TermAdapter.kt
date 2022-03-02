@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapter.ViewHolder>(){
-    var termsList = ArrayList<TermData>()
+    var termsList = ArrayList<ItemData>()
     var likesList = ArrayList<String>()
     val db = Firebase.firestore
 
@@ -93,7 +92,7 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: TermData, pos : Int)
+        fun onItemClick(v:View, data: ItemData, pos : Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -105,7 +104,7 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
         val tvTerm: TextView = itemView.findViewById(R.id.term)
         val imgLike: ImageButton = itemView.findViewById(R.id.heart)
 
-        fun bind(item: TermData) {
+        fun bind(item: ItemData) {
             tvTerm.text = item.name
             var intheList = false
 

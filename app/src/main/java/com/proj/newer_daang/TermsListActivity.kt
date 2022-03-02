@@ -21,7 +21,7 @@ class TermsListActivity : AppCompatActivity() {
 
     lateinit var termAdapter: TermAdapter
     lateinit var categoryAdapter_: CategoryAdapter
-    val terms = ArrayList<TermData>()
+    val terms = ArrayList<ItemData>()
     val likes = ArrayList<String>()
     var categories = ArrayList<CategoryAdapter.CateData>()
 
@@ -99,7 +99,7 @@ class TermsListActivity : AppCompatActivity() {
                             document ->
                         terms.clear()
                         for(result in document){
-                            val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                            val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                             //Log.d("jonnjoon",selected_category)
                             terms.add(term_item)
                         }
@@ -160,10 +160,13 @@ class TermsListActivity : AppCompatActivity() {
         val intentWordDetail = Intent(this, WordDetailActivity::class.java)
 
         termAdapter.setOnItemClickListener(object: TermAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: TermData, pos: Int) {
+            override fun onItemClick(v: View, data: ItemData, pos: Int) {
                 intentWordDetail.apply{
                     putExtra("name", data.name)
-                    putExtra("mean",data.meaning)
+                    putExtra("mean",data.mean)
+                    putExtra("hash",data.hashT)
+                    putExtra("article",data.article)
+                    putExtra("link",data.link)
                     startActivity(this)
                 }
 
@@ -193,7 +196,7 @@ class TermsListActivity : AppCompatActivity() {
                     document ->
                 terms.clear()
                 for(result in document){
-                    val term_item = TermData(result["name"].toString(),result["meaning"].toString())
+                    val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     //Log.d("jonnjoon",selected_category)
                     terms.add(term_item)
                 }

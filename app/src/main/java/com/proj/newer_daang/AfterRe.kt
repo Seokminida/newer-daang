@@ -357,7 +357,7 @@ class AfterRe : AppCompatActivity() {
                 for(result in document){
                     re_st = result["name"].toString()
                     //----------------------------------------------------------------------------------ItemData 에 category 항목 추가함에 따라 일단 떼워놨습니다
-                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), "category is needed", result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), "", result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
                 }
                 recentAdapter.recentList(redatas)
 

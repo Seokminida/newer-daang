@@ -231,22 +231,6 @@ class TermsListActivity : AppCompatActivity() {
 
     }
 
-
-
-
-/*
-    private fun initRecycler(){
-        termAdapter = TermAdapter(this)
-        val recyclerView_termsList = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView_termsList.adapter = termAdapter
-
-        terms.apply{
-            termAdapter.termsList = terms
-            termAdapter.notifyDataSetChanged()
-        }
-*/
-
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item!!.itemId){

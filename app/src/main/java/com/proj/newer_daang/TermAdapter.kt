@@ -38,9 +38,6 @@ class TermAdapter(private val context: Context) : RecyclerView.Adapter<TermAdapt
 
                 //if already in likes
                 var intheList = false
-/*
-
- */
 
                 //해당 아이템의 필드값이 좋아요 = true 이면 ㄱㄱ
                 for(i in likesList.indices){

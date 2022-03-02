@@ -249,7 +249,7 @@ class AfterRe : AppCompatActivity() {
     override fun onResume(){
         super.onResume()
         initRecycler2()
-
+        recentAdapter.listUpdate()
     }
 
 

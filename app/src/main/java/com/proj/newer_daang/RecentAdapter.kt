@@ -47,6 +47,7 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
             recentW.text = item.name
 
             itemView.setOnClickListener { //최근검색 아이템 클릭 리스너
+                Log.d("asdasd2","$datas2")
                 datas3.clear()
                 if(datas[pos].name.length != 0) {
                     for (i in 0 until datas2.size) {
@@ -104,8 +105,43 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
         notifyDataSetChanged()
     }
 
-    fun listUpdate(recentList2: ArrayList<ItemData>){
-        datas2 = recentList2
+    fun listUpdate(){
+        datas2.clear()
+        val economy = db.collection("economy")
+        economy.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas2.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val politics = db.collection("politics")
+        politics.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas2.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val society = db.collection("society")
+        society.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas2.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
     }
 
 }

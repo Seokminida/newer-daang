@@ -39,9 +39,7 @@ class SearchActivity : AppCompatActivity(){
         setContentView(R.layout.activity_search_2)
         initRecycler()
         initRecycler2()
-        recentAdapter.listUpdate(datas)
-
-
+        recentAdapter.listUpdate()
 
         val economy = db.collection("economy")
         economy.get()
@@ -223,6 +221,7 @@ class SearchActivity : AppCompatActivity(){
     override fun onResume(){
         super.onResume()
         initRecycler2()
+        recentAdapter.listUpdate()
 
     }
     private fun initRecycler(){

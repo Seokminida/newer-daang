@@ -33,7 +33,7 @@ class WordAdapter(private val context: Context):
             itemView.setOnClickListener {
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)
-                    putExtra("mean", item.mean)
+                    putExtra("mean", item.meaning)
                     putExtra("hash",item.hashT)
                     putExtra("link",item.link)
                     putExtra("article",item.article)

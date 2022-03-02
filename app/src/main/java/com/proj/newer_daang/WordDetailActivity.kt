@@ -13,12 +13,6 @@ import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_word_detail.*
-import kotlinx.android.synthetic.main.activity_word_detail.hashtag
-import kotlinx.android.synthetic.main.activity_word_detail.heart
-import kotlinx.android.synthetic.main.activity_word_detail.news
-import kotlinx.android.synthetic.main.activity_word_detail.wm
-import kotlinx.android.synthetic.main.activity_word_detail.wn
 import kotlinx.android.synthetic.main.activity_word_detail_3.*
 
 class WordDetailActivity : AppCompatActivity() {

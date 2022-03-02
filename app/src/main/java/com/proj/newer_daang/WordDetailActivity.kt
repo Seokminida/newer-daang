@@ -67,8 +67,19 @@ class WordDetailActivity : AppCompatActivity() {
         word_name.text = wname
         word_meaning.text = wmean
         hashtag.text = hash
-        //news.text =
         news_headline.text  = article
+
+
+        category_box.text = "카테고리"
+        when(category){
+            "politics" -> category_box.text = "정치"
+            "society" -> category_box.text = "사회"
+            "military" -> category_box.text = "군사"
+            "culture" -> category_box.text = "문화"
+            "economy" -> category_box.text = "경제"
+            "IT" -> category_box.text = "IT/과학"
+        }
+
 
         news_headline.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))

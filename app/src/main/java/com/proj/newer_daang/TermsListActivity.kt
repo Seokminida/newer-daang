@@ -164,7 +164,7 @@ class TermsListActivity : AppCompatActivity() {
                 intentWordDetail.apply{
                     putExtra("name", data.name)
                     putExtra("mean",data.meaning)
-                    putExtra("mean",data.category)
+                    putExtra("category",data.category)
                     putExtra("hash",data.hashT)
                     putExtra("article",data.article)
                     putExtra("link",data.link)

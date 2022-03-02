@@ -14,6 +14,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_word_detail.*
+import kotlinx.android.synthetic.main.activity_word_detail.hashtag
+import kotlinx.android.synthetic.main.activity_word_detail.heart
+import kotlinx.android.synthetic.main.activity_word_detail.news
+import kotlinx.android.synthetic.main.activity_word_detail.wm
+import kotlinx.android.synthetic.main.activity_word_detail.wn
+import kotlinx.android.synthetic.main.activity_word_detail_3.*
 
 class WordDetailActivity : AppCompatActivity() {
 
@@ -28,7 +34,7 @@ class WordDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_word_detail_2)
+        setContentView(R.layout.activity_word_detail_3)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,23 +67,13 @@ class WordDetailActivity : AppCompatActivity() {
         hash = intent.getSerializableExtra("hash").toString()
         article = intent.getSerializableExtra("article").toString()
         link = intent.getSerializableExtra("link").toString()
-        wn.text = wname
-        wm.text = wmean
+        word_name.text = wname
+        word_meaning.text = wmean
         hashtag.text = hash
         //news.text =
-        news2.text  = article
+        news_headline.text  = article
 
-        more.setOnClickListener {
-            Intent(this, WordMoreActivity::class.java).apply {
-                putExtra("name", wn.text)
-                putExtra("mean", wm.text)
-                putExtra("like", like)
-                startActivity(this)
-            }
-        }
-
-
-        news2.setOnClickListener{
+        news_headline.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(intent)
         }

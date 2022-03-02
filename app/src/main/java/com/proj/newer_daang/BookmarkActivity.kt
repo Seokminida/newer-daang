@@ -44,9 +44,6 @@ class BookmarkActivity : AppCompatActivity() {
             startActivity(intentInfo)
         }
 
-
-
-
         val recyclerView_bookmark = findViewById<RecyclerView>(R.id.recyclerView_bookmark)
         bookmarkAdapter = BookmarkAdapter(this)
         recyclerView_bookmark.adapter = bookmarkAdapter

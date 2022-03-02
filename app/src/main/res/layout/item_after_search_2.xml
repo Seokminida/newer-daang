@@ -87,6 +87,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/aqua_background_round_sharp"
                 android:text="# 해시태그  "
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textColor="@color/darker_gray"
                 app:scale_height="9"
                 app:scale_left="28"
@@ -110,6 +112,7 @@
                 app:scale_top="40.5"
                 app:scale_width="15" />
             <ImageButton
+                android:id="@+id/heart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -122,6 +125,7 @@
                 app:scale_width="5.5"/>
 
             <ImageButton
+                android:id="@+id/bookmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"

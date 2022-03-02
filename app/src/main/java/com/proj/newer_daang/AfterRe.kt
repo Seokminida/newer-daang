@@ -39,6 +39,10 @@ class AfterRe : AppCompatActivity() {
     var datas2 = ArrayList<ItemData>()
     var datas3 = ArrayList<ItemData>()
     var redatas = ArrayList<ItemData>()
+
+    val likes = ArrayList<String>()
+    val bookmarks = ArrayList<String>()
+
     var check_recnet = 0
     var db = Firebase.firestore
 
@@ -144,6 +148,10 @@ class AfterRe : AppCompatActivity() {
                 startActivity(this)
             }
         }
+
+
+
+
 
         val politics = db.collection("politics")
         politics.get()
@@ -260,6 +268,49 @@ class AfterRe : AppCompatActivity() {
         var ch = intent.getIntExtra("ch", 0)
         if (ch == 0) { // 검색 후 아이템 클릭
             reAdapter = AfterReAdapter(this)
+
+
+            val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+            docLikes.get()
+                .addOnSuccessListener {
+                        document ->
+                    likes.clear()
+                    for(result in document){
+                        val term_item = result["name"].toString()
+                        likes.add(term_item)
+                    }
+
+                    likes.apply {
+                        reAdapter.likesList = likes
+                        reAdapter.notifyDataSetChanged()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
+                }
+
+            val docBookmarks = db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크")
+            docBookmarks.get()
+                .addOnSuccessListener {
+                        document ->
+                    bookmarks.clear()
+                    for(result in document){
+                        val term_item = result["name"].toString()
+                        bookmarks.add(term_item)
+                    }
+
+                    bookmarks.apply {
+                        reAdapter.bookmarkList = bookmarks
+                        reAdapter.notifyDataSetChanged()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
+                }
+
+
+
+
             val afterrec: RecyclerView = findViewById(R.id.after_search)
             afterrec.adapter = reAdapter
             datas = intent.getSerializableExtra("afterdata") as ArrayList<ItemData>
@@ -333,8 +384,52 @@ class AfterRe : AppCompatActivity() {
                 birdI.setVisibility(View.GONE)
                 lay1.setBackgroundResource(R.color.white)
             }
+
+            val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+            docLikes.get()
+                .addOnSuccessListener {
+                        document ->
+                    likes.clear()
+                    for(result in document){
+                        val term_item = result["name"].toString()
+                        likes.add(term_item)
+                    }
+
+                    likes.apply {
+                        reAdapter.likesList = likes
+                        reAdapter.notifyDataSetChanged()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
+                }
+
+            val docBookmarks = db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크")
+            docBookmarks.get()
+                .addOnSuccessListener {
+                        document ->
+                    bookmarks.clear()
+                    for(result in document){
+                        val term_item = result["name"].toString()
+                        bookmarks.add(term_item)
+                    }
+
+                    bookmarks.apply {
+                        reAdapter.bookmarkList = bookmarks
+                        reAdapter.notifyDataSetChanged()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("likesListSetUp", "get failed with ", exception)
+                }
+
+
             reAdapter.notifyDataSetChanged()
         }
+
+
+
+
 
     }
 

@@ -34,6 +34,7 @@ class WordAdapter(private val context: Context):
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)
                     putExtra("mean", item.meaning)
+                    putExtra("category", item.category)
                     putExtra("hash",item.hashT)
                     putExtra("link",item.link)
                     putExtra("article",item.article)

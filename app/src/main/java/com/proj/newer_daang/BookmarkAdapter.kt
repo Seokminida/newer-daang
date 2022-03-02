@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class BookmarkAdapter(private val context: Context) : RecyclerView.Adapter<BookmarkAdapter.ViewHolder>(){
-    var bookmarkList = mutableListOf<BookmarkData>()
+    var bookmarkList = mutableListOf<ItemData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkAdapter.ViewHolder {
 
@@ -27,7 +27,7 @@ class BookmarkAdapter(private val context: Context) : RecyclerView.Adapter<Bookm
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: BookmarkData, pos : Int)
+        fun onItemClick(v:View, data: ItemData, pos : Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -42,11 +42,11 @@ class BookmarkAdapter(private val context: Context) : RecyclerView.Adapter<Bookm
         private val tvTag1: TextView = itemView.findViewById(R.id.term_tag1)
         //private val tvTag2: TextView = itemView.findViewById(R.id.term_tag2)
 
-        fun bind(item: BookmarkData) {
+        fun bind(item: ItemData) {
             tvTerm.text = item.name
             tvTerm_meaning.text = item.meaning
             tvCategory.text = item.category
-            tvTag1.text = item.tag1
+            tvTag1.text = "#해시태그"
             //tvTag2.text = item.tag2
 
 

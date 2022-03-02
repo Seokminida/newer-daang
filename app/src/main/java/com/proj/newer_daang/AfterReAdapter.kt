@@ -34,12 +34,13 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
 
         fun bind(item: ItemData) {
             wna.text = item.name
-            wme.text = item.mean
+            wme.text = item.meaning
             whash.text = item.hashT
             itemView.setOnClickListener {
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)
-                    putExtra("mean", item.mean)
+                    putExtra("mean", item.meaning)
+                    putExtra("category",item.category)
                     putExtra("hash",item.hashT)
                     putExtra("link",item.link)
                     putExtra("article",item.article)

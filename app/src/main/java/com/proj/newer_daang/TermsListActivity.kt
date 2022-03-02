@@ -99,7 +99,7 @@ class TermsListActivity : AppCompatActivity() {
                             document ->
                         terms.clear()
                         for(result in document){
-                            val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                            val term_item = ItemData(result["name"].toString(), result["meaning"].toString(),selected_category, result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                             //Log.d("jonnjoon",selected_category)
                             terms.add(term_item)
                         }
@@ -163,7 +163,8 @@ class TermsListActivity : AppCompatActivity() {
             override fun onItemClick(v: View, data: ItemData, pos: Int) {
                 intentWordDetail.apply{
                     putExtra("name", data.name)
-                    putExtra("mean",data.mean)
+                    putExtra("mean",data.meaning)
+                    putExtra("mean",data.category)
                     putExtra("hash",data.hashT)
                     putExtra("article",data.article)
                     putExtra("link",data.link)
@@ -196,7 +197,7 @@ class TermsListActivity : AppCompatActivity() {
                     document ->
                 terms.clear()
                 for(result in document){
-                    val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), selected_category,result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     //Log.d("jonnjoon",selected_category)
                     terms.add(term_item)
                 }

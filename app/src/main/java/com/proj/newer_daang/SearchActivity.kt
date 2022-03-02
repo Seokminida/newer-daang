@@ -45,7 +45,7 @@ class SearchActivity : AppCompatActivity(){
         economy.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "economy",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas.add(insertD)
                 }
             }
@@ -57,7 +57,7 @@ class SearchActivity : AppCompatActivity(){
         politics.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "politics",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas.add(insertD)
                 }
             }
@@ -69,7 +69,7 @@ class SearchActivity : AppCompatActivity(){
         society.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas.add(insertD)
                 }
             }
@@ -136,6 +136,7 @@ class SearchActivity : AppCompatActivity(){
                     }
             }
             // 불러오기
+            //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
             val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").orderBy("time",
                 Query.Direction.DESCENDING)
             docRecent.get()
@@ -146,7 +147,8 @@ class SearchActivity : AppCompatActivity(){
                     var re_st: String
                     for(result in document){
                         re_st = result["name"].toString()
-                        redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                        //----------------------------------------------------------------------------------ItemData 에 category 항목 추가함에 따라 일단 떼워놨습니다
+                        redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), "category is needed",result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
                     }
 
 
@@ -239,6 +241,8 @@ class SearchActivity : AppCompatActivity(){
 
     }
 
+
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
     private fun initRecycler2(){
         recentAdapter = RecentAdapter(this)
         val recentrec: RecyclerView = findViewById(R.id.recent)
@@ -255,7 +259,8 @@ class SearchActivity : AppCompatActivity(){
                 var re_st: String
                 for(result in document){
                     re_st = result["name"].toString()
-                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                    //----------------------------------------------------------------------------------ItemData 에 category 항목 추가함에 따라 일단 떼워놨습니다
+                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(),"category is needed", result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
                 }
 
                 recentAdapter.recentList(redatas)

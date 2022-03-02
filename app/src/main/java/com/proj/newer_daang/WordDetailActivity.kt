@@ -19,11 +19,13 @@ class WordDetailActivity : AppCompatActivity() {
 
     lateinit var wname: String
     lateinit var wmean: String
+    lateinit var category: String
     lateinit var hash: String
     lateinit var article: String
     lateinit var link: String
     val db = Firebase.firestore
     var like = false
+    var bookmarked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -58,6 +60,7 @@ class WordDetailActivity : AppCompatActivity() {
         wname = intent.getSerializableExtra("name").toString()
         wmean = intent.getSerializableExtra("mean").toString()
         wmean = wmean.replace("\\n", "\n");
+        category = intent.getSerializableExtra("category").toString()
         hash = intent.getSerializableExtra("hash").toString()
         article = intent.getSerializableExtra("article").toString()
         link = intent.getSerializableExtra("link").toString()
@@ -71,7 +74,7 @@ class WordDetailActivity : AppCompatActivity() {
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(intent)
         }
-        val bookmark = findViewById<ImageButton>(R.id.bookmark)
+
 
         val heart = findViewById<ImageButton>(R.id.heart)
         heart.setOnClickListener(object: View.OnClickListener{
@@ -79,8 +82,8 @@ class WordDetailActivity : AppCompatActivity() {
                 onLikeClicked(wname)
             }
         })
-        val docRef = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
-        docRef.get()
+        val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+        docLikes.get()
             .addOnSuccessListener {
                     document ->
                 for(result in document){
@@ -99,6 +102,32 @@ class WordDetailActivity : AppCompatActivity() {
                 Log.d("likesSetUp", "get failed with ", exception)
             }
 
+
+        val bookmark = findViewById<ImageButton>(R.id.bookmark)
+        bookmark.setOnClickListener(object: View.OnClickListener{
+            override fun onClick(v: View){
+                onBookmarkClicked(ItemData(wname,wmean,category, hash, article, link))
+            }
+        })
+        val docBookmark = db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크")
+        docBookmark.get()
+            .addOnSuccessListener {
+                    document ->
+                for(result in document){
+                    if(wname.equals(result["name"].toString())){
+                        bookmarked = true
+                        bookmark.setImageResource(R.drawable.bookmark_filled_50_2)
+                        break
+                    }
+                }
+                if(!bookmarked){
+                    bookmark.setImageResource(R.drawable.bookmark_empty_50_2)
+                }
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("bookmarksSetUp", "get failed with ", exception)
+            }
 
 
     }
@@ -140,6 +169,31 @@ class WordDetailActivity : AppCompatActivity() {
                 .addOnFailureListener { e -> Log.w("firebaseaddedError", "Error deleting document", e) }
             heart.setImageResource(R.drawable.heart_filled_50_2)
             like = true
+        }
+        return true
+    }
+
+    fun onBookmarkClicked(term: ItemData): Boolean{
+        if(bookmarked){
+            db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크").document(term.name)
+                .delete()
+                .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
+                .addOnFailureListener { e -> Log.w("firebasedeletedError", "Error deleting document", e) }
+
+            bookmark.setImageResource(R.drawable.bookmark_empty_50_2)
+            bookmarked = false
+        }
+        else{
+            val bookmarks_info = hashMapOf(
+                "term_infomation" to term,
+                "name" to term.name,
+            )
+            db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크").document(term.name)
+                .set(bookmarks_info)
+                .addOnSuccessListener { Log.d("firebaseadded", "DocumentSnapshot successfully added!") }
+                .addOnFailureListener { e -> Log.w("firebaseaddedError", "Error adding document", e) }
+            bookmark.setImageResource(R.drawable.bookmark_filled_50_2)
+            bookmarked = true
         }
         return true
     }

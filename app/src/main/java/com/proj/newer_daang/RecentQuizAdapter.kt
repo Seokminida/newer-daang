@@ -51,7 +51,7 @@ class RecentQuizAdapter(private val context: Context) : RecyclerView.Adapter<Rec
                 ivAnswer.setImageResource(R.drawable.quiz_x)
             }
 
-            //Glide.with(itemView).load(item.img).into(imgProfile)
+
             val pos = adapterPosition
             if(pos!= RecyclerView.NO_POSITION)
             {

@@ -76,9 +76,12 @@ class RecentQuizActivity : AppCompatActivity() {
             .addOnSuccessListener {
                     document ->
                 quiz.clear()
+                var count = 0
                 for(result in document){
+                    if(count>=20)   break
                     val quiz_item = QuizData(result["name"].toString(), result["ans"].toString())
                     quiz.add(quiz_item)
+                    count++
                 }
 
                 quiz.apply {

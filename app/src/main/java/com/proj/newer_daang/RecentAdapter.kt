@@ -80,10 +80,13 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
                     }
                 }
                 Intent(context, AfterRe::class.java).apply {
-                        putExtra("array", datas3)
-                        putExtra("name2", datas[pos].name)
-                        putExtra("ch",1)
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    putExtra("array", datas3)
+                    putExtra("name2", datas[pos].name)
+                    putExtra("ch",1)
+                    putExtra("hash",item.hashT)
+                    putExtra("link",item.link)
+                    putExtra("article",item.article)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     }.run { context.startActivity(this) }
 
             }

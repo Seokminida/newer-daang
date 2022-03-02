@@ -26,7 +26,7 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 
 
 class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<QuizPanelAdapter.ViewHolder>() {
-    var optionList = mutableListOf<TermData>()
+    var optionList = mutableListOf<ItemData>()
     var selectPos = -1
     var answer = -1
     var clicked = 0
@@ -103,7 +103,7 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: TermData, pos : Int)
+        fun onItemClick(v:View, data: ItemData, pos : Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -114,7 +114,7 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
         private val tvTerm: TextView = itemView.findViewById(R.id.term)
 
-        fun bind(item: TermData) {
+        fun bind(item: ItemData) {
             tvTerm.text = item.name
 
             val pos = adapterPosition

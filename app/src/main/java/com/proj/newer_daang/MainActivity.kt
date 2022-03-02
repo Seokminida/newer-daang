@@ -19,10 +19,10 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 class MainActivity : AppCompatActivity() {
 
     lateinit var quizPanelAdapter: QuizPanelAdapter
-    var quizitemList = mutableListOf<TermData>()
+    var quizitemList = mutableListOf<ItemData>()
     var answer = -1
     var refreshed = 0
-    lateinit var question : TermData
+    lateinit var question : ItemData
     lateinit var tv_question : TextView
     var db = Firebase.firestore
     private var lastClickTime = 0L
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
         quizPanelAdapter.answer = answer
         tv_question = findViewById<TextView>(R.id.question);
         quizPanelAdapter.setOnItemClickListener(object: QuizPanelAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: TermData, pos: Int) {
+            override fun onItemClick(v: View, data: ItemData, pos: Int) {
 
                 //if (SystemClock.elapsedRealtime() - lastClickTime > 1500 || refreshed == 1) {
                 if ( refreshed == 1) {
@@ -255,7 +255,7 @@ class MainActivity : AppCompatActivity() {
 
                     val random = (1..2).random()
                     if(random == 1) {
-                        val term_item = TermData(result["name"].toString(), result["sum"].toString())
+                        val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                         //Log.d("sampleshowshowshow",term_item.name)
                         if (count == answer){
                             question = term_item
@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
                             tv_question.text = quizitemList[answer].meaning
                         }
                          */
-                        tv_question.text = question.meaning
+                        tv_question.text = question.mean
                         quizPanelAdapter.optionList = quizitemList
                         quizPanelAdapter.notifyDataSetChanged()
                         refreshed = 1

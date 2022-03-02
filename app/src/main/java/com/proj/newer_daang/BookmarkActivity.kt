@@ -17,8 +17,8 @@ import kotlinx.android.synthetic.main.activity_word_detail_3.*
 class BookmarkActivity : AppCompatActivity() {
 
     lateinit var bookmarkAdapter: BookmarkAdapter
-    val bookmarksList = ArrayList<String>()
     val bookmarks = mutableListOf<ItemData>()
+    val likes = ArrayList<String>()
     var db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +59,10 @@ class BookmarkActivity : AppCompatActivity() {
                 intentWordDetail.apply{
                     putExtra("name", data.name)
                     putExtra("mean",data.meaning)
+                    putExtra("category",data.category)
+                    putExtra("hash",data.hashT)
+                    putExtra("article",data.article)
+                    putExtra("link",data.link)
                     startActivity(this)
                 }
                 //Toast.makeText( App.ApplicationContext(), "북마크에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
@@ -77,20 +81,39 @@ class BookmarkActivity : AppCompatActivity() {
                     document ->
                 bookmarks.clear()
                 for(result in document){
-                    var data : ItemData = result["term_information"] as ItemData
+                    var data =ItemData(result["name"].toString(), result["meaning"].toString(), result["category"].toString(), result["hashtag"].toString(),result["article"].toString(), result["link"].toString())
                     bookmarks.add(data)
+
+                }
+                bookmarks.apply {
+                    bookmarkAdapter.bookmarkList = bookmarks
+                    bookmarkAdapter.notifyDataSetChanged()
+
                 }
             }
             .addOnFailureListener { exception ->
                 Log.d("bookmarksSetUp", "get failed with ", exception)
             }
 
+        val docLikes = db.collection("user").document(Firebase.auth.uid.toString()).collection("좋아요")
+        docLikes.get()
+            .addOnSuccessListener {
+                    document ->
+                likes.clear()
+                for(result in document){
+                    val term_item = result["name"].toString()
+                    likes.add(term_item)
+                }
 
-        bookmarks.apply {
-            bookmarkAdapter.bookmarkList = bookmarks
-            bookmarkAdapter.notifyDataSetChanged()
+                likes.apply {
+                    bookmarkAdapter.likesList = likes
+                    bookmarkAdapter.notifyDataSetChanged()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
 
-        }
 
 
 

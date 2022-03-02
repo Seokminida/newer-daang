@@ -78,11 +78,11 @@
                 app:scale_textsize="4"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center"/>
 
 
             <TextView
-                android:id="@+id/term_tag1"
+                android:id="@+id/term_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/aqua_background_round_sharp"
@@ -106,6 +106,7 @@
                 android:background="@drawable/aqua_background_round_sharp"
                 android:scaleType="center"
                 android:src="@drawable/etc_35"
+                android:visibility="visible"
                 app:scale_height="9"
                 app:scale_left="80"
                 app:scale_top="40.2"

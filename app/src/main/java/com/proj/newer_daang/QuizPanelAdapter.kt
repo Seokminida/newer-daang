@@ -26,7 +26,7 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 
 
 class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<QuizPanelAdapter.ViewHolder>() {
-    var optionList = mutableListOf<ItemData>()
+    var optionList = mutableListOf<String>()
     var selectPos = -1
     var answer = -1
     var clicked = 0
@@ -56,10 +56,10 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
                 tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
                 val user = hashMapOf(
                     "ans" to "false",
-                    "name" to optionList[answer].name,
+                    "name" to optionList[answer],
                     "time" to Timestamp.now()
                 )
-                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer])
                     .set(user)
                     .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
                     .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
@@ -77,7 +77,7 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
                     "name" to tvTerm.text,
                     "time" to Timestamp.now()
                 )
-                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer])
                     .set(user)
                     .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
                     .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
@@ -103,7 +103,7 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: ItemData, pos : Int)
+        fun onItemClick(v:View, data: String, pos : Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -114,8 +114,8 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
         private val tvTerm: TextView = itemView.findViewById(R.id.term)
 
-        fun bind(item: ItemData) {
-            tvTerm.text = item.name
+        fun bind(item: String) {
+            tvTerm.text = item
 
             val pos = adapterPosition
             if(pos!= RecyclerView.NO_POSITION)

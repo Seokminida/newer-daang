@@ -19,10 +19,10 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 class MainActivity : AppCompatActivity() {
 
     lateinit var quizPanelAdapter: QuizPanelAdapter
-    var quizitemList = mutableListOf<ItemData>()
+    var quizitemList = mutableListOf<String>()
     var answer = -1
     var refreshed = 0
-    lateinit var question : ItemData
+    lateinit var question : String
     lateinit var tv_question : TextView
     var db = Firebase.firestore
     private var lastClickTime = 0L
@@ -60,14 +60,6 @@ class MainActivity : AppCompatActivity() {
         val tvBestWord = findViewById<TextView>(R.id.bestword);
         tvBestWord.setOnClickListener {
             val intentBestWord = Intent(this, WordDetailActivity::class.java)
-            /*
-            intentBestWord.apply{
-                putExtra("name", data.name)
-                putExtra("mean",data.meaning)
-                startActivity(this)
-            }
-             */
-
             startActivity(intentBestWord)
         }
 
@@ -195,7 +187,7 @@ class MainActivity : AppCompatActivity() {
         quizPanelAdapter.answer = answer
         tv_question = findViewById<TextView>(R.id.question);
         quizPanelAdapter.setOnItemClickListener(object: QuizPanelAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: ItemData, pos: Int) {
+            override fun onItemClick(v: View, data: String, pos: Int) {
 
                 //if (SystemClock.elapsedRealtime() - lastClickTime > 1500 || refreshed == 1) {
                 if ( refreshed == 1) {
@@ -255,14 +247,12 @@ class MainActivity : AppCompatActivity() {
 
                     val random = (1..2).random()
                     if(random == 1) {
-                        val term_item = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                        //Log.d("sampleshowshowshow",term_item.name)
+                        val term_item = QuizData(result["name"].toString(), result["sum"].toString())
                         if (count == answer){
-                            question = term_item
-                            //tv_question.text = (answer+1).toString() + term_item.meaning  //term_item.meaning
+                            question = term_item.answer
                             quizPanelAdapter.answer = answer
                         }
-                        quizitemList.add(term_item)
+                        quizitemList.add(term_item.name)
                         count++
                     }
                 }
@@ -270,13 +260,7 @@ class MainActivity : AppCompatActivity() {
                 quizitemList.apply {
                     val handler = Handler()
                     handler.postDelayed(Runnable {
-                        /*
-
-                        if(!(tv_question.text.equals(quizitemList[answer].meaning))){
-                            tv_question.text = quizitemList[answer].meaning
-                        }
-                         */
-                        tv_question.text = question.mean
+                        tv_question.text = question
                         quizPanelAdapter.optionList = quizitemList
                         quizPanelAdapter.notifyDataSetChanged()
                         refreshed = 1

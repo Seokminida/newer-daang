@@ -114,7 +114,7 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
         economy.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "economy",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas2.add(insertD)
                 }
             }
@@ -126,7 +126,7 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
         politics.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(),"politics", result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas2.add(insertD)
                 }
             }
@@ -138,7 +138,7 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
         society.get()
             .addOnSuccessListener { document ->
                 for(result in document){
-                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society", result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
                     datas2.add(insertD)
                 }
             }

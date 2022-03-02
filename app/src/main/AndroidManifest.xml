@@ -115,19 +115,8 @@
         </activity>
 
         <activity
-            android:name=".WordMoreActivity"
-            android:exported="true"
-            android:logo="@drawable/logo_circle"
-            android:label="단어">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".StartActivity"
-            android:logo="@drawable/logo"
+            android:logo="@drawable/logo_circle"
             android:label="단어">
         </activity>
 

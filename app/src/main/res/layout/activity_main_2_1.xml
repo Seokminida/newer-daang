@@ -475,7 +475,6 @@
                     android:padding="10dp"
                     android:background="@color/aqua"
                     android:text="문제 나갑니다! \n아직 나가는 중일지도?"
-                    android:scrollbars="vertical"
                     android:textColor="@color/darker_gray"
                     android:textStyle="bold"
                     app:scale_height="100"

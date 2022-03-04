@@ -26,7 +26,7 @@ import com.ssomai.android.scalablelayout.ScalableLayout
 
 
 class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<QuizPanelAdapter.ViewHolder>() {
-    var optionList = mutableListOf<String>()
+    var optionList = mutableListOf<QuizData>()
     var selectPos = -1
     var answer = -1
     var clicked = 0
@@ -56,10 +56,11 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
                 tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
                 val user = hashMapOf(
                     "ans" to "false",
-                    "name" to optionList[answer],
+                    "name" to optionList[answer].name,
+                    "category" to optionList[answer].category,
                     "time" to Timestamp.now()
                 )
-                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer])
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
                     .set(user)
                     .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
                     .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
@@ -74,10 +75,11 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
                 tvTerm.setTextColor(ContextCompat.getColor(context!!, R.color.darker_gray))
                 val user = hashMapOf(
                     "ans" to "true",
-                    "name" to tvTerm.text,
+                    "name" to optionList[answer].name,
+                    "category" to optionList[answer].category,
                     "time" to Timestamp.now()
                 )
-                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer])
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("최근 푼 퀴즈").document(optionList[answer].name)
                     .set(user)
                     .addOnSuccessListener { Log.d("firebasedeleted", "DocumentSnapshot successfully deleted!") }
                     .addOnFailureListener { e -> Log.w("firebasedeleted", "Error deleting document", e) }
@@ -103,7 +105,7 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
 
     interface OnItemClickListener{
-        fun onItemClick(v:View, data: String, pos : Int)
+        fun onItemClick(v:View, data: QuizData, pos : Int)
     }
     private var listener : OnItemClickListener? = null
     fun setOnItemClickListener(listener : OnItemClickListener) {
@@ -114,8 +116,8 @@ class QuizPanelAdapter(private val context: Context) : RecyclerView.Adapter<Quiz
 
         private val tvTerm: TextView = itemView.findViewById(R.id.term)
 
-        fun bind(item: String) {
-            tvTerm.text = item
+        fun bind(item: QuizData) {
+            tvTerm.text = item.answer
 
             val pos = adapterPosition
             if(pos!= RecyclerView.NO_POSITION)

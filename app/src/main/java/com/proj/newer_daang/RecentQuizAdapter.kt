@@ -44,7 +44,7 @@ class RecentQuizAdapter(private val context: Context) : RecyclerView.Adapter<Rec
 
         fun bind(item: QuizData) {
             tvTerm.text = item.name
-            if(item.answer.equals("true")){
+            if(item.quiz.equals("true")){
                 ivAnswer.setImageResource(R.drawable.quiz_o)
             }
             else{

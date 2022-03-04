@@ -61,11 +61,30 @@ class RecentQuizActivity : AppCompatActivity() {
 
         recentQuizAdapter.setOnItemClickListener(object: RecentQuizAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: QuizData, pos: Int) {
-                intentWordDetail.apply{
-                    putExtra("name", data.name)
-                    putExtra("mean",data.name)
-                    startActivity(this)
-                }
+                val docGetTerm = db.collection(data.category)
+                docGetTerm.get()
+                    .addOnSuccessListener {
+                            document ->
+                        for(result in document){
+                            if(data.name.equals(result["name"].toString())){
+                                intentWordDetail.apply{
+                                    putExtra("name", result["name"].toString())
+                                    putExtra("mean",result["meaning"].toString())
+                                    putExtra("category",result["category"].toString())
+                                    putExtra("hash",result["hashtag"].toString())
+                                    putExtra("article",result["article"].toString())
+                                    putExtra("link",result["link"].toString())
+                                    startActivity(this)
+                                }
+                            }
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d("likesListSetUp", "get failed with ", exception)
+                    }
+
+
+
                 //Toast.makeText( App.ApplicationContext(), "북마크에서 용어 상세 설명 페이지로 전환됩니다.", Toast.LENGTH_SHORT ).show()
             }
         })
@@ -79,7 +98,7 @@ class RecentQuizActivity : AppCompatActivity() {
                 var count = 0
                 for(result in document){
                     if(count>=20)   break
-                    val quiz_item = QuizData(result["name"].toString(), result["ans"].toString())
+                    val quiz_item = QuizData(result["name"].toString(),result["name"].toString(),result["category"].toString(),result["ans"].toString())
                     quiz.add(quiz_item)
                     count++
                 }

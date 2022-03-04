@@ -1,6 +1,8 @@
 package com.proj.newer_daang
 
+import android.content.ClipData
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
@@ -11,21 +13,26 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.ssomai.android.scalablelayout.ScalableLayout
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var quizPanelAdapter: QuizPanelAdapter
-    var quizitemList = mutableListOf<String>()
+    var quizitemList = mutableListOf<QuizData>()
     var answer = -1
     var refreshed = 0
     lateinit var question : String
     lateinit var tv_question : TextView
+    lateinit var bestword_item : ItemData
     var db = Firebase.firestore
     private var lastClickTime = 0L
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,9 +66,24 @@ class MainActivity : AppCompatActivity() {
 
         val tvBestWord = findViewById<TextView>(R.id.bestword);
         tvBestWord.setOnClickListener {
-            val intentBestWord = Intent(this, WordDetailActivity::class.java)
-            startActivity(intentBestWord)
+            pickBestWord()
+            val handler = Handler()
+            handler.postDelayed(Runnable {
+                val intentBestWord = Intent(this, WordDetailActivity::class.java)
+                intentBestWord.apply{
+                    putExtra("name", bestword_item.name)
+                    putExtra("mean",bestword_item.meaning)
+                    putExtra("category",bestword_item.category)
+                    putExtra("hash",bestword_item.hashT)
+                    putExtra("article",bestword_item.article)
+                    putExtra("link",bestword_item.link)
+                    startActivity(this)
+                }
+            }, 1000)
+
         }
+
+
 
         //category: onclick intent move
         val tvCate_politics = findViewById<TextView>(R.id.cate_politics);
@@ -187,7 +209,7 @@ class MainActivity : AppCompatActivity() {
         quizPanelAdapter.answer = answer
         tv_question = findViewById<TextView>(R.id.question);
         quizPanelAdapter.setOnItemClickListener(object: QuizPanelAdapter.OnItemClickListener{
-            override fun onItemClick(v: View, data: String, pos: Int) {
+            override fun onItemClick(v: View, data: QuizData, pos: Int) {
 
                 //if (SystemClock.elapsedRealtime() - lastClickTime > 1500 || refreshed == 1) {
                 if ( refreshed == 1) {
@@ -220,6 +242,44 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun pickBestWord(){
+        val today = LocalDate.now()
+        val day: Int = today.dayOfMonth
+        val today_word = (day-4)%25
+
+        var random_category=""
+        val random_num = today_word%3
+        when(random_num){
+            0 -> random_category="politics"
+            1 -> random_category="society"
+            //2 -> random_category="military"
+            //3 -> random_category="culture"
+            2 -> random_category="economy"
+            //5 -> random_category="IT"
+        }
+        val docTermsList = db.collection(random_category)
+        docTermsList.get()
+            .addOnSuccessListener {
+                    document ->
+                //val random_word = (0..3).random()
+                var picked = false
+                var count=0
+                for(result in document){
+                    if(count == today_word) {
+                        bestword_item = ItemData(result["name"].toString(), result["meaning"].toString(),random_category, result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                        break
+                    }
+                    count++
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+    }
+
+
     fun getQuizContents(){
         var selected_category=""
         val randomCategory = (0..2).random()
@@ -232,8 +292,8 @@ class MainActivity : AppCompatActivity() {
             //5 -> selected_category="IT_sum"
         }
 
-        val docRef = db.collection(selected_category)
-        docRef.get()
+        val docTermsList = db.collection(selected_category)
+        docTermsList.get()
             .addOnSuccessListener {
                     document ->
                 var count = 0
@@ -247,12 +307,20 @@ class MainActivity : AppCompatActivity() {
 
                     val random = (1..2).random()
                     if(random == 1) {
-                        val term_item = QuizData(result["name"].toString(), result["sum"].toString())
+                        when(randomCategory){
+                            0 -> selected_category="politics"
+                            1 -> selected_category="society"
+                            //2 -> selected_category="military"
+                            //3 -> selected_category="culture"
+                            2 -> selected_category="economy"
+                            //5 -> selected_category="IT"
+                        }
+                        val term_item = QuizData(result["answer"].toString(),result["name"].toString(), selected_category, result["sum"].toString())
                         if (count == answer){
-                            question = term_item.answer
+                            question = term_item.quiz
                             quizPanelAdapter.answer = answer
                         }
-                        quizitemList.add(term_item.name)
+                        quizitemList.add(term_item)
                         count++
                     }
                 }

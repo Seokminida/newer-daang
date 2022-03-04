@@ -24,12 +24,19 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
     var datas2 = ArrayList<ItemData>()
     var datas3 = ArrayList<ItemData>()
     var db = Firebase.firestore
+    private var limit = 10
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_recent,parent,false)
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = datas.size
+    override fun getItemCount(): Int {
+        if(datas.size > limit){
+            return limit
+        }
+        else
+            return datas.size
+    }
 
     override fun getItemId(position: Int): Long {
         return position.toLong()
@@ -94,7 +101,6 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
                 itemView.recent_delete.setOnClickListener {
                     db.collection("user").document(Firebase.auth.uid.toString()).collection("최근검색어").document(datas[pos].name)
                         .delete()
-
                     datas.removeAt(pos)
                     notifyDataSetChanged()
                 }

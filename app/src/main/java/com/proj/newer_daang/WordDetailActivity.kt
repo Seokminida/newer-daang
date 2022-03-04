@@ -23,6 +23,7 @@ class WordDetailActivity : AppCompatActivity() {
     lateinit var hash: String
     lateinit var article: String
     lateinit var link: String
+    lateinit var cate: String
     val db = Firebase.firestore
     var like = false
     var bookmarked = false
@@ -64,6 +65,8 @@ class WordDetailActivity : AppCompatActivity() {
         hash = intent.getSerializableExtra("hash").toString()
         article = intent.getSerializableExtra("article").toString()
         link = intent.getSerializableExtra("link").toString()
+        cate = intent.getSerializableExtra("category").toString()
+
         word_name.text = wname
         word_meaning.text = wmean
         hashtag.text = hash
@@ -79,6 +82,7 @@ class WordDetailActivity : AppCompatActivity() {
             "economy" -> category_box.text = "경제"
             "IT" -> category_box.text = "IT/과학"
         }
+
 
 
         news_headline.setOnClickListener{

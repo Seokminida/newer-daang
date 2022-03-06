@@ -90,6 +90,15 @@ class WordDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        /*textsize.setOnClickListener{
+            scalableLayout_text.setVisibility(View.VISIBLE)
+
+        }*/
+
+        /*plusButton.setOnClickListener{
+            Log.d("name",word_name.textSize.toString())
+            word_name.setTextSize(30F)
+        }*/
 
         val heart = findViewById<ImageButton>(R.id.heart)
         heart.setOnClickListener(object: View.OnClickListener{

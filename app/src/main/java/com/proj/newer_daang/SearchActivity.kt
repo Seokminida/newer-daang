@@ -34,6 +34,8 @@ class SearchActivity : AppCompatActivity(){
     val redatas = ArrayList<ItemData>()
     var db = Firebase.firestore
     var check = 0
+    val pref = this.getSharedPreferences("ch",0)
+    val editor = pref.edit()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_2)
@@ -102,6 +104,7 @@ class SearchActivity : AppCompatActivity(){
         clearB.setOnClickListener{
             searchBar.setText(null)
         }
+
 
         recent_close_button.setOnClickListener {
             if(recent.visibility == View.GONE) {

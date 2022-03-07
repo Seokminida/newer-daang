@@ -2,6 +2,7 @@ package com.proj.newer_daang
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -108,6 +109,7 @@ class WordDetailActivity : AppCompatActivity() {
             }
 
         }
+
         var n_size = pref.getString("text_size","27.0f").toString()
         var m_size = pref.getString("mean_size","25.0f").toString()
         var h_size = pref.getString("hash_size","25.0f").toString()
@@ -120,14 +122,20 @@ class WordDetailActivity : AppCompatActivity() {
         news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,m_size.toFloat())
 
         plusButton.setOnClickListener{
-            var name_size = (word_name.textSize / 3.5 + 3).toFloat()
-            var mean_size = (word_meaning.textSize / 3.5 + 3).toFloat()
-            var hash = (hashtag.textSize / 3.5 + 3).toFloat()
-            var cate = (category_box.textSize / 3.5 + 3).toFloat()
+            var name_size = pxTodp(word_name.textSize)+3
+            var mean_size =pxTodp(word_meaning.textSize)+3
+            var hash = pxTodp(hashtag.textSize)+3
+            var cate =  pxTodp(category_box.textSize)+3
+
+            Log.d("aaaaa",name_size.toString())
+            Log.d("aaaab",mean_size.toString())
+            Log.d("aaaac",hash.toString())
+
             editor.putString("text_size",name_size.toString()).apply()
             editor.putString("mean_size",mean_size.toString()).apply()
             editor.putString("hash_size",hash.toString()).apply()
             editor.putString("cate_size",cate.toString()).apply()
+
             word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
             word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
             hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
@@ -137,14 +145,16 @@ class WordDetailActivity : AppCompatActivity() {
         }
 
         minButton.setOnClickListener{
-            var name_size = (word_name.textSize / 3.5 - 3).toFloat()
-            var mean_size = (word_meaning.textSize / 3.5 - 3).toFloat()
-            var hash = (hashtag.textSize / 3.5 - 3).toFloat()
-            var cate = (category_box.textSize / 3.5 - 3).toFloat()
+            var name_size = pxTodp(word_name.textSize)-3
+            var mean_size =pxTodp(word_meaning.textSize)-3
+            var hash = pxTodp(hashtag.textSize)-3
+            var cate =  pxTodp(category_box.textSize)-3
+
             editor.putString("text_size",name_size.toString()).apply()
             editor.putString("mean_size",mean_size.toString()).apply()
             editor.putString("hash_size",hash.toString()).apply()
             editor.putString("cate_size",cate.toString()).apply()
+
             word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
             word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
             hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
@@ -250,6 +260,10 @@ class WordDetailActivity : AppCompatActivity() {
             like = true
         }
         return true
+    }
+
+    fun pxTodp(px: Float) : Float{
+        return (px/ Resources.getSystem().displayMetrics.density)
     }
 
     fun onBookmarkClicked(term: ItemData): Boolean{

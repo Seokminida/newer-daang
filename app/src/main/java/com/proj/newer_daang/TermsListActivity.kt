@@ -90,7 +90,7 @@ class TermsListActivity : AppCompatActivity() {
                     2 -> selected_category="military"
                     3 -> selected_category="culture"
                     4 -> selected_category="economy"
-                    5 -> selected_category="IT"
+                    5 -> selected_category="it_science"
                 }
 
                 val docRef = db.collection(selected_category)
@@ -188,7 +188,7 @@ class TermsListActivity : AppCompatActivity() {
             2 -> selected_category="military"
             3 -> selected_category="culture"
             4 -> selected_category="economy"
-            5 -> selected_category="IT"
+            5 -> selected_category="it_science"
         }
 
         val docRef = db.collection(selected_category)

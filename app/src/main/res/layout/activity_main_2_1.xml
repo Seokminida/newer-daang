@@ -482,6 +482,7 @@
                     app:scale_textsize="15"
                     app:scale_top="50"
                     app:scale_width="370"
+                    android:scrollbars="vertical"
                     android:fontFamily="@font/pretendard_regular"/>
 
                 <androidx.recyclerview.widget.RecyclerView

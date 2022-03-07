@@ -90,7 +90,7 @@ class WordDetailActivity : AppCompatActivity() {
             "military" -> category_box.text = "군사"
             "culture" -> category_box.text = "문화"
             "economy" -> category_box.text = "경제"
-            "IT" -> category_box.text = "IT/과학"
+            "it_science" -> category_box.text = "IT/과학"
         }
 
 

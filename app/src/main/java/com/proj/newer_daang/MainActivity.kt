@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -208,7 +209,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView_quiz.addItemDecoration(HorizontalItemDecorator_rv(5))
 
         quizPanelAdapter.answer = answer
-        tv_question = findViewById<TextView>(R.id.question);
+        tv_question = findViewById<TextView>(R.id.question)
+        tv_question.setMovementMethod(ScrollingMovementMethod())
         quizPanelAdapter.setOnItemClickListener(object: QuizPanelAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: QuizData, pos: Int) {
 
@@ -258,7 +260,7 @@ class MainActivity : AppCompatActivity() {
             2 -> random_category="military"
             3 -> random_category="culture"
             4 -> random_category="economy"
-            5 -> random_category="IT"
+            5 -> random_category="it_science"
         }
         val docTermsList = db.collection(random_category)
         docTermsList.get()
@@ -290,7 +292,7 @@ class MainActivity : AppCompatActivity() {
             2 -> selected_category="military_sum"
             3 -> selected_category="culture_sum"
             4 -> selected_category="economy_sum"
-            5 -> selected_category="IT_sum"
+            5 -> selected_category="it_science_sum"
         }
 
         val docTermsList = db.collection(selected_category)
@@ -314,7 +316,7 @@ class MainActivity : AppCompatActivity() {
                             2 -> selected_category="military"
                             3 -> selected_category="culture"
                             4 -> selected_category="economy"
-                            5 -> selected_category="IT"
+                            5 -> selected_category="it_science"
                         }
                         val term_item = QuizData(result["answer"].toString(),result["name"].toString(), selected_category, result["sum"].toString())
                         if (count == answer){

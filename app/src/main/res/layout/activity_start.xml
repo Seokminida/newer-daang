@@ -28,7 +28,7 @@
                 android:scaleType="centerCrop"
                 app:scale_height="260"
                 app:scale_left="5"
-
+                android:layout_gravity="center_vertical"
                 app:scale_width="390"
                 app:srcCompat="@drawable/logo_body" />
 
@@ -39,9 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scalableLayout_startLogo"
             android:background="@color/aqua_darker"
-            app:scale_base_height="300"
+            app:scale_base_height="200"
             app:scale_base_width="400">
 
             <Button
@@ -56,7 +55,7 @@
                 app:scale_height="50"
                 app:scale_left="50"
                 app:scale_textsize="20"
-                app:scale_top="100"
+                app:scale_top="40"
                 app:scale_width="300" />
 
 
@@ -71,7 +70,7 @@
                 app:scale_height="50"
                 app:scale_left="50"
                 app:scale_textsize="20"
-                app:scale_top="170"
+                app:scale_top="110"
                 app:scale_width="300" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

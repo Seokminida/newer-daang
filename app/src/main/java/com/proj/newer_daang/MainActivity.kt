@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_2_1)
@@ -254,10 +255,10 @@ class MainActivity : AppCompatActivity() {
         when(random_num){
             0 -> random_category="politics"
             1 -> random_category="society"
-            //2 -> random_category="military"
-            //3 -> random_category="culture"
-            2 -> random_category="economy"
-            //5 -> random_category="IT"
+            2 -> random_category="military"
+            3 -> random_category="culture"
+            4 -> random_category="economy"
+            5 -> random_category="IT"
         }
         val docTermsList = db.collection(random_category)
         docTermsList.get()
@@ -286,10 +287,10 @@ class MainActivity : AppCompatActivity() {
         when(randomCategory){
             0 -> selected_category="politics_sum"
             1 -> selected_category="society_sum"
-            //2 -> selected_category="military_sum"
-            //3 -> selected_category="culture_sum"
-            2 -> selected_category="economy_sum"
-            //5 -> selected_category="IT_sum"
+            2 -> selected_category="military_sum"
+            3 -> selected_category="culture_sum"
+            4 -> selected_category="economy_sum"
+            5 -> selected_category="IT_sum"
         }
 
         val docTermsList = db.collection(selected_category)
@@ -310,10 +311,10 @@ class MainActivity : AppCompatActivity() {
                         when(randomCategory){
                             0 -> selected_category="politics"
                             1 -> selected_category="society"
-                            //2 -> selected_category="military"
-                            //3 -> selected_category="culture"
-                            2 -> selected_category="economy"
-                            //5 -> selected_category="IT"
+                            2 -> selected_category="military"
+                            3 -> selected_category="culture"
+                            4 -> selected_category="economy"
+                            5 -> selected_category="IT"
                         }
                         val term_item = QuizData(result["answer"].toString(),result["name"].toString(), selected_category, result["sum"].toString())
                         if (count == answer){

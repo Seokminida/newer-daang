@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -90,15 +91,42 @@ class WordDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*textsize.setOnClickListener{
-            scalableLayout_text.setVisibility(View.VISIBLE)
+        textsize.setOnClickListener{
+            if(textCardV.getVisibility().toString() == "0") {
+                textCardV.setVisibility(View.GONE)
+            }
+            else{
+                textCardV.setVisibility(View.VISIBLE)
+            }
 
-        }*/
+        }
 
-        /*plusButton.setOnClickListener{
-            Log.d("name",word_name.textSize.toString())
-            word_name.setTextSize(30F)
-        }*/
+        plusButton.setOnClickListener{
+            var name_size = (word_name.textSize / 3.5 + 3).toFloat()
+            var mean_size = (word_meaning.textSize / 3.5 + 3).toFloat()
+            var hash = (hashtag.textSize / 3.5 + 3).toFloat()
+            var cate = (category_box.textSize / 3.5 + 3).toFloat()
+            word_name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
+            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_DIP,hash)
+            category_box.setTextSize(TypedValue.COMPLEX_UNIT_DIP,cate)
+            news.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
+            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+        }
+
+        minButton.setOnClickListener{
+            var name_size = (word_name.textSize / 3.5 - 3).toFloat()
+            var mean_size = (word_meaning.textSize / 3.5 - 3).toFloat()
+            var hash = (hashtag.textSize / 3.5 - 3).toFloat()
+            var cate = (category_box.textSize / 3.5 - 3).toFloat()
+            word_name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
+            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_DIP,hash)
+            category_box.setTextSize(TypedValue.COMPLEX_UNIT_DIP,cate)
+            news.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
+            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+        }
+
 
         val heart = findViewById<ImageButton>(R.id.heart)
         heart.setOnClickListener(object: View.OnClickListener{

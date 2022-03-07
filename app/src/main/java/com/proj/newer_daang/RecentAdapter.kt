@@ -54,7 +54,6 @@ class RecentAdapter(private val context: Context) : RecyclerView.Adapter<RecentA
             recentW.text = item.name
 
             itemView.setOnClickListener { //최근검색 아이템 클릭 리스너
-                Log.d("asdasd2","$datas2")
                 datas3.clear()
                 if(datas[pos].name.length != 0) {
                     for (i in 0 until datas2.size) {

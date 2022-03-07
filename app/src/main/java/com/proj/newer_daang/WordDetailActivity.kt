@@ -1,8 +1,10 @@
 package com.proj.newer_daang
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
@@ -28,8 +30,14 @@ class WordDetailActivity : AppCompatActivity() {
     val db = Firebase.firestore
     var like = false
     var bookmarked = false
-
+    private lateinit var sharedPreferences : SharedPreferences
+    private lateinit var editor : SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val pref = this.getPreferences(0)
+        val editor = pref.edit()
+
+
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_word_detail_3)
@@ -100,18 +108,32 @@ class WordDetailActivity : AppCompatActivity() {
             }
 
         }
+        var n_size = pref.getString("text_size","27.0f").toString()
+        var m_size = pref.getString("mean_size","25.0f").toString()
+        var h_size = pref.getString("hash_size","25.0f").toString()
+        var c_size = pref.getString("cate_size","25.0f").toString()
+        word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,n_size.toFloat())
+        word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,m_size.toFloat())
+        hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,h_size.toFloat())
+        category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,c_size.toFloat())
+        news.setTextSize(TypedValue.COMPLEX_UNIT_SP,n_size.toFloat())
+        news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,m_size.toFloat())
 
         plusButton.setOnClickListener{
             var name_size = (word_name.textSize / 3.5 + 3).toFloat()
             var mean_size = (word_meaning.textSize / 3.5 + 3).toFloat()
             var hash = (hashtag.textSize / 3.5 + 3).toFloat()
             var cate = (category_box.textSize / 3.5 + 3).toFloat()
-            word_name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
-            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
-            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_DIP,hash)
-            category_box.setTextSize(TypedValue.COMPLEX_UNIT_DIP,cate)
-            news.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
-            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+            editor.putString("text_size",name_size.toString()).apply()
+            editor.putString("mean_size",mean_size.toString()).apply()
+            editor.putString("hash_size",hash.toString()).apply()
+            editor.putString("cate_size",cate.toString()).apply()
+            word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
+            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
+            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
+            category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,cate)
+            news.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
+            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
         }
 
         minButton.setOnClickListener{
@@ -119,12 +141,16 @@ class WordDetailActivity : AppCompatActivity() {
             var mean_size = (word_meaning.textSize / 3.5 - 3).toFloat()
             var hash = (hashtag.textSize / 3.5 - 3).toFloat()
             var cate = (category_box.textSize / 3.5 - 3).toFloat()
-            word_name.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
-            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
-            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_DIP,hash)
-            category_box.setTextSize(TypedValue.COMPLEX_UNIT_DIP,cate)
-            news.setTextSize(TypedValue.COMPLEX_UNIT_DIP,name_size)
-            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_DIP,mean_size)
+            editor.putString("text_size",name_size.toString()).apply()
+            editor.putString("mean_size",mean_size.toString()).apply()
+            editor.putString("hash_size",hash.toString()).apply()
+            editor.putString("cate_size",cate.toString()).apply()
+            word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
+            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
+            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
+            category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,cate)
+            news.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
+            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
         }
 
 

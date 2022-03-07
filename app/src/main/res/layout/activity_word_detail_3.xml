@@ -78,7 +78,7 @@
                                 android:fontFamily="@font/pretendard_bold"
                                 android:text="이 헌법공포 당시의 집dssds"
                                 android:textColor="@color/darker_gray_to_white"
-                                android:textSize="27dp"
+                                android:textSize="27sp"
                                 tools:ignore="MissingPrefix" />
                         </LinearLayout>
 
@@ -165,8 +165,8 @@
                                         android:layout_width="22dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
-                                        android:layout_marginRight="5dp"
-                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginRight="13dp"
+                                        android:layout_marginLeft="8dp"
                                         android:background="@android:color/transparent"
                                         android:scaleType="fitCenter"
                                         app:srcCompat="@drawable/plusbutton" />
@@ -176,7 +176,7 @@
                                         android:layout_width="22dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
-                                        android:layout_marginRight="5dp"
+                                        android:layout_marginRight="8dp"
                                         android:background="@android:color/transparent"
                                         android:scaleType="fitCenter"
 
@@ -196,7 +196,7 @@
                                     android:lineSpacingExtra="10dp"
                                     android:text="설명"
                                     android:textColor="@color/darker_gray_to_white"
-                                    android:textSize="25dp"
+                                    android:textSize="25sp"
                                     tools:ignore="MissingPrefix" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -229,7 +229,7 @@
                             android:paddingBottom="5dp"
                             android:text="정치"
                             android:textColor="@color/darker_gray"
-                            android:textSize="25dp" />
+                            android:textSize="25sp" />
 
                         <TextView
                             android:id="@+id/hashtag"
@@ -249,7 +249,7 @@
                             android:paddingBottom="5dp"
                             android:text="#해시태그 "
                             android:textColor="@color/darker_gray"
-                            android:textSize="25dp" />
+                            android:textSize="25sp" />
                     </LinearLayout>
 
                     </LinearLayout>
@@ -284,7 +284,7 @@
                             android:fontFamily="@font/pretendard_bold"
                             android:text="관련기사"
                             android:textColor="@color/darker_gray_to_white"
-                            android:textSize="27dp"
+                            android:textSize="27sp"
                             tools:ignore="MissingPrefix"/>
                         <TextView
                             android:id="@+id/news_headline"
@@ -293,7 +293,7 @@
                             android:fontFamily="@font/pretendard_regular"
                             android:text="내용"
                             android:textColor="@color/darker_gray_to_white"
-                            android:textSize="25dp"
+                            android:textSize="25sp"
                             android:maxLines="3"
                             tools:ignore="MissingPrefix"/>
                     </LinearLayout>

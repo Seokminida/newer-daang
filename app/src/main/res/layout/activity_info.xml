@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="목요플젝단\npoptanza@g.skku.edu\ngyeong143@naver.com\nssk01017@naver.com\npon06113@naver.com\nsuk909013@naver.com"
+                android:text="목요플젝단\npoptanza@g.skku.edu"
                 android:textColor="@color/black_to_white"
                 app:textview_wrapcontent_direction="bottom"
                 app:textview_wrapcontent_movesiblings="true"

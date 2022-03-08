@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.ktx.auth
@@ -31,8 +32,7 @@ class WordDetailActivity : AppCompatActivity() {
     val db = Firebase.firestore
     var like = false
     var bookmarked = false
-    private lateinit var sharedPreferences : SharedPreferences
-    private lateinit var editor : SharedPreferences.Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val pref = this.getPreferences(0)
@@ -122,45 +122,65 @@ class WordDetailActivity : AppCompatActivity() {
         news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,m_size.toFloat())
 
         plusButton.setOnClickListener{
-            var name_size = pxTodp(word_name.textSize)+3
-            var mean_size =pxTodp(word_meaning.textSize)+3
-            var hash = pxTodp(hashtag.textSize)+3
-            var cate =  pxTodp(category_box.textSize)+3
+            var name_size = pxTodp(word_name.textSize)
+            var mean_size =pxTodp(word_meaning.textSize)
+            var hash = pxTodp(hashtag.textSize)
+            var cate =  pxTodp(category_box.textSize)
 
-            Log.d("aaaaa",name_size.toString())
-            Log.d("aaaab",mean_size.toString())
-            Log.d("aaaac",hash.toString())
+            if(name_size + 3 > 40){
+                Toast.makeText(
+                    baseContext, "최대크기입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else {
+                name_size += 3
+                mean_size += 3
+                hash += 3
+                cate +=3
+                editor.putString("text_size", name_size.toString()).apply()
+                editor.putString("mean_size", mean_size.toString()).apply()
+                editor.putString("hash_size", hash.toString()).apply()
+                editor.putString("cate_size", cate.toString()).apply()
 
-            editor.putString("text_size",name_size.toString()).apply()
-            editor.putString("mean_size",mean_size.toString()).apply()
-            editor.putString("hash_size",hash.toString()).apply()
-            editor.putString("cate_size",cate.toString()).apply()
-
-            word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
-            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
-            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
-            category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,cate)
-            news.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
-            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
+                word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
+                word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+                hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP, hash)
+                category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP, cate)
+                news.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
+                news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+            }
         }
 
         minButton.setOnClickListener{
-            var name_size = pxTodp(word_name.textSize)-3
-            var mean_size =pxTodp(word_meaning.textSize)-3
-            var hash = pxTodp(hashtag.textSize)-3
-            var cate =  pxTodp(category_box.textSize)-3
+            var name_size = pxTodp(word_name.textSize)
+            var mean_size =pxTodp(word_meaning.textSize)
+            var hash = pxTodp(hashtag.textSize)
+            var cate =  pxTodp(category_box.textSize)
+            if(name_size - 3 < 20){
+                Toast.makeText(
+                    baseContext, "최소크기입니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-            editor.putString("text_size",name_size.toString()).apply()
-            editor.putString("mean_size",mean_size.toString()).apply()
-            editor.putString("hash_size",hash.toString()).apply()
-            editor.putString("cate_size",cate.toString()).apply()
+            else {
+                name_size -= 3
+                mean_size -= 3
+                hash -= 3
+                cate -=3
+                editor.putString("text_size", name_size.toString()).apply()
+                editor.putString("mean_size", mean_size.toString()).apply()
+                editor.putString("hash_size", hash.toString()).apply()
+                editor.putString("cate_size", cate.toString()).apply()
 
-            word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
-            word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
-            hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP,hash)
-            category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,cate)
-            news.setTextSize(TypedValue.COMPLEX_UNIT_SP,name_size)
-            news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,mean_size)
+                word_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
+                word_meaning.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+                hashtag.setTextSize(TypedValue.COMPLEX_UNIT_SP, hash)
+                category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP, cate)
+                news.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
+                news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+            }
         }
 
 

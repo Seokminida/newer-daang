@@ -56,7 +56,8 @@ class AfterRe : AppCompatActivity() {
         spannableString.setSpan(ForegroundColorSpan(getResources().getColor(R.color.orange_point)), 0, st.length+2, 0)
         no_search.text = spannableString
 
-
+        val pref = this.getSharedPreferences("ch",0)
+        val editor = pref.edit()
 
         initRecycler()
         initRecycler2()
@@ -86,15 +87,75 @@ class AfterRe : AppCompatActivity() {
         val economy = db.collection("economy")
         economy.get()
             .addOnSuccessListener { document ->
-                for (result in document) {
-                    val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(), "economy", result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas3.add(insertD)
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "economy",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
                 Log.d("asd", "get failed with ", exception)
             }
+
+        val politics = db.collection("politics")
+        politics.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "politics",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val society = db.collection("society")
+        society.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val it_science = db.collection("it_science")
+        it_science.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val culture = db.collection("culture")
+        culture.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val military = db.collection("military")
+        military.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
 
         clearB2.setOnClickListener {
             searchBar.setText(null)
@@ -151,44 +212,19 @@ class AfterRe : AppCompatActivity() {
 
 
 
-
-
-        val politics = db.collection("politics")
-        politics.get()
-            .addOnSuccessListener { document ->
-                for (result in document) {
-                    val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(),"politics", result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas3.add(insertD)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("asd", "get failed with ", exception)
-            }
-
-        val society = db.collection("society")
-        society.get()
-            .addOnSuccessListener { document ->
-                for (result in document) {
-                    val insertD =
-                        ItemData(result["name"].toString(), result["meaning"].toString(), "society", result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas3.add(insertD)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("asd", "get failed with ", exception)
-            }
-
         recent_close_button2.setOnClickListener {
-            if(recentRe2.visibility == View.GONE) {
+            var check_re = pref.getString("recent_c","1").toString()
+            if(check_re.toInt() == 1)  {
                 recentRe2.setVisibility(View.VISIBLE)
                 recent_close_button2.text="최근 검색 닫기"
+                editor.putString("recent_c","0").apply()
                 check_recnet = 0
             }
-            else if(recentRe2.visibility == View.VISIBLE)
+            else if(check_re.toInt() == 0)
             {
                 recent_close_button2.text="최근 검색 열기"
                 recentRe2.setVisibility(View.GONE)
+                editor.putString("recent_c","1").apply()
                 check_recnet = 1
             }
         }
@@ -241,7 +277,18 @@ class AfterRe : AppCompatActivity() {
                     scalableLayout3.setVisibility(View.VISIBLE)
                     recent_textView2.setVisibility(View.VISIBLE)
                     recent_close_button2.setVisibility(View.VISIBLE)
-                    recentRe2.setVisibility(View.VISIBLE)
+                    var check_re = pref.getString("recent_c","1").toString()
+                    if(check_re.toInt() == 0) {
+                        recentRe2.setVisibility(View.VISIBLE)
+                        recent_close_button2.text="최근 검색 닫기"
+                        check = 0
+                    }
+                    else if(check_re.toInt() == 1)
+                    {
+                        recent_close_button2.text="최근 검색 열기"
+                        recentRe2.setVisibility(View.GONE)
+                        check = 1
+                    }
                     sca.setVisibility(View.GONE)
                 } else
                 {
@@ -260,6 +307,7 @@ class AfterRe : AppCompatActivity() {
         super.onResume()
         initRecycler2()
         recentAdapter.listUpdate()
+        searchBar.clearFocus()
     }
 
 

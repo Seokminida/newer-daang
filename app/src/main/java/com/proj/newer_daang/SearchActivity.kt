@@ -34,14 +34,15 @@ class SearchActivity : AppCompatActivity(){
     val redatas = ArrayList<ItemData>()
     var db = Firebase.firestore
     var check = 0
-    val pref = this.getSharedPreferences("ch",0)
-    val editor = pref.edit()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_2)
         initRecycler()
         initRecycler2()
         recentAdapter.listUpdate()
+        val pref = this.getSharedPreferences("ch",0)
+        val editor = pref.edit()
 
         val economy = db.collection("economy")
         economy.get()
@@ -79,6 +80,41 @@ class SearchActivity : AppCompatActivity(){
                 Log.d("asd", "get failed with ", exception)
             }
 
+        val it_science = db.collection("it_science")
+        it_science.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val culture = db.collection("culture")
+        culture.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
+
+        val military = db.collection("military")
+        military.get()
+            .addOnSuccessListener { document ->
+                for(result in document){
+                    val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
+                    datas.add(insertD)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("asd", "get failed with ", exception)
+            }
 
         val btnHome = findViewById<ImageButton>(R.id.bottombar_home)
         btnHome.setOnClickListener {
@@ -106,16 +142,21 @@ class SearchActivity : AppCompatActivity(){
         }
 
 
+
         recent_close_button.setOnClickListener {
-            if(recent.visibility == View.GONE) {
+            var check_re = pref.getString("recent_c","1").toString()
+            Log.d("asdasd",check_re)
+            if(check_re.toInt() == 1) {
                 recent.setVisibility(View.VISIBLE)
                 recent_close_button.text="최근 검색 닫기"
+                editor.putString("recent_c","0").apply()
                 check = 0
             }
-            else if(recent.visibility == View.VISIBLE)
+            else if(check_re.toInt() == 0)
             {
                 recent_close_button.text="최근 검색 열기"
                 recent.setVisibility(View.GONE)
+                editor.putString("recent_c","1").apply()
                 check = 1
             }
         }
@@ -212,7 +253,18 @@ class SearchActivity : AppCompatActivity(){
                 if(hasFocus){
                     recent_textView.setVisibility(View.VISIBLE)
                     recent_close_button.setVisibility(View.VISIBLE)
-                    recent.setVisibility(View.VISIBLE)
+                    var check_re = pref.getString("recent_c","1").toString()
+                    if(check_re.toInt() == 0) {
+                        recent.setVisibility(View.VISIBLE)
+                        recent_close_button.text="최근 검색 닫기"
+                        check = 0
+                    }
+                    else if(check_re.toInt() == 1)
+                    {
+                        recent_close_button.text="최근 검색 열기"
+                        recent.setVisibility(View.GONE)
+                        check = 1
+                    }
                 } else
                 {
                     recent_textView.setVisibility(View.GONE)
@@ -227,6 +279,7 @@ class SearchActivity : AppCompatActivity(){
         super.onResume()
         initRecycler2()
         recentAdapter.listUpdate()
+        searchBar.clearFocus()
 
     }
     private fun initRecycler(){
@@ -240,8 +293,6 @@ class SearchActivity : AppCompatActivity(){
             wordAdapter.datas = datas
             wordAdapter.notifyDataSetChanged()
         }
-
-
     }
 
 

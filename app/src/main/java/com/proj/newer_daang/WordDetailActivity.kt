@@ -157,7 +157,7 @@ class WordDetailActivity : AppCompatActivity() {
             var mean_size =pxTodp(word_meaning.textSize)
             var hash = pxTodp(hashtag.textSize)
             var cate =  pxTodp(category_box.textSize)
-            if(name_size - 3 < 20){
+            if(name_size - 3 < 13){
                 Toast.makeText(
                     baseContext, "최소크기입니다.",
                     Toast.LENGTH_SHORT

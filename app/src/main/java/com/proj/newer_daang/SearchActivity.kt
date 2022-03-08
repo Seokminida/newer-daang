@@ -205,6 +205,7 @@ class SearchActivity : AppCompatActivity(){
 
 
             Intent(this, AfterRe::class.java).apply{
+                Log.d("aaaaab","$datas2")
                 putExtra("afterdata",datas2)
                 putExtra("search",searchBar.text.toString())
                 startActivity(this)
@@ -280,6 +281,7 @@ class SearchActivity : AppCompatActivity(){
         initRecycler2()
         recentAdapter.listUpdate()
         searchBar.clearFocus()
+        recent.setVisibility(View.GONE)
 
     }
     private fun initRecycler(){
@@ -363,7 +365,7 @@ class SearchActivity : AppCompatActivity(){
                 }
             }
         }
-
+        Log.d("aaaaa","$datas2")
         wordAdapter.filterList(datas2)
     }
     fun back(v : View) {

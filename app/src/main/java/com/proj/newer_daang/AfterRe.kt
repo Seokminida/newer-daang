@@ -89,7 +89,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "economy",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -101,7 +101,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "politics",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -113,7 +113,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -125,7 +125,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -137,7 +137,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->
@@ -149,7 +149,7 @@ class AfterRe : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 for(result in document){
                     val insertD = ItemData(result["name"].toString(), result["meaning"].toString(), "society",result["hashtag"].toString(),result["article"].toString(),result["link"].toString())
-                    datas.add(insertD)
+                    datas3.add(insertD)
                 }
             }
             .addOnFailureListener { exception ->

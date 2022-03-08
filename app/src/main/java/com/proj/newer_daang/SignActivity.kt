@@ -6,18 +6,18 @@ import android.util.Log
 import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_search_2.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import com.google.firebase.auth.FirebaseUser
-
-
+import com.google.firebase.firestore.ktx.firestore
 
 
 class SignActivity : AppCompatActivity() {
-
+    var db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,6 +75,23 @@ class SignActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) { //update ui code here
         if (user != null) {
             val intent = Intent(this, LoginActivity::class.java)
+
+            val tmp = nickname.text.toString()
+            val na = hashMapOf(
+                "name" to tmp,
+            )
+            //db에 닉네임 추가
+
+            if(tmp!="") {
+                db.collection("user").document(Firebase.auth.uid.toString()).collection("닉네임")
+                    .document("nickname").set(na)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d("firebaseaddedRecent", "succeccful")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("firebaseaddedRecent", "Error adding document", e)
+                    }
+            }
             startActivity(intent)
             finish()
         }

@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.proj.newer_daang.ItemData
 import com.proj.newer_daang.R
 import com.proj.newer_daang.WordDetailActivity
+import kotlinx.android.synthetic.main.activity_word_detail_3.*
 
 class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterReAdapter.ViewHolder>() {
     var likesList = ArrayList<String>()
@@ -137,6 +138,7 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
         private val wna: TextView = itemView.findViewById(R.id.wna)
         private val wme: TextView = itemView.findViewById(R.id.wme)
         private val whash: TextView = itemView.findViewById(R.id.hashT)
+        private val cate: TextView = itemView.findViewById(R.id.cate)
 
         val imgLike: ImageButton = itemView.findViewById(R.id.heart)
         val imgBookmark: ImageButton = itemView.findViewById(R.id.bookmark)
@@ -145,6 +147,14 @@ class AfterReAdapter(private val context: Context) : RecyclerView.Adapter<AfterR
             wna.text = item.name
             wme.text = item.meaning
             whash.text = item.hashT
+            when(item.category){
+                "politics" -> cate.text = "정치"
+                "society" -> cate.text = "사회"
+                "military" -> cate.text = "군사"
+                "culture" -> cate.text = "문화"
+                "economy" -> cate.text = "경제"
+                "it_science" -> cate.text = "IT/과학"
+            }
             itemView.setOnClickListener {
                 Intent(context, WordDetailActivity::class.java).apply {
                     putExtra("name", item.name)

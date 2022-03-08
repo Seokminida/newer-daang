@@ -16,6 +16,7 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.ssomai.android.scalablelayout.ScalableLayout
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             val intentInfo = Intent(this, InfoActivity::class.java)
             startActivity(intentInfo)
         }
+
 
         //
 

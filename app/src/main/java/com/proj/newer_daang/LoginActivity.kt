@@ -8,16 +8,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login_2.*
 import kotlinx.android.synthetic.main.activity_login_2.email_l
 import kotlinx.android.synthetic.main.activity_login_2.login_b
 import kotlinx.android.synthetic.main.activity_login_2.password_l
 import kotlinx.android.synthetic.main.activity_login_2.*
+import kotlinx.android.synthetic.main.activity_signup.*
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) { //update ui code here
         if (user != null) {
             val intent = Intent(this, MainActivity::class.java)
+
             startActivity(intent)
             finish()
         }

@@ -17,8 +17,9 @@
             android:layout_height="wrap_content"
             android:text="단어"
             android:textColor="@color/darker_gray_to_white"
-
-            android:paddingTop="7dp"
+            app:textview_wrapcontent_direction="bottom"
+            app:textview_wrapcontent_movesiblings="true"
+            app:textview_wrapcontent_resizesurrounded="true"
             app:scale_height="11"
             app:scale_left="4"
             app:scale_textsize="5.5"

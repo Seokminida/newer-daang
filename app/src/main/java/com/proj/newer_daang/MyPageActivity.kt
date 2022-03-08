@@ -11,20 +11,34 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_mypage.*
-
-
-
+import kotlinx.android.synthetic.main.activity_signup.*
 
 
 class MyPageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-
+    var db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
+
+        val docRecent = db.collection("user").document(Firebase.auth.uid.toString()).collection("닉네임").document("nickname")
+            .get()
+            .addOnSuccessListener {
+                    document ->
+                val doc = document
+
+                var re_st: String
+                username.text = doc["name"].toString()
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("likesListSetUp", "get failed with ", exception)
+            }
 
 
 
@@ -50,6 +64,7 @@ class MyPageActivity : AppCompatActivity() {
             val intentInfo = Intent(this, InfoActivity::class.java)
             startActivity(intentInfo)
         }
+
 
 
         val darkmode_toggle = findViewById<Switch>(R.id.darkmode_toggle)

@@ -73,12 +73,13 @@
                 app:scale_height="9"
                 app:scale_left="5"
                 app:scale_top="40.5"
+                android:textAlignment="center"
                 android:textColor="@color/darker_gray"
                 app:scale_width="20"
                 app:scale_textsize="4"
                 android:paddingStart="6dp"
                 android:paddingEnd="6dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center"/>
 
 
             <TextView

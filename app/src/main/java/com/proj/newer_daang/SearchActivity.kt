@@ -244,6 +244,7 @@ class SearchActivity : AppCompatActivity(){
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                recent.setVisibility(View.GONE)
                 var searchT: String = p0.toString()
                 searchFilter(searchT)
             }
@@ -332,15 +333,17 @@ class SearchActivity : AppCompatActivity(){
 
     fun searchFilter(str : String){
         datas2.clear()
-
         if(str.length != 0) {
+            Log.d("aaa4",str)
             for (i in 0 until datas.size) {
-                if(str.length > datas[i].name.length)
+                if(str.length > datas[i].name.length && str.length > datas[i].hashT.length) {
                     break
+                }
                 var check = 1
                 if(str[0] == '#'){
-                    if(str == datas[i].hashT)
+                    if(datas[i].hashT.contains(str)) {
                         datas2.add(datas[i])
+                    }
                 }
                 else {
                     for (j in 0 until str.length) {
@@ -365,7 +368,6 @@ class SearchActivity : AppCompatActivity(){
                 }
             }
         }
-        Log.d("aaaaa","$datas2")
         wordAdapter.filterList(datas2)
     }
     fun back(v : View) {

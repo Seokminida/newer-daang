@@ -267,6 +267,7 @@ class AfterRe : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
                 var searchT: String = p0.toString()
                 searchFilter(searchT)
+                recentRe2.setVisibility(View.GONE)
             }
         })
 
@@ -500,7 +501,7 @@ class AfterRe : AppCompatActivity() {
                 for(result in document){
                     re_st = result["name"].toString()
                     //----------------------------------------------------------------------------------ItemData 에 category 항목 추가함에 따라 일단 떼워놨습니다
-                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), "", result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
+                    redatas.add(ItemData(result["name"].toString(), result["meaning"].toString(), result["category"].toString(), result["hashtag"].toString(),result["article"].toString(),result["link"].toString()))
                 }
                 recentAdapter.recentList(redatas)
 
@@ -532,11 +533,11 @@ class AfterRe : AppCompatActivity() {
 
         if (str.length != 0) {
             for (i in 0 until datas3.size) {
-                if (str.length > datas3[i].name.length)
+                if (str.length > datas3[i].name.length && str.length > datas3[i].hashT.length)
                     break
                 var check = 1
                 if (str[0] == '#') {
-                    if (str == datas3[i].hashT)
+                    if (datas3[i].hashT.contains(str))
                         datas2.add(datas3[i])
                 } else {
                     for (j in 0 until str.length) {

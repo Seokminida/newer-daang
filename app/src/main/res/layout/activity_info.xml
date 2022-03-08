@@ -88,6 +88,7 @@
                 app:scale_top="50"
                 app:scale_width="400"
                 android:fontFamily="@font/pretendard_regular"/>
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
     </FrameLayout>
     <FrameLayout
@@ -120,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="뉴스가 어려운 당신에게\nNewer_Danng"
+                android:text="뉴스가 어려운 당신에게\nver. 1.0.0"
                 android:textColor="@color/black_to_white"
                 app:scale_height="60"
                 app:scale_top="50"
@@ -223,6 +224,7 @@
                 app:scale_top="1"
                 app:scale_width="100"
                 app:srcCompat="@drawable/info_lined" />
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>

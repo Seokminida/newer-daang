@@ -1,6 +1,7 @@
 package com.proj.newer_daang
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -31,6 +32,13 @@ class InfoActivity : AppCompatActivity() {
         btnBookmark.setOnClickListener {
             val intentBookmark = Intent(this, BookmarkActivity::class.java)
             startActivity(intentBookmark)
+        }
+
+        val link_button = findViewById<TextView>(R.id.link)
+        link_button.setOnClickListener {
+            val link = "https://newer-daang.notion.site/81375a5cfe8a4201bc743a6d52e2288f"
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+            startActivity(intent)
         }
 
     }

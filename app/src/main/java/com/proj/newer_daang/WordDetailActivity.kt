@@ -1,11 +1,11 @@
 package com.proj.newer_daang
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.Resources
+import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
-import android.preference.PreferenceManager
+import android.text.TextUtils.indexOf
 import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
@@ -19,6 +19,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_word_detail_3.*
+import kotlinx.android.synthetic.main.activity_word_detail_3.bookmark
+import kotlinx.android.synthetic.main.activity_word_detail_3.heart
 
 class WordDetailActivity : AppCompatActivity() {
 
@@ -70,18 +72,22 @@ class WordDetailActivity : AppCompatActivity() {
 
         wname = intent.getSerializableExtra("name").toString()
         wmean = intent.getSerializableExtra("mean").toString()
-        wmean = wmean.replace("\\n", "\n");
+        wmean = wmean.replace("\\n", "@")
         category = intent.getSerializableExtra("category").toString()
         hash = intent.getSerializableExtra("hash").toString()
         article = intent.getSerializableExtra("article").toString()
         link = intent.getSerializableExtra("link").toString()
         cate = intent.getSerializableExtra("category").toString()
 
+
+
+
+        resetWordDetail()
+
         word_name.text = wname
-        word_meaning.text = wmean
+        //word_meaning.text = wmean
         hashtag.text = hash
         news_headline.text  = article
-
 
         category_box.text = "카테고리"
         when(category){
@@ -120,7 +126,7 @@ class WordDetailActivity : AppCompatActivity() {
         category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP,c_size.toFloat())
         news.setTextSize(TypedValue.COMPLEX_UNIT_SP,n_size.toFloat())
         news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP,m_size.toFloat())
-
+        resetWordDetail()
         plusButton.setOnClickListener{
             var name_size = pxTodp(word_name.textSize)
             var mean_size =pxTodp(word_meaning.textSize)
@@ -149,6 +155,7 @@ class WordDetailActivity : AppCompatActivity() {
                 category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP, cate)
                 news.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
                 news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+                resetWordDetail()
             }
         }
 
@@ -180,6 +187,7 @@ class WordDetailActivity : AppCompatActivity() {
                 category_box.setTextSize(TypedValue.COMPLEX_UNIT_SP, cate)
                 news.setTextSize(TypedValue.COMPLEX_UNIT_SP, name_size)
                 news_headline.setTextSize(TypedValue.COMPLEX_UNIT_SP, mean_size)
+                resetWordDetail()
             }
         }
 
@@ -286,6 +294,10 @@ class WordDetailActivity : AppCompatActivity() {
         return (px/ Resources.getSystem().displayMetrics.density)
     }
 
+    fun dpTopx(dp: Int) : Float{
+        return (dp * Resources.getSystem().displayMetrics.density)
+    }
+
     fun onBookmarkClicked(term: ItemData): Boolean{
         if(bookmarked){
             db.collection("user").document(Firebase.auth.uid.toString()).collection("북마크").document(term.name)
@@ -315,6 +327,46 @@ class WordDetailActivity : AppCompatActivity() {
             bookmarked = true
         }
         return true
+    }
+
+    fun resetWordDetail(){
+
+
+        var paragraph_words = wmean.split("@")
+        var text_in_total = ""
+
+        for(fragment in paragraph_words) {
+
+            var line_changes = fragment.split("@")
+            var text_in_mid = ""
+
+            for(words in line_changes) {
+                val display = windowManager.defaultDisplay // in case of Activity
+                val size = Point()
+                display.getRealSize(size) // or getSize(size)
+                val width = size.x
+                val height = size.y
+                var paint = word_meaning.paint
+                var frameWidth = width - dpTopx(110)
+                Log.d("now_width?", "hello")
+                var tmpStr = fragment
+                var save_str = ""
+                var startIdx = 0
+                var endIdx = paint.breakText(tmpStr, true, frameWidth, null)
+                save_str = tmpStr.substring(startIdx, endIdx)
+                while (true) {
+                    startIdx = endIdx
+                    tmpStr = tmpStr.substring(startIdx)
+                    if (tmpStr.length == 0) break
+                    endIdx = paint.breakText(tmpStr, true, frameWidth, null)
+                    save_str += "\n" + tmpStr.substring(0, endIdx)
+                    //tmpStr = tmpStr.replace("\n\n", "@@")
+                }
+                text_in_mid+=save_str
+            }
+            text_in_total+=text_in_mid+"\n"
+        }
+        word_meaning.setText(text_in_total)
     }
 
 }

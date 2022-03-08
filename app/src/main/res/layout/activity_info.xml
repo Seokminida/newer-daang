@@ -50,7 +50,7 @@
         android:id="@+id/frame_dev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scalable_logo">
@@ -66,13 +66,13 @@
                 android:id="@+id/developers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:gravity="center"
                 android:text="Developers"
                 android:textColor="@color/black_to_white"
                 app:scale_height="50"
                 app:scale_textsize="20"
-                app:scale_width="400"
-                android:fontFamily="@font/pretendard_regular"/>
+                app:scale_width="400" />
 
             <TextView
                 android:id="@+id/developers_detail"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="목요플젝단\npoptanza@g.skku.edu"
+                android:text="목요플젝단\npoptanza@g.skku.edu\ngyeong143@naver.com\nssk01017@naver.com\npon06113@naver.com\nsuk909013@naver.com"
                 android:textColor="@color/black_to_white"
                 app:textview_wrapcontent_direction="bottom"
                 app:textview_wrapcontent_movesiblings="true"

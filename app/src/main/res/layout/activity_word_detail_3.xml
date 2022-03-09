@@ -29,6 +29,7 @@
     </androidx.appcompat.widget.Toolbar>
 
             <ScrollView
+                android:id="@+id/scroll"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/white"
@@ -157,8 +158,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal"
-                                    android:background="@color/white_box"
-                                    android:padding="5dp">
+                                    android:paddingStart="5dp"
+                                    android:paddingEnd="5dp"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp">
 
                                     <ImageButton
                                         android:id="@+id/plusButton"
@@ -230,12 +233,16 @@
                             android:text="정치"
                             android:textColor="@color/darker_gray"
                             android:textSize="25sp" />
-
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:scrollbars="none">
                         <TextView
                             android:id="@+id/hashtag"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:scrollHorizontally="true"
                             android:background="@drawable/aqua_background_round_sharp"
                             android:ellipsize="end"
                             android:fontFamily="@font/pretendard_regular"
@@ -250,6 +257,7 @@
                             android:text="#해시태그 "
                             android:textColor="@color/darker_gray"
                             android:textSize="25sp" />
+                        </HorizontalScrollView>
                     </LinearLayout>
 
                     </LinearLayout>
@@ -306,11 +314,12 @@
             </ScrollView>
 
 
+
+
     <FrameLayout
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -332,7 +341,8 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_home"/>
+                app:srcCompat="@drawable/home_lined" />
+
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -343,7 +353,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_bookmark" />
+                app:srcCompat="@drawable/bookmark_lined" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -355,7 +365,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_mypage" />
+                app:srcCompat="@drawable/mypage_lined" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -367,8 +377,7 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_info" />
-
+                app:srcCompat="@drawable/info_lined" />
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>

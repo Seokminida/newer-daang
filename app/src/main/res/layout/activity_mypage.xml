@@ -154,9 +154,9 @@
                     android:track="@drawable/switch_track_selector"
                     android:thumb="@drawable/switch_thumb"
                     app:scale_height="40"
-                    app:scale_left="300"
+                    app:scale_left="290"
                     app:scale_top="85"
-                    app:scale_width="70" />
+                    app:scale_width="80" />
 
             </com.ssomai.android.scalablelayout.ScalableLayout>
         </androidx.cardview.widget.CardView>
@@ -234,8 +234,7 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
-
+                app:srcCompat="@drawable/button_home"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -246,7 +245,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/bookmark_lined" />
+                app:srcCompat="@drawable/button_bookmark" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -258,7 +257,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/mypage_lined" />
+                app:srcCompat="@drawable/button_mypage" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -270,7 +269,8 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/info_lined" />
+                app:srcCompat="@drawable/button_info" />
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>

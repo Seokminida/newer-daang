@@ -22,6 +22,12 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_word_detail_3.*
 import kotlinx.android.synthetic.main.activity_word_detail_3.bookmark
 import kotlinx.android.synthetic.main.activity_word_detail_3.heart
+import android.view.MotionEvent
+
+import android.view.View.OnTouchListener
+
+
+
 
 class WordDetailActivity : AppCompatActivity() {
 
@@ -81,7 +87,11 @@ class WordDetailActivity : AppCompatActivity() {
         cate = intent.getSerializableExtra("category").toString()
 
 
-
+        hashtag.setMovementMethod(ScrollingMovementMethod())
+        hashtag.setOnTouchListener(OnTouchListener { v, event -> // TODO Auto-generated method stub
+            scroll.requestDisallowInterceptTouchEvent(true)
+            false
+        })
 
         resetWordDetail()
 

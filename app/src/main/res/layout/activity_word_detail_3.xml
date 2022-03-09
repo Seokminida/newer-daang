@@ -29,6 +29,7 @@
     </androidx.appcompat.widget.Toolbar>
 
             <ScrollView
+                android:id="@+id/scroll"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/white"
@@ -143,6 +144,7 @@
 
                                 <androidx.cardview.widget.CardView
                                     android:id="@+id/textCardV"
+                                    android:visibility="gone"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     app:cardBackgroundColor="@color/white_box"
@@ -231,12 +233,16 @@
                             android:text="정치"
                             android:textColor="@color/darker_gray"
                             android:textSize="25sp" />
-
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:scrollbars="none">
                         <TextView
                             android:id="@+id/hashtag"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:scrollHorizontally="true"
                             android:background="@drawable/aqua_background_round_sharp"
                             android:ellipsize="end"
                             android:fontFamily="@font/pretendard_regular"
@@ -251,6 +257,7 @@
                             android:text="#해시태그 "
                             android:textColor="@color/darker_gray"
                             android:textSize="25sp" />
+                        </HorizontalScrollView>
                     </LinearLayout>
 
                     </LinearLayout>

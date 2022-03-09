@@ -6,6 +6,7 @@ import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils.indexOf
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
@@ -87,6 +88,7 @@ class WordDetailActivity : AppCompatActivity() {
         word_name.text = wname
         //word_meaning.text = wmean
         hashtag.text = hash
+
         news_headline.text  = article
 
         category_box.text = "카테고리"

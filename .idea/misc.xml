@@ -45,6 +45,8 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/NewerDaang/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22777777777777777" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable-v23/search_icon1.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/around.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/button_bookmark.xml" value="0.28379629629629627" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/button_home.xml" value="0.19074074074074074" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/color_presed.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/darker_gray_background.xml" value="0.290625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/drawable/inputbox_focused.xml" value="0.23333333333333334" />
@@ -87,7 +89,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/activity_word_more_4.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item.xml" value="0.17553191489361702" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_after_search.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_after_search_2.xml" value="0.67" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_after_search_2.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_auiz.xml" value="0.1524822695035461" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_bookmark.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/layout/item_bookmark_2.xml" value="0.4426229508196721" />

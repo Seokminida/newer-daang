@@ -33,7 +33,6 @@ class InfoActivity : AppCompatActivity() {
             val intentBookmark = Intent(this, BookmarkActivity::class.java)
             startActivity(intentBookmark)
         }
-
         val link_button = findViewById<TextView>(R.id.link)
         link_button.setOnClickListener {
             val link = "https://newer-daang.notion.site/81375a5cfe8a4201bc743a6d52e2288f"

@@ -97,20 +97,8 @@
                 app:scale_left="28"
                 app:scale_textsize="4"
                 app:scale_top="40.2"
-                app:scale_width="49" />
+                app:scale_width="67" />
 
-            <ImageView
-                android:id="@+id/tag_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/aqua_background_round_sharp"
-                android:scaleType="center"
-                android:src="@drawable/etc_35"
-                android:visibility="visible"
-                app:scale_height="9"
-                app:scale_left="80"
-                app:scale_top="40.2"
-                app:scale_width="15" />
 
             <ImageButton
                 android:id="@+id/heart"

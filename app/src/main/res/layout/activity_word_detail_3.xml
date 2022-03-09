@@ -316,10 +316,12 @@
 
 
 
+
     <FrameLayout
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -341,8 +343,7 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
-
+                app:srcCompat="@drawable/home_lined"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -378,7 +379,9 @@
                 app:scale_top="1"
                 app:scale_width="100"
                 app:srcCompat="@drawable/info_lined" />
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

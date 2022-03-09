@@ -75,7 +75,7 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_home"/>
+                app:srcCompat="@drawable/home_lined"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_bookmark" />
+                app:srcCompat="@drawable/bookmark_filled" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -98,7 +98,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_mypage" />
+                app:srcCompat="@drawable/mypage_lined" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -110,7 +110,7 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/button_info" />
+                app:srcCompat="@drawable/info_lined" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
 

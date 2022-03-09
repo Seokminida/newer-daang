@@ -65,8 +65,6 @@ class MyPageActivity : AppCompatActivity() {
             startActivity(intentInfo)
         }
 
-
-
         val darkmode_toggle = findViewById<Switch>(R.id.darkmode_toggle)
 
         if (isDarkmodeOn) {

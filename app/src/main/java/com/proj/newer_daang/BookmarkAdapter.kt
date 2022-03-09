@@ -126,7 +126,6 @@ class BookmarkAdapter(private val context: Context) : RecyclerView.Adapter<Bookm
         private val tvTerm_meaning: TextView = itemView.findViewById(R.id.term_meaning)
         private val tvCategory: TextView = itemView.findViewById(R.id.term_cate)
         private val tvTag: TextView = itemView.findViewById(R.id.term_tag)
-        private val imgTagMore: ImageView = itemView.findViewById(R.id.tag_more)
 
         val imgLike: ImageButton = itemView.findViewById(R.id.heart)
         val imgBin: ImageButton = itemView.findViewById(R.id.bin)

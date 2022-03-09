@@ -143,7 +143,6 @@
 
                                 <androidx.cardview.widget.CardView
                                     android:id="@+id/textCardV"
-                                    android:visibility="gone"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     app:cardBackgroundColor="@color/white_box"
@@ -157,8 +156,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal"
-                                    android:background="@drawable/back_white"
-                                    android:padding="5dp">
+                                    android:paddingStart="5dp"
+                                    android:paddingEnd="5dp"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp">
 
                                     <ImageButton
                                         android:id="@+id/plusButton"

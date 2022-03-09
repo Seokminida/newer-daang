@@ -105,6 +105,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/menu/func_nothing.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/newer-daang/app/src/main/res/menu/func_search.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/drawable/around.xml" value="0.35555555555555557" />
+        <entry key="..\:/android-P/newer-daang/app/src/main/res/drawable/darker_gray_background.xml" value="0.2415525114155251" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/drawable/recy.xml" value="0.33515981735159817" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/drawable/round.xml" value="0.27760416666666665" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_after_search.xml" value="0.25" />
@@ -115,7 +116,7 @@
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_main_2.xml" value="0.32546296296296295" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_main_2_1.xml" value="0.2462962962962963" />
-        <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_mypage.xml" value="0.15876242095754292" />
+        <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_mypage.xml" value="0.33" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_quiz.xml" value="0.32546296296296295" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_search_2.xml" value="0.22" />
@@ -124,7 +125,7 @@
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_start.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_termslist.xml" value="0.28229166666666666" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_detail.xml" value="0.33" />
-        <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_detail_3.xml" value="0.33" />
+        <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_detail_3.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_more.xml" value="0.33" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_more_2.xml" value="0.22" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/activity_word_more_3.xml" value="0.24722222222222223" />
@@ -134,6 +135,7 @@
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_bookmark_2.xml" value="0.2462962962962963" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_bookmark_3.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_category.xml" value="0.32546296296296295" />
+        <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_quiz.xml" value="0.23055555555555557" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_recent.xml" value="0.25" />
         <entry key="..\:/android-P/newer-daang/app/src/main/res/layout/item_termslist.xml" value="0.2462962962962963" />
       </map>

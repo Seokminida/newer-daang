@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="abcdefg@mail.com"
+            android:hint="이메일"
             android:paddingStart="20dp"
             app:scale_height="50"
             app:scale_left="25"

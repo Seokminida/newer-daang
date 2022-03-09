@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:scale_base_height="120"
+            app:scale_base_height="100"
             app:scale_base_width="400">
 
             <TextView
@@ -85,7 +85,7 @@
                 app:textview_wrapcontent_direction="bottom"
                 app:textview_wrapcontent_movesiblings="true"
                 app:textview_wrapcontent_resizesurrounded="true"
-                app:scale_height="60"
+                app:scale_height="50"
                 app:scale_left="0"
                 app:scale_textsize="15"
                 app:scale_top="50"
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:scale_base_height="120"
+        app:scale_base_height="110"
         app:scale_base_width="400">
             <TextView
                 android:id="@+id/app_info"
@@ -190,8 +190,7 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
-
+                app:srcCompat="@drawable/button_home"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -202,7 +201,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/bookmark_lined" />
+                app:srcCompat="@drawable/button_bookmark" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -214,7 +213,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/mypage_lined" />
+                app:srcCompat="@drawable/button_mypage" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -226,7 +225,7 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/info_lined" />
+                app:srcCompat="@drawable/button_info" />
 
         </com.ssomai.android.scalablelayout.ScalableLayout>
 

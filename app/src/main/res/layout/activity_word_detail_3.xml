@@ -157,7 +157,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal"
-                                    android:background="@drawable/back_white"
+                                    android:background="@color/white_box"
                                     android:padding="5dp">
 
                                     <ImageButton
@@ -306,12 +306,11 @@
             </ScrollView>
 
 
-
-
     <FrameLayout
         android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -333,8 +332,7 @@
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
-
+                app:srcCompat="@drawable/button_home"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -345,7 +343,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/bookmark_lined" />
+                app:srcCompat="@drawable/button_bookmark" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -357,7 +355,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/mypage_lined" />
+                app:srcCompat="@drawable/button_mypage" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -369,7 +367,8 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/info_lined" />
+                app:srcCompat="@drawable/button_info" />
+
         </com.ssomai.android.scalablelayout.ScalableLayout>
 
     </FrameLayout>

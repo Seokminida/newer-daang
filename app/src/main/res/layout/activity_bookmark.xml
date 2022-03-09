@@ -50,13 +50,13 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout4"
+        android:id="@+id/frame_bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
 
         <com.ssomai.android.scalablelayout.ScalableLayout
             android:layout_width="match_parent"
@@ -68,15 +68,14 @@
             <ImageButton
                 android:id="@+id/bottombar_home"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:background="@color/mere_white"
                 android:clickable="true"
                 app:scale_height="59"
                 app:scale_left="0"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/home_lined" />
-
+                app:srcCompat="@drawable/button_home"/>
             <ImageButton
                 android:id="@+id/bottombar_bookmark"
                 android:layout_width="match_parent"
@@ -87,7 +86,7 @@
                 app:scale_left="100"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/bookmark_lined" />
+                app:srcCompat="@drawable/button_bookmark" />
 
             <ImageButton
                 android:id="@+id/bottombar_mypage"
@@ -99,7 +98,7 @@
                 app:scale_left="200"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/mypage_lined" />
+                app:srcCompat="@drawable/button_mypage" />
 
             <ImageButton
                 android:id="@+id/bottombar_info"
@@ -111,9 +110,10 @@
                 app:scale_left="300"
                 app:scale_top="1"
                 app:scale_width="100"
-                app:srcCompat="@drawable/info_lined" />
-        </com.ssomai.android.scalablelayout.ScalableLayout>
-    </FrameLayout>
+                app:srcCompat="@drawable/button_info" />
 
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

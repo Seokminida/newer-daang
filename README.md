@@ -10,5 +10,5 @@ intergrated version
 * 박지수 - designer
 * 노장우 - Front-end  
 * 지석민 - Back-end 
-* 정지연 - ML
+* 정지연 - Front-end
 * 김태경 - 자료조사(각종 전문 용어 및 기사들)
